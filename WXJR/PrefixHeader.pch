@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  WXJR
+//
+//  Created by liangpengshuai on 8/31/16.
+//  Copyright © 2016 com.wxjr. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import NetworkingConstans.h
+
+#endif /* PrefixHeader_pch */

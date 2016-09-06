@@ -7,14 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		549A3862558934BFB14CB7D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E6E485A1614191B1252761 /* libPods.a */; };
+		D909A3B21D7D4F7C00D4784A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A3B11D7D4F7C00D4784A /* Constants.swift */; };
+		D909A3B61D7D5D3700D4784A /* WXUserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A3B41D7D5D3700D4784A /* WXUserLoginViewController.swift */; };
+		D909A3B71D7D5D3700D4784A /* WXUserLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D909A3B51D7D5D3700D4784A /* WXUserLoginViewController.xib */; };
+		D909A3BC1D7D5DAE00D4784A /* WXUserSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A3BA1D7D5DAE00D4784A /* WXUserSignupViewController.swift */; };
+		D909A3BD1D7D5DAE00D4784A /* WXUserSignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D909A3BB1D7D5DAE00D4784A /* WXUserSignupViewController.xib */; };
+		D909A3C01D7D5E9B00D4784A /* WXInviteCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A3BE1D7D5E9B00D4784A /* WXInviteCodeViewController.swift */; };
+		D909A3C11D7D5E9B00D4784A /* WXInviteCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D909A3BF1D7D5E9B00D4784A /* WXInviteCodeViewController.xib */; };
+		D909A3CB1D7E69F100D4784A /* AutoSlideScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D909A3C41D7E69F100D4784A /* AutoSlideScrollView.m */; };
+		D909A3CC1D7E69F100D4784A /* MyPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D909A3C61D7E69F100D4784A /* MyPageControl.m */; };
+		D909A3CD1D7E69F100D4784A /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = D909A3C81D7E69F100D4784A /* NSTimer+Addition.m */; };
+		D909A3CE1D7E69F100D4784A /* AutoSlideScrollView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D909A3CA1D7E69F100D4784A /* AutoSlideScrollView.bundle */; };
+		D909A3D11D7E708A00D4784A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D909A3CF1D7E708A00D4784A /* Main.storyboard */; };
 		D95FD6DA1D7580CF009CC8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */; };
-		D95FD6DC1D7580CF009CC8B2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD6DB1D7580CF009CC8B2 /* FirstViewController.swift */; };
-		D95FD6DE1D7580CF009CC8B2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD6DD1D7580CF009CC8B2 /* SecondViewController.swift */; };
-		D95FD6E11D7580CF009CC8B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6DF1D7580CF009CC8B2 /* Main.storyboard */; };
 		D95FD6E31D7580CF009CC8B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */; };
 		D95FD6E61D7580CF009CC8B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E41D7580CF009CC8B2 /* LaunchScreen.storyboard */; };
 		D95FD6F11D7580CF009CC8B2 /* WXJRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD6F01D7580CF009CC8B2 /* WXJRTests.swift */; };
 		D95FD6FC1D7580CF009CC8B2 /* WXJRUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD6FB1D7580CF009CC8B2 /* WXJRUITests.swift */; };
+		D95FD70A1D7664F2009CC8B2 /* WXRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD7091D7664F2009CC8B2 /* WXRootViewController.swift */; };
+		D95FD70E1D7665EF009CC8B2 /* WXLoarnRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95FD70C1D7665EF009CC8B2 /* WXLoarnRecommendViewController.xib */; };
+		D95FD7171D766BEE009CC8B2 /* WXMineRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD7151D766BEE009CC8B2 /* WXMineRootViewController.swift */; };
+		D95FD7181D766BEE009CC8B2 /* WXMineRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95FD7161D766BEE009CC8B2 /* WXMineRootViewController.xib */; };
+		D95FD71B1D766DE2009CC8B2 /* WXLoarnRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD71A1D766DE2009CC8B2 /* WXLoarnRecommendViewController.swift */; };
+		D95FD71E1D766E89009CC8B2 /* WXLoarnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD71C1D766E89009CC8B2 /* WXLoarnListViewController.swift */; };
+		D95FD71F1D766E89009CC8B2 /* WXLoarnListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95FD71D1D766E89009CC8B2 /* WXLoarnListViewController.xib */; };
+		D95FD7231D7674A7009CC8B2 /* WXUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD7221D7674A7009CC8B2 /* WXUserManager.swift */; };
+		D95FD72F1D768057009CC8B2 /* WXNetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D95FD72E1D768057009CC8B2 /* WXNetworkingAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +54,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A1E6E485A1614191B1252761 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D12E92565FE14761E0F6184B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D1B2E5940D28E187C83A7CE5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D909A3B11D7D4F7C00D4784A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D909A3B41D7D5D3700D4784A /* WXUserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserLoginViewController.swift; sourceTree = "<group>"; };
+		D909A3B51D7D5D3700D4784A /* WXUserLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserLoginViewController.xib; sourceTree = "<group>"; };
+		D909A3BA1D7D5DAE00D4784A /* WXUserSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserSignupViewController.swift; sourceTree = "<group>"; };
+		D909A3BB1D7D5DAE00D4784A /* WXUserSignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserSignupViewController.xib; sourceTree = "<group>"; };
+		D909A3BE1D7D5E9B00D4784A /* WXInviteCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXInviteCodeViewController.swift; sourceTree = "<group>"; };
+		D909A3BF1D7D5E9B00D4784A /* WXInviteCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXInviteCodeViewController.xib; sourceTree = "<group>"; };
+		D909A3C31D7E69F100D4784A /* AutoSlideScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoSlideScrollView.h; sourceTree = "<group>"; };
+		D909A3C41D7E69F100D4784A /* AutoSlideScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoSlideScrollView.m; sourceTree = "<group>"; };
+		D909A3C51D7E69F100D4784A /* MyPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageControl.h; sourceTree = "<group>"; };
+		D909A3C61D7E69F100D4784A /* MyPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageControl.m; sourceTree = "<group>"; };
+		D909A3C71D7E69F100D4784A /* NSTimer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Addition.h"; sourceTree = "<group>"; };
+		D909A3C81D7E69F100D4784A /* NSTimer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Addition.m"; sourceTree = "<group>"; };
+		D909A3CA1D7E69F100D4784A /* AutoSlideScrollView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AutoSlideScrollView.bundle; sourceTree = "<group>"; };
+		D909A3D01D7E708A00D4784A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D95FD6D61D7580CF009CC8B2 /* WXJR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WXJR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D95FD6DB1D7580CF009CC8B2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		D95FD6DD1D7580CF009CC8B2 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		D95FD6E01D7580CF009CC8B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D95FD6E51D7580CF009CC8B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D95FD6E71D7580CF009CC8B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +83,19 @@
 		D95FD6F71D7580CF009CC8B2 /* WXJRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WXJRUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95FD6FB1D7580CF009CC8B2 /* WXJRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXJRUITests.swift; sourceTree = "<group>"; };
 		D95FD6FD1D7580CF009CC8B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D95FD7091D7664F2009CC8B2 /* WXRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXRootViewController.swift; sourceTree = "<group>"; };
+		D95FD70C1D7665EF009CC8B2 /* WXLoarnRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXLoarnRecommendViewController.xib; sourceTree = "<group>"; };
+		D95FD7151D766BEE009CC8B2 /* WXMineRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXMineRootViewController.swift; sourceTree = "<group>"; };
+		D95FD7161D766BEE009CC8B2 /* WXMineRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMineRootViewController.xib; sourceTree = "<group>"; };
+		D95FD71A1D766DE2009CC8B2 /* WXLoarnRecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXLoarnRecommendViewController.swift; sourceTree = "<group>"; };
+		D95FD71C1D766E89009CC8B2 /* WXLoarnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXLoarnListViewController.swift; sourceTree = "<group>"; };
+		D95FD71D1D766E89009CC8B2 /* WXLoarnListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXLoarnListViewController.xib; sourceTree = "<group>"; };
+		D95FD7221D7674A7009CC8B2 /* WXUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserManager.swift; sourceTree = "<group>"; };
+		D95FD7241D7674E9009CC8B2 /* WXJR-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WXJR-Bridging-Header.h"; path = "Loarn/WXJR-Bridging-Header.h"; sourceTree = "<group>"; };
+		D95FD72D1D768057009CC8B2 /* WXNetworkingAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXNetworkingAPI.h; sourceTree = "<group>"; };
+		D95FD72E1D768057009CC8B2 /* WXNetworkingAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXNetworkingAPI.m; sourceTree = "<group>"; };
+		D95FD7301D7685D5009CC8B2 /* NetworkingConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstants.h; sourceTree = "<group>"; };
+		D95FD7311D768620009CC8B2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				549A3862558934BFB14CB7D8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +124,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C15E739E4196C2DE550FD6A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D12E92565FE14761E0F6184B /* Pods.debug.xcconfig */,
+				D1B2E5940D28E187C83A7CE5 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6E27C6AB62511E3BBE392654 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1E6E485A1614191B1252761 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D909A3B31D7D5D3700D4784A /* UserLogin */ = {
+			isa = PBXGroup;
+			children = (
+				D909A3B41D7D5D3700D4784A /* WXUserLoginViewController.swift */,
+				D909A3B51D7D5D3700D4784A /* WXUserLoginViewController.xib */,
+				D909A3BA1D7D5DAE00D4784A /* WXUserSignupViewController.swift */,
+				D909A3BB1D7D5DAE00D4784A /* WXUserSignupViewController.xib */,
+				D909A3BE1D7D5E9B00D4784A /* WXInviteCodeViewController.swift */,
+				D909A3BF1D7D5E9B00D4784A /* WXInviteCodeViewController.xib */,
+			);
+			path = UserLogin;
+			sourceTree = "<group>";
+		};
+		D909A3C21D7E69F100D4784A /* AutoSlideScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				D909A3C31D7E69F100D4784A /* AutoSlideScrollView.h */,
+				D909A3C41D7E69F100D4784A /* AutoSlideScrollView.m */,
+				D909A3C51D7E69F100D4784A /* MyPageControl.h */,
+				D909A3C61D7E69F100D4784A /* MyPageControl.m */,
+				D909A3C71D7E69F100D4784A /* NSTimer+Addition.h */,
+				D909A3C81D7E69F100D4784A /* NSTimer+Addition.m */,
+				D909A3C91D7E69F100D4784A /* Resources */,
+			);
+			path = AutoSlideScrollView;
+			sourceTree = "<group>";
+		};
+		D909A3C91D7E69F100D4784A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D909A3CA1D7E69F100D4784A /* AutoSlideScrollView.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		D95FD6CD1D7580CF009CC8B2 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +183,8 @@
 				D95FD6EF1D7580CF009CC8B2 /* WXJRTests */,
 				D95FD6FA1D7580CF009CC8B2 /* WXJRUITests */,
 				D95FD6D71D7580CF009CC8B2 /* Products */,
+				1C15E739E4196C2DE550FD6A /* Pods */,
+				6E27C6AB62511E3BBE392654 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +201,19 @@
 		D95FD6D81D7580CF009CC8B2 /* WXJR */ = {
 			isa = PBXGroup;
 			children = (
+				D909A3CF1D7E708A00D4784A /* Main.storyboard */,
+				D95FD7281D7676BC009CC8B2 /* Common */,
+				D95FD7191D766DE2009CC8B2 /* Loarn */,
+				D95FD7101D7669F9009CC8B2 /* User */,
+				D95FD70F1D7669BA009CC8B2 /* Libs */,
 				D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */,
-				D95FD6DB1D7580CF009CC8B2 /* FirstViewController.swift */,
-				D95FD6DD1D7580CF009CC8B2 /* SecondViewController.swift */,
-				D95FD6DF1D7580CF009CC8B2 /* Main.storyboard */,
+				D95FD7091D7664F2009CC8B2 /* WXRootViewController.swift */,
 				D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */,
 				D95FD6E41D7580CF009CC8B2 /* LaunchScreen.storyboard */,
 				D95FD6E71D7580CF009CC8B2 /* Info.plist */,
+				D95FD70C1D7665EF009CC8B2 /* WXLoarnRecommendViewController.xib */,
+				D95FD7241D7674E9009CC8B2 /* WXJR-Bridging-Header.h */,
+				D95FD7311D768620009CC8B2 /* PrefixHeader.pch */,
 			);
 			path = WXJR;
 			sourceTree = "<group>";
@@ -128,6 +236,71 @@
 			path = WXJRUITests;
 			sourceTree = "<group>";
 		};
+		D95FD70F1D7669BA009CC8B2 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				D909A3C21D7E69F100D4784A /* AutoSlideScrollView */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		D95FD7101D7669F9009CC8B2 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D909A3B31D7D5D3700D4784A /* UserLogin */,
+				D95FD7201D767153009CC8B2 /* UserModel */,
+				D95FD7151D766BEE009CC8B2 /* WXMineRootViewController.swift */,
+				D95FD7161D766BEE009CC8B2 /* WXMineRootViewController.xib */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		D95FD7191D766DE2009CC8B2 /* Loarn */ = {
+			isa = PBXGroup;
+			children = (
+				D95FD71A1D766DE2009CC8B2 /* WXLoarnRecommendViewController.swift */,
+				D95FD71C1D766E89009CC8B2 /* WXLoarnListViewController.swift */,
+				D95FD71D1D766E89009CC8B2 /* WXLoarnListViewController.xib */,
+			);
+			path = Loarn;
+			sourceTree = "<group>";
+		};
+		D95FD7201D767153009CC8B2 /* UserModel */ = {
+			isa = PBXGroup;
+			children = (
+				D95FD7211D767153009CC8B2 /* UserManager */,
+			);
+			path = UserModel;
+			sourceTree = "<group>";
+		};
+		D95FD7211D767153009CC8B2 /* UserManager */ = {
+			isa = PBXGroup;
+			children = (
+				D95FD7221D7674A7009CC8B2 /* WXUserManager.swift */,
+			);
+			path = UserManager;
+			sourceTree = "<group>";
+		};
+		D95FD7281D7676BC009CC8B2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D95FD7291D7676BC009CC8B2 /* NetworkingAPI */,
+				D909A3B11D7D4F7C00D4784A /* Constants.swift */,
+			);
+			name = Common;
+			path = CommonApi;
+			sourceTree = "<group>";
+		};
+		D95FD7291D7676BC009CC8B2 /* NetworkingAPI */ = {
+			isa = PBXGroup;
+			children = (
+				D95FD72D1D768057009CC8B2 /* WXNetworkingAPI.h */,
+				D95FD72E1D768057009CC8B2 /* WXNetworkingAPI.m */,
+				D95FD7301D7685D5009CC8B2 /* NetworkingConstants.h */,
+			);
+			path = NetworkingAPI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +308,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D95FD7001D7580CF009CC8B2 /* Build configuration list for PBXNativeTarget "WXJR" */;
 			buildPhases = (
+				790D9621FDAEF3AA4211657B /* Check Pods Manifest.lock */,
 				D95FD6D21D7580CF009CC8B2 /* Sources */,
 				D95FD6D31D7580CF009CC8B2 /* Frameworks */,
 				D95FD6D41D7580CF009CC8B2 /* Resources */,
+				C63DD2E0C37CE0738D3CB3C2 /* Embed Pods Frameworks */,
+				2915CE37BE2BBB8C9F518F72 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,9 +408,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D909A3CE1D7E69F100D4784A /* AutoSlideScrollView.bundle in Resources */,
+				D909A3D11D7E708A00D4784A /* Main.storyboard in Resources */,
 				D95FD6E61D7580CF009CC8B2 /* LaunchScreen.storyboard in Resources */,
+				D909A3C11D7D5E9B00D4784A /* WXInviteCodeViewController.xib in Resources */,
 				D95FD6E31D7580CF009CC8B2 /* Assets.xcassets in Resources */,
-				D95FD6E11D7580CF009CC8B2 /* Main.storyboard in Resources */,
+				D909A3BD1D7D5DAE00D4784A /* WXUserSignupViewController.xib in Resources */,
+				D95FD71F1D766E89009CC8B2 /* WXLoarnListViewController.xib in Resources */,
+				D95FD7181D766BEE009CC8B2 /* WXMineRootViewController.xib in Resources */,
+				D95FD70E1D7665EF009CC8B2 /* WXLoarnRecommendViewController.xib in Resources */,
+				D909A3B71D7D5D3700D4784A /* WXUserLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,14 +437,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2915CE37BE2BBB8C9F518F72 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		790D9621FDAEF3AA4211657B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C63DD2E0C37CE0738D3CB3C2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D95FD6D21D7580CF009CC8B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D95FD6DE1D7580CF009CC8B2 /* SecondViewController.swift in Sources */,
+				D95FD71B1D766DE2009CC8B2 /* WXLoarnRecommendViewController.swift in Sources */,
+				D95FD71E1D766E89009CC8B2 /* WXLoarnListViewController.swift in Sources */,
+				D909A3BC1D7D5DAE00D4784A /* WXUserSignupViewController.swift in Sources */,
 				D95FD6DA1D7580CF009CC8B2 /* AppDelegate.swift in Sources */,
-				D95FD6DC1D7580CF009CC8B2 /* FirstViewController.swift in Sources */,
+				D95FD7171D766BEE009CC8B2 /* WXMineRootViewController.swift in Sources */,
+				D95FD72F1D768057009CC8B2 /* WXNetworkingAPI.m in Sources */,
+				D909A3CD1D7E69F100D4784A /* NSTimer+Addition.m in Sources */,
+				D909A3C01D7D5E9B00D4784A /* WXInviteCodeViewController.swift in Sources */,
+				D95FD7231D7674A7009CC8B2 /* WXUserManager.swift in Sources */,
+				D909A3CB1D7E69F100D4784A /* AutoSlideScrollView.m in Sources */,
+				D95FD70A1D7664F2009CC8B2 /* WXRootViewController.swift in Sources */,
+				D909A3B21D7D4F7C00D4784A /* Constants.swift in Sources */,
+				D909A3B61D7D5D3700D4784A /* WXUserLoginViewController.swift in Sources */,
+				D909A3CC1D7E69F100D4784A /* MyPageControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +539,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D95FD6DF1D7580CF009CC8B2 /* Main.storyboard */ = {
+		D909A3CF1D7E708A00D4784A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D95FD6E01D7580CF009CC8B2 /* Base */,
+				D909A3D01D7E708A00D4784A /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -401,23 +643,32 @@
 		};
 		D95FD7011D7580CF009CC8B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D12E92565FE14761E0F6184B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = WXJR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lps.wxjr.WXJR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WXJR/Loarn/WXJR-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D95FD7021D7580CF009CC8B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1B2E5940D28E187C83A7CE5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = WXJR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lps.wxjr.WXJR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WXJR/Loarn/WXJR-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -486,6 +737,7 @@
 				D95FD7021D7580CF009CC8B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D95FD7031D7580CF009CC8B2 /* Build configuration list for PBXNativeTarget "WXJRTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +746,7 @@
 				D95FD7051D7580CF009CC8B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D95FD7061D7580CF009CC8B2 /* Build configuration list for PBXNativeTarget "WXJRUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +755,7 @@
 				D95FD7081D7580CF009CC8B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
