@@ -10,12 +10,8 @@ import Foundation
 
 let APP_THEME_COLOR: UIColor            = Constants.UIColorFromRGB(0xE83738, alpha:1)
 let APP_PAGE_COLOR: UIColor             = Constants.UIColorFromRGB(0xF5F4EE, alpha:1)
-let APP_THEME_COLOR_HIGHLIGHT: UIColor  = Constants.UIColorFromRGB(0x99cc66, alpha:1)
-let COLOR_CHECKED: UIColor              = Constants.UIColorFromRGB(0xfa5064, alpha:1)
-let COLOR_ALERT: UIColor                = Constants.UIColorFromRGB(0xff9600, alpha:1)
-let COLOR_ENTER: UIColor                = Constants.UIColorFromRGB(0x4bd228, alpha:1)
-let COLOR_LINKED: UIColor               = Constants.UIColorFromRGB(0x469bff, alpha:1)
-let COLOR_DISABLE: UIColor              = Constants.UIColorFromRGB(0xe2e2e2, alpha:1)
+
+let COLOR_LINE: UIColor                 = Constants.UIColorFromRGB(0xe2e2e2, alpha:1)
 
 let COLOR_TEXT_I: UIColor               = Constants.UIColorFromRGB(0x323232, alpha:1)
 let COLOR_TEXT_II: UIColor              = Constants.UIColorFromRGB(0x646464, alpha:1)

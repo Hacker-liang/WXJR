@@ -37,6 +37,7 @@ class WXUserLoginViewController: UIViewController {
         
         let cancelButton = UIButton(frame:CGRectMake(0,0,40,40))
         cancelButton.setTitle("取消", forState: .Normal)
+        cancelButton.titleLabel?.font = UIFont.systemFontOfSize(15.0)
         cancelButton.setTitleColor(APP_THEME_COLOR, forState: .Normal)
         cancelButton.addTarget(self, action: #selector(dismissCtl), forControlEvents: .TouchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cancelButton)

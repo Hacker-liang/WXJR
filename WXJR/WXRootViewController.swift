@@ -48,10 +48,12 @@ class WXRootViewController: UITabBarController {
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         if item.isEqual(self.tabBar.items?.last) {
-            self.gotoLogin()
+//            self.gotoLogin()
+            mineRootViewController.navigationController?.setNavigationBarHidden(true, animated: false)
         }
     }
     
-    
-
 }
+
+
+
