@@ -40,6 +40,10 @@
 		D909A3F91D7FFB0300D4784A /* WXUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D909A3F71D7FFB0300D4784A /* WXUserInfoViewController.xib */; };
 		D909A3FC1D7FFC8B00D4784A /* WXUserInfoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A3FA1D7FFC8B00D4784A /* WXUserInfoDetailTableViewCell.swift */; };
 		D909A3FD1D7FFC8B00D4784A /* WXUserInfoDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D909A3FB1D7FFC8B00D4784A /* WXUserInfoDetailTableViewCell.xib */; };
+		D909A4011D80048B00D4784A /* WXUserCouponListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A3FF1D80048B00D4784A /* WXUserCouponListViewController.swift */; };
+		D909A4021D80048B00D4784A /* WXUserCouponListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D909A4001D80048B00D4784A /* WXUserCouponListViewController.xib */; };
+		D909A4051D80050C00D4784A /* WXUserCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A4031D80050C00D4784A /* WXUserCouponTableViewCell.swift */; };
+		D909A4061D80050C00D4784A /* WXUserCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D909A4041D80050C00D4784A /* WXUserCouponTableViewCell.xib */; };
 		D95FD6DA1D7580CF009CC8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */; };
 		D95FD6E31D7580CF009CC8B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */; };
 		D95FD6E61D7580CF009CC8B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E41D7580CF009CC8B2 /* LaunchScreen.storyboard */; };
@@ -110,6 +114,10 @@
 		D909A3F71D7FFB0300D4784A /* WXUserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserInfoViewController.xib; sourceTree = "<group>"; };
 		D909A3FA1D7FFC8B00D4784A /* WXUserInfoDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserInfoDetailTableViewCell.swift; sourceTree = "<group>"; };
 		D909A3FB1D7FFC8B00D4784A /* WXUserInfoDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserInfoDetailTableViewCell.xib; sourceTree = "<group>"; };
+		D909A3FF1D80048B00D4784A /* WXUserCouponListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserCouponListViewController.swift; sourceTree = "<group>"; };
+		D909A4001D80048B00D4784A /* WXUserCouponListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserCouponListViewController.xib; sourceTree = "<group>"; };
+		D909A4031D80050C00D4784A /* WXUserCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserCouponTableViewCell.swift; sourceTree = "<group>"; };
+		D909A4041D80050C00D4784A /* WXUserCouponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserCouponTableViewCell.xib; sourceTree = "<group>"; };
 		D95FD6D61D7580CF009CC8B2 /* WXJR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WXJR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -260,6 +268,17 @@
 			path = UserFundInfo;
 			sourceTree = "<group>";
 		};
+		D909A3FE1D80046E00D4784A /* UserCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				D909A3FF1D80048B00D4784A /* WXUserCouponListViewController.swift */,
+				D909A4001D80048B00D4784A /* WXUserCouponListViewController.xib */,
+				D909A4031D80050C00D4784A /* WXUserCouponTableViewCell.swift */,
+				D909A4041D80050C00D4784A /* WXUserCouponTableViewCell.xib */,
+			);
+			path = UserCoupon;
+			sourceTree = "<group>";
+		};
 		D95FD6CD1D7580CF009CC8B2 = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +351,7 @@
 		D95FD7101D7669F9009CC8B2 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				D909A3FE1D80046E00D4784A /* UserCoupon */,
 				D909A3ED1D7FE50D00D4784A /* UserFundInfo */,
 				D909A3E41D7EDE5A00D4784A /* UserInfo */,
 				D909A3D61D7EB51D00D4784A /* UserRootView */,
@@ -498,6 +518,7 @@
 				D909A3D11D7E708A00D4784A /* Main.storyboard in Resources */,
 				D909A3E81D7EDEAF00D4784A /* WXUserFundsTrusteeshipInfoViewController.xib in Resources */,
 				D909A3DA1D7EB51D00D4784A /* WXMineRootViewController.xib in Resources */,
+				D909A4021D80048B00D4784A /* WXUserCouponListViewController.xib in Resources */,
 				D95FD6E61D7580CF009CC8B2 /* LaunchScreen.storyboard in Resources */,
 				D909A3DE1D7ED27D00D4784A /* WXMineHomeTableViewCell.xib in Resources */,
 				D909A3C11D7D5E9B00D4784A /* WXInviteCodeViewController.xib in Resources */,
@@ -507,6 +528,7 @@
 				D909A3F91D7FFB0300D4784A /* WXUserInfoViewController.xib in Resources */,
 				D909A3E31D7EDA1F00D4784A /* WXUserInvestRecordViewController.xib in Resources */,
 				D909A3BD1D7D5DAE00D4784A /* WXUserSignupViewController.xib in Resources */,
+				D909A4061D80050C00D4784A /* WXUserCouponTableViewCell.xib in Resources */,
 				D909A3F11D7FE53400D4784A /* WXUserFundRecordViewController.xib in Resources */,
 				D95FD71F1D766E89009CC8B2 /* WXLoarnListViewController.xib in Resources */,
 				D95FD70E1D7665EF009CC8B2 /* WXLoarnRecommendViewController.xib in Resources */,
@@ -597,6 +619,7 @@
 				D95FD72F1D768057009CC8B2 /* WXNetworkingAPI.m in Sources */,
 				D909A3CD1D7E69F100D4784A /* NSTimer+Addition.m in Sources */,
 				D909A3C01D7D5E9B00D4784A /* WXInviteCodeViewController.swift in Sources */,
+				D909A4011D80048B00D4784A /* WXUserCouponListViewController.swift in Sources */,
 				D95FD7231D7674A7009CC8B2 /* WXUserManager.swift in Sources */,
 				D909A3CB1D7E69F100D4784A /* AutoSlideScrollView.m in Sources */,
 				D95FD70A1D7664F2009CC8B2 /* WXRootViewController.swift in Sources */,
@@ -608,6 +631,7 @@
 				D909A3D41D7E960800D4784A /* WXCheckUserPhoneViewController.swift in Sources */,
 				D909A3B61D7D5D3700D4784A /* WXUserLoginViewController.swift in Sources */,
 				D909A3CC1D7E69F100D4784A /* MyPageControl.m in Sources */,
+				D909A4051D80050C00D4784A /* WXUserCouponTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
