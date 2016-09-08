@@ -213,6 +213,12 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.navigationController?.pushViewController(ctl, animated: true)
             }
             
+            if indexPath.row == 3 {
+                let ctl = WXUserBankInfoViewController()
+                ctl.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(ctl, animated: true)
+            }
+            
             if indexPath.row == 4 {
                 let ctl = WXUserCouponListViewController()
                 ctl.hidesBottomBarWhenPushed = true

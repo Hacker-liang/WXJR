@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXLoarnListViewController" customModule="WXJR" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXUserBankInfoViewController" customModule="WXJR" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="hF0-s8-X1x" id="Wqd-3m-BqA"/>
+                <outlet property="tableView" destination="GgK-9U-691" id="vjZ-8C-fJH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,18 +16,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hF0-s8-X1x">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="GgK-9U-691">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="hF0-s8-X1x" secondAttribute="bottom" id="KAr-Bx-dAo"/>
-                <constraint firstAttribute="trailing" secondItem="hF0-s8-X1x" secondAttribute="trailing" id="bpt-um-snU"/>
-                <constraint firstItem="hF0-s8-X1x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="j3z-Ns-Q26"/>
-                <constraint firstItem="hF0-s8-X1x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tzo-s2-4xd"/>
+                <constraint firstItem="GgK-9U-691" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ba5-bb-W8g"/>
+                <constraint firstItem="GgK-9U-691" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="e42-ES-cgv"/>
+                <constraint firstAttribute="trailing" secondItem="GgK-9U-691" secondAttribute="trailing" id="e72-w8-sqc"/>
+                <constraint firstAttribute="bottom" secondItem="GgK-9U-691" secondAttribute="bottom" id="sca-5t-JSe"/>
             </constraints>
+            <point key="canvasLocation" x="432" y="165"/>
         </view>
     </objects>
 </document>
