@@ -62,12 +62,7 @@ class WXUserLoginViewController: UIViewController {
     
     @IBAction func gotoLogin(sender: AnyObject) {
         
-        let loginUrl = "\(BASE_URL)ajaxLogin"
-        let params = NSMutableDictionary()
-        params.setObject(nicknameTF.text!, forKey: "loginName")
-        params.setObject(passwordTF.text!, forKey: "password")
-
-        WXNetworkingAPI.POST(loginUrl, params: params as [NSObject : AnyObject]) { (isSuccess, responseObject, error) in
+        WXAccountManager.shareInstance().userLogin(nicknameTF.text!, password: passwordTF.text!) { (isSuccess, errorStr) in
             
         }
     }

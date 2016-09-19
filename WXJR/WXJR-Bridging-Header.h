@@ -6,3 +6,4 @@
 #import "WXNetworkingAPI.h"
 #import "NetworkingConstants.h"
 #import "AutoSlideScrollView.h"
+#import "MJRefresh.h"

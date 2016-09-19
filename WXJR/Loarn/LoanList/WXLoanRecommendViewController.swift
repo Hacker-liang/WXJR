@@ -1,5 +1,5 @@
 //
-//  WXLoarnRecommendViewController.swift
+//  WXLoanRecommendViewController.swift
 //  WXJR
 //
 //  Created by liangpengshuai on 8/31/16.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class WXLoarnRecommendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var galleryView: AutoSlideScrollView!
     
-    var dataSource = []
+    var dataSource:[WXLoanDetailModel] = []
 
     var tableView: UITableView!
     
@@ -21,17 +21,18 @@ class WXLoarnRecommendViewController: UIViewController, UITableViewDelegate, UIT
         self.view.backgroundColor = APP_PAGE_COLOR
         
         self.navigationItem.title = "未馨金融"
-        self.tableView = UITableView(frame: CGRectMake(0, 0, kWindowWidth, kWindowHeight) , style:.Grouped)
+        self.tableView = UITableView(frame: CGRectMake(0, 0, kWindowWidth, kWindowHeight) , style:.Plain)
         self.tableView.backgroundColor = APP_PAGE_COLOR
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorColor = UIColor.clearColor()
         self.tableView.showsVerticalScrollIndicator = false
-        self.tableView.registerNib(UINib(nibName: "WXLoarnListTableViewCell", bundle: nil), forCellReuseIdentifier: "loarnListTableViewCell")
+        self.tableView.registerNib(UINib(nibName: "WXLoanListTableViewCell", bundle: nil), forCellReuseIdentifier: "loanListTableViewCell")
         self.view.addSubview(self.tableView)
         self.setupHeaderView()
         
         self.loadRecommendDataSource()
+        self.loadLoansDataSource()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -71,6 +72,15 @@ class WXLoarnRecommendViewController: UIViewController, UITableViewDelegate, UIT
         self.tableView.tableHeaderView = headerView
     }
     
+    func loadLoansDataSource() {
+        WXLoanManager.loadRecommendLoanLis { (isSuccess, error, retLoans) in
+            if let loans = retLoans {
+                self.dataSource = loans
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     func loadRecommendDataSource() {
         galleryView.totalPagesCount = {
             return 4
@@ -92,7 +102,7 @@ class WXLoarnRecommendViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.dataSource.count
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -126,11 +136,16 @@ class WXLoarnRecommendViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("loarnListTableViewCell", forIndexPath: indexPath)
+        let cell:WXLoanListTableViewCell = tableView.dequeueReusableCellWithIdentifier("loanListTableViewCell", forIndexPath: indexPath) as! WXLoanListTableViewCell
+        cell.loanDetail = dataSource[indexPath.row]
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let ctl = WXLoanDetailViewController()
+        ctl.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(ctl, animated: true)
+
     }
 }

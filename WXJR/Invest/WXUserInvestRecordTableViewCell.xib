@@ -19,7 +19,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Tcz-Az-3fp"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -114,6 +114,14 @@
                     <constraint firstItem="TzF-zH-QtG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="sUi-Vq-STd"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="rUt-wi-OuQ" id="ntj-sB-rUV"/>
+                <outlet property="incomeLabel" destination="WxS-zG-9za" id="dLr-Nj-cVB"/>
+                <outlet property="statusLabel" destination="lew-hw-O7k" id="GMI-fF-ugk"/>
+                <outlet property="titleLabel" destination="718-CO-KBr" id="qaI-4b-wlj"/>
+                <outlet property="totalMoneyLabel" destination="m6L-HR-X4o" id="CUg-1r-VM0"/>
+            </connections>
+            <point key="canvasLocation" x="117" y="213"/>
         </tableViewCell>
     </objects>
 </document>

@@ -37,9 +37,16 @@ class WXUserInfoViewController: UIViewController, UITableViewDataSource, UITable
         signoutButton.setTitle("退出登录", forState: .Normal)
         signoutButton.titleLabel?.font = UIFont.systemFontOfSize(17.0)
         signoutButton.setTitleColor(APP_THEME_COLOR, forState: .Normal)
+        signoutButton.addTarget(self, action: #selector(logoutAction), forControlEvents: .TouchUpInside)
         footerView.addSubview(signoutButton)
         
         self.tableView.tableFooterView = footerView
+    }
+    
+    func logoutAction() {
+        WXAccountManager.shareInstance().userLogout { (isSuccess) in
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

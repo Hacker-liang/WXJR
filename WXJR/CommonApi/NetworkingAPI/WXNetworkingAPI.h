@@ -11,8 +11,8 @@
 
 @interface WXNetworkingAPI : NSObject
 
-+ (void)GET:(NSString *)URLString params:(NSDictionary *)params completionBlock:(void(^)(BOOL isSuccess, id responseObject, NSError *error))completionBlock;
++ (void)GET:(NSString *)URLString params:(NSDictionary *)params completionBlock:(void(^)(id responseObject, NSError *error))completionBlock;
 
-+ (void)POST:(NSString *)URLString params:(NSDictionary *)params completionBlock:(void(^)(BOOL isSuccess, id responseObject, NSError *error))completionBlock;
++ (void)POST:(NSString *)URLString params:(NSDictionary *)params completionBlock:(void(^)(id responseObject, NSError *error))completionBlock;
 
 @end

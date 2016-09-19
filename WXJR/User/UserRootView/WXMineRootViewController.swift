@@ -41,8 +41,8 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         navigationView.backgroundColor = APP_THEME_COLOR
         let titleLabel = UILabel(frame: CGRectMake(0, 20, kWindowWidth, 44))
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.font = UIFont.systemFontOfSize(16.0)
-        titleLabel.text = "我的"
+        titleLabel.font = UIFont.systemFontOfSize(17.0)
+        titleLabel.text = WXAccountManager.shareInstance().accountDetail?.nickname
         titleLabel.textAlignment = .Center
         navigationView.addSubview(titleLabel)
         
@@ -57,11 +57,21 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        
+        WXAccountManager.shareInstance().updateUserFundDate { (isSuccess) in
+            self.updateUserFundPanel()
+        }
+        WXAccountManager.shareInstance().updateUserInvestDate { (isSuccess) in
+            self.updateUserFundPanel()
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
+
     }
     
     func setupTableViewHeaderView() {
@@ -79,7 +89,6 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         totalIncomeLabel.textColor = UIColor.whiteColor()
         totalIncomeLabel.font = UIFont.boldSystemFontOfSize(38.0)
         totalIncomeLabel.textAlignment = .Center
-        totalIncomeLabel.text = "6583.23"
         headerView.addSubview(totalIncomeLabel)
         
         let tempLabel2 = UILabel(frame: CGRectMake(0, 135, kWindowWidth/3, 20))
@@ -93,7 +102,6 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         totalInvestLabel.textColor = UIColor.whiteColor()
         totalInvestLabel.font = UIFont.systemFontOfSize(14.0)
         totalInvestLabel.textAlignment = .Center
-        totalInvestLabel.text = "1234"
         headerView.addSubview(totalInvestLabel)
         
         let tempLabel3 = UILabel(frame: CGRectMake(kWindowWidth/3, 135, kWindowWidth/3, 20))
@@ -107,7 +115,6 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         expectedIncomeLabel.textColor = UIColor.whiteColor()
         expectedIncomeLabel.font = UIFont.systemFontOfSize(14.0)
         expectedIncomeLabel.textAlignment = .Center
-        expectedIncomeLabel.text = "5792"
         headerView.addSubview(expectedIncomeLabel)
         
         let tempLabel4 = UILabel(frame: CGRectMake(kWindowWidth/3*2, 135, kWindowWidth/3, 20))
@@ -121,7 +128,6 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         remainingLabel.textColor = UIColor.whiteColor()
         remainingLabel.font = UIFont.systemFontOfSize(14.0)
         remainingLabel.textAlignment = .Center
-        remainingLabel.text = "3920"
         headerView.addSubview(remainingLabel)
         
         let tempBgView = UIView(frame: CGRectMake(0,190,kWindowWidth,45))
@@ -150,6 +156,20 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         tempBgView.addSubview(spaceView1)
 
         self.tableView.tableHeaderView = headerView
+    }
+    
+    func updateUserFundPanel() {
+        let totalIncome = WXAccountManager.shareInstance().accountDetail?.userInvestDetail?.investInterestAmount ?? 0
+        totalIncomeLabel.text = "\(totalIncome)"
+        
+        let totalInvest = WXAccountManager.shareInstance().accountDetail?.userInvestDetail?.investingPrincipalAmount ?? 0
+        totalInvestLabel.text = "\(totalInvest)"
+        
+        let exceptedIncome = WXAccountManager.shareInstance().accountDetail?.userInvestDetail?.investingInterestAmount ?? 0
+        expectedIncomeLabel.text = "\(exceptedIncome)"
+        
+        let totalRemaing = WXAccountManager.shareInstance().accountDetail?.userFundDetail?.availableAmount ?? 0
+        remainingLabel.text = "\(totalRemaing)"
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

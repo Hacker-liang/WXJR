@@ -12,10 +12,9 @@ class WXUserFundsTrusteeshipInfoViewController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var accountLabel: UILabel!
-    
     @IBOutlet weak var nicknameLabel: UILabel!
-    
     @IBOutlet weak var phoneLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "托管帐号"

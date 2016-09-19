@@ -12,6 +12,8 @@ class WXUserBankInfoViewController: UIViewController,UITableViewDataSource,UITab
 
     @IBOutlet weak var tableView: UITableView!
     
+    var dataSource: [WXUserBankInfo] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,10 +24,26 @@ class WXUserBankInfoViewController: UIViewController,UITableViewDataSource,UITab
         self.tableView.registerNib(UINib(nibName: "WXUserBankInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "userBankInfoCell")
         self.navigationItem.title = "我的银行卡"
         
+        self.loadUserBankInfo()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+       
+    func loadUserBankInfo() {
+        WXUserManager.loadUserBankInfoList(WXAccountManager.shareInstance().accountDetail!.userId) { (isSuccess, bankInfoList) in
+            if isSuccess {
+                for bankInfo in bankInfoList! {
+                    if bankInfo.defaultAccount! {
+                        self.dataSource.append(bankInfo)
+                        self.tableView.reloadData()
+                        break
+                    }
+                }
+            }
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -33,7 +51,7 @@ class WXUserBankInfoViewController: UIViewController,UITableViewDataSource,UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return dataSource.count
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -57,7 +75,11 @@ class WXUserBankInfoViewController: UIViewController,UITableViewDataSource,UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("userBankInfoCell", forIndexPath: indexPath)
+        let cell: WXUserBankInfoTableViewCell = tableView.dequeueReusableCellWithIdentifier("userBankInfoCell", forIndexPath: indexPath) as! WXUserBankInfoTableViewCell
+        let bankInfo = dataSource[indexPath.row]
+        cell.titleLabel.text = bankInfo.typeDesc
+        cell.iconImageView.image = UIImage(named: "\(bankInfo.type!).png")
+        cell.numberLabel.text = bankInfo.accountNo
         return cell
     }
     

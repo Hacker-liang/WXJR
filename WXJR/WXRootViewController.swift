@@ -11,8 +11,8 @@ import UIKit
 class WXRootViewController: UITabBarController {
 
     var mineRootViewController: WXMineRootViewController!
-    var loarnRecommentViewController: WXLoarnRecommendViewController!
-    var loarnListViewController: WXLoarnListViewController!
+    var loanRecommentViewController: WXLoanRecommendViewController!
+    var loanListViewController: WXLoanListViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +25,9 @@ class WXRootViewController: UITabBarController {
     
     func setupViewControllers() {
         mineRootViewController = WXMineRootViewController()
-        loarnRecommentViewController = WXLoarnRecommendViewController()
-        loarnListViewController = WXLoarnListViewController()
-        self.viewControllers = [UINavigationController(rootViewController: loarnRecommentViewController), UINavigationController(rootViewController: loarnListViewController), UINavigationController(rootViewController: mineRootViewController)]
+        loanRecommentViewController = WXLoanRecommendViewController()
+        loanListViewController = WXLoanListViewController()
+        self.viewControllers = [UINavigationController(rootViewController: loanRecommentViewController), UINavigationController(rootViewController: loanListViewController), UINavigationController(rootViewController: mineRootViewController)]
         
         let titles = ["首页", "列表", "我的"]
         var index = 0
@@ -48,6 +48,9 @@ class WXRootViewController: UITabBarController {
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         if item.isEqual(self.tabBar.items?.last) {
+            if !WXAccountManager.shareInstance().userIsLoginIn() {
+                self.gotoLogin()
+            }
 //            self.gotoLogin()
             mineRootViewController.navigationController?.setNavigationBarHidden(true, animated: false)
         }

@@ -12,7 +12,10 @@ class WXUserInvestRecordViewController: UIViewController, UITableViewDataSource,
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSource = []
+    var dataSource: [WXInvestModel] = Array()
+    
+    var page: Int = 0
+    var pageSize: Int = 10
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +25,47 @@ class WXUserInvestRecordViewController: UIViewController, UITableViewDataSource,
         self.tableView.delegate = self
         self.tableView.registerNib(UINib(nibName: "WXUserInvestRecordTableViewCell", bundle: nil), forCellReuseIdentifier: "userInvestRecordCell")
         self.navigationItem.title = "投资记录"
+        self.tableView.hidden = true
         
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self.page = 0
+            WXUserManager.loadUserInvestList(WXAccountManager.shareInstance().accountDetail!.userId, page: self.page, pageSize: self.pageSize) { (isSuccess, investList) in
+                self.tableView.hidden = false
+                if isSuccess {
+                    self.dataSource.removeAll()
+                    for invest in investList! {
+                        self.dataSource.append(invest)
+                    }
+                    self.page += 1
+                    self.tableView.reloadData()
+                }
+                self.tableView.mj_header.endRefreshing()
+            }
+        })
+        self.tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreInvestData))
+        
+        self.tableView.mj_header.beginRefreshing()
     }
 
+    func loadMoreInvestData()  {
+        WXUserManager.loadUserInvestList(WXAccountManager.shareInstance().accountDetail!.userId, page: self.page, pageSize: self.pageSize) { (isSuccess, investList) in
+            if isSuccess {
+                for invest in investList! {
+                    self.dataSource.append(invest)
+                }
+                self.page += 1
+                self.tableView.reloadData()
+                if investList!.count  < self.pageSize {
+                    self.tableView.mj_footer.endRefreshingWithNoMoreData()
+                } else {
+                    self.tableView.mj_footer.endRefreshing()
+                }
+            } else {
+                self.tableView.mj_footer.endRefreshing()
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -34,7 +75,7 @@ class WXUserInvestRecordViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataSource.count
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -50,14 +91,20 @@ class WXUserInvestRecordViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("userInvestRecordCell", forIndexPath: indexPath)
+        let cell: WXUserInvestRecordTableViewCell = tableView.dequeueReusableCellWithIdentifier("userInvestRecordCell", forIndexPath: indexPath) as! WXUserInvestRecordTableViewCell
+        cell.investModel = dataSource[indexPath.row]
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
 
 }
+
+
+
+
 
 
 
