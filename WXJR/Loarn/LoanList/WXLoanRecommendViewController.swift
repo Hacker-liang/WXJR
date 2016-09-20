@@ -144,8 +144,8 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let ctl = WXLoanDetailViewController()
+        ctl.loanDetail = dataSource[indexPath.row]
         ctl.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(ctl, animated: true)
-
     }
 }

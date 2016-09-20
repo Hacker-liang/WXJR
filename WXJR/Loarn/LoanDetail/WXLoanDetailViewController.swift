@@ -17,8 +17,9 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
     var totalSaleMoneyLabel: UILabel!
     var dateCountLabel: UILabel!
     
+    var loanDetail: WXLoanDetailModel?
+    
     let sectionDataSource = ["项目介绍", "资金用途", "还款来源", "项目资料"]
-    let dataSource = ["本次融资是为摩贝平台的采购商提供的一笔采购周转资金。", "本次融资是为摩贝平台的采购商提供的一笔采购周转资金。该笔采购对应1笔销售 ：上游供应商：上海某进出口有限公司 数量：60ton苯酚 ，采购金额462000元,下游采购商：江苏某化工有限公司 数量：60ton苯酚 ，销售金额合计是：471600元。", "该项目有多重还款来源作保障：第一还款来源：摩贝平台的采购商销售回款，产品标准，价格稳定，摩贝未馨共同监控。第二还款来源：摩贝平台承诺此标的债权到期时无条件回购责任，有效保障投资人资金安全。"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,10 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.setupHeaderView()
         self.setupFooterView()
         self.setupToolBar()
+        
+        WXLoanManager.loadLoanDetail(self.loanDetail!.loanId!) { (isSuccess, loanDetail) in
+            self.loanDetail = loanDetail
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -224,9 +229,32 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
             style.paragraphSpacing = 5.0
             style.firstLineHeadIndent = 10
             
+            var contentStr = ""
             
-            let attrText = NSMutableAttributedString(string: dataSource[indexPath.section])
-            attrText.addAttributes([NSParagraphStyleAttributeName: style], range: NSMakeRange(0, dataSource[indexPath.section].characters.count))
+            if indexPath.section == 0 {
+                if let str = self.loanDetail?.loanRequest?.desc {
+                    contentStr = str
+                }
+                
+            } else if indexPath.section == 1 {
+                if let str = self.loanDetail?.loanRequest?.guaranteeInfo {
+                    contentStr = str
+                }
+
+                
+            } else if indexPath.section == 2 {
+                if let str = self.loanDetail?.loanRequest?.mortgageInfo {
+                    contentStr = str
+                }
+
+                
+            } else if indexPath.section == 3 {
+                contentStr = ""
+                
+            }
+            
+            let attrText = NSMutableAttributedString(string: contentStr)
+            attrText.addAttributes([NSParagraphStyleAttributeName: style], range: NSMakeRange(0, contentStr.characters.count))
             cell.textLabel?.attributedText = attrText
             return cell
         } else {

@@ -112,10 +112,60 @@ class WXUserManager: NSObject {
                 completionBlock(isSuccess: false, bankInfoList: nil)
             }
         }
+    }
+    
+    /**
+     获取用户的奖券列表
+     
+     - parameter userId:
+     - parameter type:
+     - parameter page:
+     - parameter pageSize:
+     - parameter completionBlock: 
+     */
+    class func loadUserCouponList(userId: String, type:String, page:Int, pageSize:Int, completionBlock:(isSuccess: Bool, couponsList:[WXUserCouponModel]?) -> ()) {
+        let url = "\(baseUrl)coupon/\(userId)/coupons"
+        let params = ["type": type]
+        WXNetworkingAPI.POST(url, params: params) { (retObject, error) in
+            if let retData = retObject as? NSDictionary {
+                if let results = retData.objectForKey("data") as? NSDictionary {
+                    var retList = [WXUserCouponModel]()
+                    for dic in (results.objectForKey("results") as! NSArray) {
+                        let coupon = WXUserCouponModel(json: dic as! NSDictionary)
+                        retList.append(coupon)
+                    }
+                    completionBlock(isSuccess: true, couponsList: retList)
+                    
+                } else {
+                    completionBlock(isSuccess: false, couponsList: nil)
 
+                }
+                
+            } else {
+                completionBlock(isSuccess: false, couponsList: nil)
+            }
+        }
+    }
+    
+    /**
+     获取用户的资金托管账户信息
+     
+     - parameter userId:
+     - parameter completionBlock: 
+     */
+    class func loadUserFundsTrusteeshipAccount(userId: String, completionBlock: (isSuccess:Bool, accountInfo: WXUserTrusteeshipDetail?) -> ()) {
+        let url = "\(baseUrl)user/\(userId)/payment"
+        
+        WXNetworkingAPI.GET(url, params: nil) { (retObject, error) in
+            if let retData = retObject as? NSDictionary {
+                let account = WXUserTrusteeshipDetail(json: retData)
+                completionBlock(isSuccess: true, accountInfo: account)
+
+            } else {
+                completionBlock(isSuccess: false, accountInfo: nil)
+            }
+        }
 
     }
-
-    
 
 }

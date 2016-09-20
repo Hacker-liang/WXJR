@@ -43,4 +43,34 @@ class WXLoanManager: NSObject {
             }
         }
     }
+    
+    /**
+     获取标的详情
+     
+     - parameter loanId:
+     - parameter completionBlock: 
+     */
+    class func loadLoanDetail(loanId: String, completionBlock :(isSuccess: Bool, loanDetail: WXLoanDetailModel?) -> ()) {
+        let url = "\(baseUrl)loan/\(loanId)"
+        WXNetworkingAPI.GET(url, params: nil) { (retObj, error) in
+            if let retDic = retObj as? NSDictionary {
+                let loan = WXLoanDetailModel(json: retDic as! [String : AnyObject])
+                completionBlock(isSuccess: true, loanDetail: loan)
+            } else {
+                completionBlock(isSuccess: true, loanDetail: nil)
+            }
+        }
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+

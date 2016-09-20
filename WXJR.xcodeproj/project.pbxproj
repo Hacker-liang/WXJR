@@ -140,6 +140,8 @@
 		D909A4DA1D8FC2EC00D4784A /* WXUserCouponModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A4D91D8FC2EC00D4784A /* WXUserCouponModel.swift */; };
 		D909A4DE1D8FCA6900D4784A /* BTNavigationDropdownMenu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D909A4DC1D8FCA6800D4784A /* BTNavigationDropdownMenu.bundle */; };
 		D909A4DF1D8FCA6900D4784A /* BTNavigationDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A4DD1D8FCA6800D4784A /* BTNavigationDropdownMenu.swift */; };
+		D909A4E11D90DF4B00D4784A /* WXUserTrusteeshipDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A4E01D90DF4B00D4784A /* WXUserTrusteeshipDetail.swift */; };
+		D909A4E31D90E8B600D4784A /* WXLoanRequestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A4E21D90E8B600D4784A /* WXLoanRequestDetail.swift */; };
 		D95FD6DA1D7580CF009CC8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */; };
 		D95FD6E31D7580CF009CC8B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */; };
 		D95FD6E61D7580CF009CC8B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E41D7580CF009CC8B2 /* LaunchScreen.storyboard */; };
@@ -308,6 +310,8 @@
 		D909A4D91D8FC2EC00D4784A /* WXUserCouponModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserCouponModel.swift; sourceTree = "<group>"; };
 		D909A4DC1D8FCA6800D4784A /* BTNavigationDropdownMenu.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BTNavigationDropdownMenu.bundle; sourceTree = "<group>"; };
 		D909A4DD1D8FCA6800D4784A /* BTNavigationDropdownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTNavigationDropdownMenu.swift; sourceTree = "<group>"; };
+		D909A4E01D90DF4B00D4784A /* WXUserTrusteeshipDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserTrusteeshipDetail.swift; sourceTree = "<group>"; };
+		D909A4E21D90E8B600D4784A /* WXLoanRequestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXLoanRequestDetail.swift; sourceTree = "<group>"; };
 		D95FD6D61D7580CF009CC8B2 /* WXJR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WXJR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -440,6 +444,7 @@
 				D909A3F71D7FFB0300D4784A /* WXUserInfoViewController.xib */,
 				D909A3FA1D7FFC8B00D4784A /* WXUserInfoDetailTableViewCell.swift */,
 				D909A3FB1D7FFC8B00D4784A /* WXUserInfoDetailTableViewCell.xib */,
+				D909A4E01D90DF4B00D4784A /* WXUserTrusteeshipDetail.swift */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -601,6 +606,7 @@
 			children = (
 				D909A4C01D8290C900D4784A /* WXLoanDetailModel.swift */,
 				D909A4C21D82B1E500D4784A /* WXLoanManager.swift */,
+				D909A4E21D90E8B600D4784A /* WXLoanRequestDetail.swift */,
 			);
 			path = LoanModel;
 			sourceTree = "<group>";
@@ -1057,6 +1063,7 @@
 				D909A49D1D80F56900D4784A /* WXUserBankInfoTableViewCell.swift in Sources */,
 				D909A3BC1D7D5DAE00D4784A /* WXUserSignupViewController.swift in Sources */,
 				D909A3FC1D7FFC8B00D4784A /* WXUserInfoDetailTableViewCell.swift in Sources */,
+				D909A4E11D90DF4B00D4784A /* WXUserTrusteeshipDetail.swift in Sources */,
 				D909A4BA1D813E5600D4784A /* WXLoanRecommendViewController.swift in Sources */,
 				D909A3F81D7FFB0300D4784A /* WXUserInfoViewController.swift in Sources */,
 				D909A3D91D7EB51D00D4784A /* WXMineRootViewController.swift in Sources */,
@@ -1088,6 +1095,7 @@
 				D909A4DA1D8FC2EC00D4784A /* WXUserCouponModel.swift in Sources */,
 				D909A4C91D88DF2500D4784A /* WXUserDetail.swift in Sources */,
 				D909A3CC1D7E69F100D4784A /* MyPageControl.m in Sources */,
+				D909A4E31D90E8B600D4784A /* WXLoanRequestDetail.swift in Sources */,
 				D909A4D61D8E973300D4784A /* WXUserFundRecordModel.swift in Sources */,
 				D909A4DF1D8FCA6900D4784A /* BTNavigationDropdownMenu.swift in Sources */,
 				D909A4C51D88D9F500D4784A /* WXAccountModel.swift in Sources */,

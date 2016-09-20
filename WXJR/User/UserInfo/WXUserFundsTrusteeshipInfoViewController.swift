@@ -13,13 +13,19 @@ class WXUserFundsTrusteeshipInfoViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var nicknameLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "托管帐号"
         contentView.layer.cornerRadius = 5.0
         contentView.clipsToBounds = true
+        
+        WXUserManager.loadUserFundsTrusteeshipAccount(WXAccountManager.shareInstance().accountDetail!.userId) { (isSuccess, accountInfo) in
+            if isSuccess {
+                self.accountLabel.text = accountInfo?.accountId
+                self.nicknameLabel.text = accountInfo?.accountName
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

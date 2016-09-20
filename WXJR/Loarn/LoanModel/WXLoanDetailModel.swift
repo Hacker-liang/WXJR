@@ -27,6 +27,7 @@ class WXLoanDetailModel: NSObject {
     var mortgaged: Bool?
     var bidAmount: Int?
     var bids: Int?
+    var loanRequest: WXLoanRequestDetail?
     
     init(json: [String: AnyObject]) {
         super.init()
@@ -93,6 +94,10 @@ class WXLoanDetailModel: NSObject {
         bidAmount = json["bidAmount"] as? Int
         balance = json["balance"] as? Int
         bids = json["bids"] as? Int
+        
+        if let request = json["loanRequest"] as? NSDictionary {
+            loanRequest = WXLoanRequestDetail(json: request)
+        }
     }
 }
 
