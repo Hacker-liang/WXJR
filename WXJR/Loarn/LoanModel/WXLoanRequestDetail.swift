@@ -10,6 +10,7 @@ import UIKit
 
 class WXLoanRequestDetail: NSObject {
 
+    var requestId: String?
     var title: String?
     var amount: Int?
     var duration: Duration?
@@ -20,8 +21,12 @@ class WXLoanRequestDetail: NSObject {
     var guaranteeInfo: String?
     var mortgageInfo: String?
     var riskInfo: String?
-    
+    var minInvestAmount: Int?
+    var maxInvestAmount: Int?
+    var stepInvestAmount: Int?
+
     init(json: NSDictionary) {
+        requestId = json.objectForKey("id") as? String
         title = json.objectForKey("title") as? String
         amount = json.objectForKey("amount") as? Int
         if let dura = json.objectForKey("duration") as? [String: AnyObject] {
@@ -37,6 +42,12 @@ class WXLoanRequestDetail: NSObject {
         guaranteeInfo = json.objectForKey("guaranteeInfo") as? String
         mortgageInfo = json.objectForKey("mortgageInfo") as? String
         riskInfo = json.objectForKey("riskInfo") as? String
-
+        
+        if let investRule = json.objectForKey("investRule") as? NSDictionary {
+            minInvestAmount = investRule.objectForKey("minAmount") as? Int
+            maxInvestAmount = investRule.objectForKey("maxAmount") as? Int
+            stepInvestAmount = investRule.objectForKey("stepAmount") as? Int
+        }
+        
     }
 }

@@ -62,6 +62,47 @@ class WXLoanManager: NSObject {
         }
 
     }
+    
+    /**
+     获取标的的资料
+     
+     - parameter loanId:
+     - parameter completionBlock:
+     */
+    class func loadLoanProof(loanRequestId: String, completionBlock :(isSuccess: Bool, imageList: [String]?) -> ()) {
+        let url = "\(hostUrl)loan/\(loanRequestId)/proof"
+        WXNetworkingAPI.GET(url, params: nil) { (retObj, error) in
+            if let retDic = retObj as? NSDictionary {
+                let array = retDic.allValues
+                var retArray: [String] = []
+                for dic in array {
+                    retArray.append((dic as! Dictionary)["src"]!)
+                }
+                completionBlock(isSuccess: true, imageList: retArray)
+                
+            } else {
+                completionBlock(isSuccess: false, imageList: nil)
+            }
+        }
+    }
+    
+    class func buyLoan(loanId: String, amount: Int, placementId: String?, completionBlock :(isSuccess: Bool, retData: NSData?) -> ()) {
+        let url = "\(baseUrl)payment/tender/request"
+        WXNetworkingAPI.POST(url, params: ["amount": amount, "loanId": loanId, "placementId" :placementId ?? "", "paymentPassword": "james890526", "userId": (WXAccountManager.shareInstance().accountDetail?.userId)!, "smsCaptcha": "1234"]) { (retObj, error) in
+//            completionBlock(isSuccess: true)
+            self.buyLoanInHUTX(((retObj as! NSDictionary).objectForKey("data") as! NSDictionary), completionBlock: completionBlock)
+        }
+    }
+    
+    class func buyLoanInHUTX(data: NSDictionary, completionBlock :(isSuccess: Bool, retData: NSData?) -> ()) {
+        let url = "http://mertest.chinapnr.com/muser/publicRequest"
+        let type =  "application/x-www-form-urlencoded"
+        WXNetworkingAPI.POST(url, params: data as [NSObject : AnyObject], contentType: type) { (retObj, error) in
+            completionBlock(isSuccess: true, retData: (retObj as! NSData))
+        }
+    }
+    
+    
 }
 
 

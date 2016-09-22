@@ -22,6 +22,7 @@ let COLOR_TEXT_V: UIColor               = UIColorFromRGB(0xcdcdcd, alpha:1)
 let kWindowWidth = UIScreen.mainScreen().bounds.size.width
 let kWindowHeight = UIScreen.mainScreen().bounds.size.height
 
+let hostUrl = "http://wrzb.uats.cc/"
 
 let baseUrl = "http://wrzb.uats.cc/api/v2/"
 

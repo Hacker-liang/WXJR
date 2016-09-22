@@ -38,6 +38,8 @@
 + (void)POST:(NSString *)URLString params:(NSDictionary *)params completionBlock:(void(^)(id responseObject, NSError *error))completionBlock
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+    
     if ([[WXAccountManager shareInstance] userIsLoginIn]) {
         NSLog(@"access_token: %@", [WXAccountManager shareInstance].accountDetail.access_token);
         [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", [WXAccountManager shareInstance].accountDetail.access_token] forHTTPHeaderField:@"Authorization"];
@@ -54,7 +56,41 @@
         completionBlock(nil, error);
 
     }];
+}
+
++ (void)POST:(NSString *)URLString params:(NSDictionary *)params contentType:(NSString *)content completionBlock:(void(^)(id responseObject, NSError *error))completionBlock
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//    [manager.requestSerializer setValue:content forHTTPHeaderField:@"Content-Type"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    let type =  "application/x-www-form-urlencoded"
+
+//    NSString *type=@"application/x-www-form-urlencoded";
+//    NSMutableSet *sets=[[NSMutableSet alloc] init];
+//    [sets addObject:type];
+    
+    manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    
+//    if ([[WXAccountManager shareInstance] userIsLoginIn]) {
+//        NSLog(@"access_token: %@", [WXAccountManager shareInstance].accountDetail.access_token);
+//        [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", [WXAccountManager shareInstance].accountDetail.access_token] forHTTPHeaderField:@"Authorization"];
+//    }
+    [manager POST:URLString parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject success: %@", responseObject);
+        completionBlock(responseObject, nil);
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"responseObject failure: %@", error);
+        completionBlock(nil, error);
+        
+    }];
     
 }
+
 
 @end

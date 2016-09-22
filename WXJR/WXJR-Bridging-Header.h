@@ -7,3 +7,6 @@
 #import "NetworkingConstants.h"
 #import "AutoSlideScrollView.h"
 #import "MJRefresh.h"
+#import "WXCommonMethods.h"
+#import "UIImageView+WebCache.h"
+#import "SDImageCache.h"

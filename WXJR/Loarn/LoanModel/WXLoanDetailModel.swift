@@ -19,11 +19,12 @@ class WXLoanDetailModel: NSObject {
     var payMethod: LoanPayMethods?      //还款方式
     var payMethodDesc: String?          //还款方式描述
     var duration: Duration?
-    var timeOut: Int?
-    var timeOpen: NSDate?
-    var timeFinished: NSDate?
-    var timeSettled: NSDate?
-    var timeCleared: NSDate?
+    var timeout: Int?
+    var timeOpen: Int?
+    var timeLeft: Int?
+    var timeFinished: Int?
+    var timeSettled: Int?
+    var timeCleared: Int?
     var mortgaged: Bool?
     var bidAmount: Int?
     var bids: Int?
@@ -44,7 +45,7 @@ class WXLoanDetailModel: NSObject {
         case .kOPENED:
             statusDesc = "开放投标"
         case .kFAILED:
-            statusDesc = "流标"
+            statusDesc = "已流标"
         case .kFINISHED:
             statusDesc = "已满标"
         case .kCANCELED:
@@ -54,9 +55,9 @@ class WXLoanDetailModel: NSObject {
         case .kCLEARED:
             statusDesc = "已还清"
         case .kOVERDUE:
-            statusDesc = "逾期"
+            statusDesc = "已逾期"
         case .kBREACH:
-            statusDesc = "违约"
+            statusDesc = "已违约"
         case .kARCHIVED:
             statusDesc = "已存档"
         }
@@ -85,11 +86,12 @@ class WXLoanDetailModel: NSObject {
         
         duration = Duration()
         duration?.initDuration(json["duration"] as! Dictionary)
-        timeOut = json["timeOut"] as? Int
-        timeOpen = json["timeOpen"] as? NSDate
-        timeFinished = json["timeFinished"] as? NSDate
-        timeSettled = json["timeSettled"] as? NSDate
-        timeCleared = json["timeCleared"] as? NSDate
+        timeout = json["timeout"] as? Int
+        timeOpen = json["timeOpen"] as? Int
+        timeLeft = json["timeLeft"] as? Int
+        timeFinished = json["timeFinished"] as? Int
+        timeSettled = json["timeSettled"] as? Int
+        timeCleared = json["timeCleared"] as? Int
         mortgaged = json["mortgaged"] as? Bool
         bidAmount = json["bidAmount"] as? Int
         balance = json["balance"] as? Int

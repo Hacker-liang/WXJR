@@ -33,7 +33,9 @@ class WXLoanListTableViewCell: UITableViewCell {
         
         bugButton.layer.cornerRadius = 4.0
         bugButton.clipsToBounds = true
-
+        
+        bugButton.setBackgroundImage(WXCommonMethods.createImageWithColor(UIColor.lightGrayColor()), forState: .Disabled)
+        bugButton.setBackgroundImage(WXCommonMethods.createImageWithColor(APP_THEME_COLOR), forState: .Normal)
     }
     
     func renderView() {
@@ -44,6 +46,15 @@ class WXLoanListTableViewCell: UITableViewCell {
         let rateValue: Float = Float((loanDetail?.rate)!/100)
         rateLabel.text = "\(rateValue)%"
         timeCostLabel.text = loanDetail?.duration?.durationDesc
+        
+        if loanDetail!.status! == .kOPENED {
+            bugButton.enabled = true
+            bugButton.setTitle("购买", forState: .Normal)
+            
+        } else {
+            bugButton.setTitle(loanDetail?.statusDesc, forState: .Normal)
+            bugButton.enabled = false
+        }
         
     }
 

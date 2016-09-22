@@ -15,4 +15,6 @@
 
 + (void)POST:(NSString *)URLString params:(NSDictionary *)params completionBlock:(void(^)(id responseObject, NSError *error))completionBlock;
 
++ (void)POST:(NSString *)URLString params:(NSDictionary *)params contentType:(NSString *)content completionBlock:(void(^)(id responseObject, NSError *error))completionBlock;
+
 @end
