@@ -174,6 +174,11 @@
 		D909A5581D9233FD00D4784A /* WXBuyLoanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D909A5561D9233FD00D4784A /* WXBuyLoanTableViewCell.xib */; };
 		D909A55B1D93820A00D4784A /* WXBuyLoanWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A5591D93820900D4784A /* WXBuyLoanWebViewController.swift */; };
 		D909A55C1D93820A00D4784A /* WXBuyLoanWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D909A55A1D93820900D4784A /* WXBuyLoanWebViewController.xib */; };
+		D909A5E41D94C6B600D4784A /* WXResetUserPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D909A5E21D94C6B600D4784A /* WXResetUserPasswordViewController.swift */; };
+		D909A5E51D94C6B600D4784A /* WXResetUserPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D909A5E31D94C6B600D4784A /* WXResetUserPasswordViewController.xib */; };
+		D92E4E541D98F5680081C5F3 /* NSString+UrlEncodeing.m in Sources */ = {isa = PBXBuildFile; fileRef = D92E4E531D98F5680081C5F3 /* NSString+UrlEncodeing.m */; };
+		D92E4E571D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E4E551D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.swift */; };
+		D92E4E581D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92E4E561D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.xib */; };
 		D95FD6DA1D7580CF009CC8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */; };
 		D95FD6E31D7580CF009CC8B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */; };
 		D95FD6E61D7580CF009CC8B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E41D7580CF009CC8B2 /* LaunchScreen.storyboard */; };
@@ -183,6 +188,10 @@
 		D95FD70E1D7665EF009CC8B2 /* WXLoarnRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95FD70C1D7665EF009CC8B2 /* WXLoarnRecommendViewController.xib */; };
 		D95FD7231D7674A7009CC8B2 /* WXUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD7221D7674A7009CC8B2 /* WXUserManager.swift */; };
 		D95FD72F1D768057009CC8B2 /* WXNetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D95FD72E1D768057009CC8B2 /* WXNetworkingAPI.m */; };
+		D9BD0A751D9A4834007640D3 /* WXRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD0A731D9A4834007640D3 /* WXRechargeViewController.swift */; };
+		D9BD0A761D9A4834007640D3 /* WXRechargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9BD0A741D9A4834007640D3 /* WXRechargeViewController.xib */; };
+		D9BD0A791D9A4E1E007640D3 /* WXRechargeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD0A771D9A4E1E007640D3 /* WXRechargeWebViewController.swift */; };
+		D9BD0A7A1D9A4E1E007640D3 /* WXRechargeWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9BD0A781D9A4E1E007640D3 /* WXRechargeWebViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -378,6 +387,12 @@
 		D909A5561D9233FD00D4784A /* WXBuyLoanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXBuyLoanTableViewCell.xib; sourceTree = "<group>"; };
 		D909A5591D93820900D4784A /* WXBuyLoanWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXBuyLoanWebViewController.swift; sourceTree = "<group>"; };
 		D909A55A1D93820900D4784A /* WXBuyLoanWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXBuyLoanWebViewController.xib; sourceTree = "<group>"; };
+		D909A5E21D94C6B600D4784A /* WXResetUserPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXResetUserPasswordViewController.swift; sourceTree = "<group>"; };
+		D909A5E31D94C6B600D4784A /* WXResetUserPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXResetUserPasswordViewController.xib; sourceTree = "<group>"; };
+		D92E4E521D98F5680081C5F3 /* NSString+UrlEncodeing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UrlEncodeing.h"; sourceTree = "<group>"; };
+		D92E4E531D98F5680081C5F3 /* NSString+UrlEncodeing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UrlEncodeing.m"; sourceTree = "<group>"; };
+		D92E4E551D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXBuyLoanSelectCouponTableViewCell.swift; sourceTree = "<group>"; };
+		D92E4E561D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXBuyLoanSelectCouponTableViewCell.xib; sourceTree = "<group>"; };
 		D95FD6D61D7580CF009CC8B2 /* WXJR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WXJR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -396,6 +411,10 @@
 		D95FD72E1D768057009CC8B2 /* WXNetworkingAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXNetworkingAPI.m; sourceTree = "<group>"; };
 		D95FD7301D7685D5009CC8B2 /* NetworkingConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstants.h; sourceTree = "<group>"; };
 		D95FD7311D768620009CC8B2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D9BD0A731D9A4834007640D3 /* WXRechargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXRechargeViewController.swift; sourceTree = "<group>"; };
+		D9BD0A741D9A4834007640D3 /* WXRechargeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXRechargeViewController.xib; sourceTree = "<group>"; };
+		D9BD0A771D9A4E1E007640D3 /* WXRechargeWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXRechargeWebViewController.swift; sourceTree = "<group>"; };
+		D9BD0A781D9A4E1E007640D3 /* WXRechargeWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXRechargeWebViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,6 +542,10 @@
 				D909A3F31D7FE58600D4784A /* WXUserFundRecordTableViewCell.xib */,
 				D909A3EE1D7FE53400D4784A /* WXUserFundRecordViewController.swift */,
 				D909A3EF1D7FE53400D4784A /* WXUserFundRecordViewController.xib */,
+				D9BD0A731D9A4834007640D3 /* WXRechargeViewController.swift */,
+				D9BD0A741D9A4834007640D3 /* WXRechargeViewController.xib */,
+				D9BD0A771D9A4E1E007640D3 /* WXRechargeWebViewController.swift */,
+				D9BD0A781D9A4E1E007640D3 /* WXRechargeWebViewController.xib */,
 			);
 			path = UserFundInfo;
 			sourceTree = "<group>";
@@ -762,8 +785,28 @@
 				D909A5561D9233FD00D4784A /* WXBuyLoanTableViewCell.xib */,
 				D909A5591D93820900D4784A /* WXBuyLoanWebViewController.swift */,
 				D909A55A1D93820900D4784A /* WXBuyLoanWebViewController.xib */,
+				D92E4E551D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.swift */,
+				D92E4E561D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.xib */,
 			);
 			path = BuyLoan;
+			sourceTree = "<group>";
+		};
+		D909A5E11D94C68E00D4784A /* UserSetting */ = {
+			isa = PBXGroup;
+			children = (
+				D909A5E21D94C6B600D4784A /* WXResetUserPasswordViewController.swift */,
+				D909A5E31D94C6B600D4784A /* WXResetUserPasswordViewController.xib */,
+			);
+			path = UserSetting;
+			sourceTree = "<group>";
+		};
+		D92E4E511D98F5680081C5F3 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D92E4E521D98F5680081C5F3 /* NSString+UrlEncodeing.h */,
+				D92E4E531D98F5680081C5F3 /* NSString+UrlEncodeing.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		D95FD6CD1D7580CF009CC8B2 = {
@@ -841,6 +884,7 @@
 		D95FD7101D7669F9009CC8B2 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				D909A5E11D94C68E00D4784A /* UserSetting */,
 				D909A4981D80F56900D4784A /* UserBankInfo */,
 				D909A3FE1D80046E00D4784A /* UserCoupon */,
 				D909A3ED1D7FE50D00D4784A /* UserFundInfo */,
@@ -887,6 +931,7 @@
 		D95FD7281D7676BC009CC8B2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D92E4E511D98F5680081C5F3 /* Category */,
 				D95FD7291D7676BC009CC8B2 /* NetworkingAPI */,
 				D909A3B11D7D4F7C00D4784A /* Constants.swift */,
 				D909A4E41D9104C300D4784A /* WXCommonMethods.h */,
@@ -1018,6 +1063,7 @@
 				D909A4DE1D8FCA6900D4784A /* BTNavigationDropdownMenu.bundle in Resources */,
 				D909A4571D8015E500D4784A /* bsb.png in Resources */,
 				D909A3CE1D7E69F100D4784A /* AutoSlideScrollView.bundle in Resources */,
+				D909A5E51D94C6B600D4784A /* WXResetUserPasswordViewController.xib in Resources */,
 				D909A55C1D93820A00D4784A /* WXBuyLoanWebViewController.xib in Resources */,
 				D909A47F1D8015E500D4784A /* pt.png in Resources */,
 				D909A3D11D7E708A00D4784A /* Main.storyboard in Resources */,
@@ -1059,6 +1105,7 @@
 				D909A4891D8015E500D4784A /* unknown.png in Resources */,
 				D909A44C1D8015E500D4784A /* ABC.png in Resources */,
 				D909A4A91D80F5F800D4784A /* banner4.jpeg in Resources */,
+				D9BD0A761D9A4834007640D3 /* WXRechargeViewController.xib in Resources */,
 				D909A4711D8015E500D4784A /* HXB.png in Resources */,
 				D909A4641D8015E500D4784A /* customaccount.png in Resources */,
 				D909A3D51D7E960800D4784A /* WXCheckUserPhoneViewController.xib in Resources */,
@@ -1108,7 +1155,9 @@
 				D909A4591D8015E500D4784A /* CBHB.png in Resources */,
 				D909A45C1D8015E500D4784A /* CEB.png in Resources */,
 				D909A3FD1D7FFC8B00D4784A /* WXUserInfoDetailTableViewCell.xib in Resources */,
+				D9BD0A7A1D9A4E1E007640D3 /* WXRechargeWebViewController.xib in Resources */,
 				D909A4761D8015E500D4784A /* jsb.png in Resources */,
+				D92E4E581D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.xib in Resources */,
 				D909A3F51D7FE58600D4784A /* WXUserFundRecordTableViewCell.xib in Resources */,
 				D909A46D1D8015E500D4784A /* hccb.png in Resources */,
 				D909A4721D8015E500D4784A /* ICBC.png in Resources */,
@@ -1191,6 +1240,7 @@
 			files = (
 				D909A5451D922E7900D4784A /* SKPhoto.swift in Sources */,
 				D909A5371D922E7900D4784A /* UIImage+Rotation.swift in Sources */,
+				D92E4E541D98F5680081C5F3 /* NSString+UrlEncodeing.m in Sources */,
 				D909A53B1D922E7900D4784A /* SKButtons.swift in Sources */,
 				D909A5431D922E7900D4784A /* SKMesurement.swift in Sources */,
 				D909A4CC1D88F86700D4784A /* WXUserFundDetail.swift in Sources */,
@@ -1207,6 +1257,7 @@
 				D95FD6DA1D7580CF009CC8B2 /* AppDelegate.swift in Sources */,
 				D95FD72F1D768057009CC8B2 /* WXNetworkingAPI.m in Sources */,
 				D909A3CD1D7E69F100D4784A /* NSTimer+Addition.m in Sources */,
+				D92E4E571D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.swift in Sources */,
 				D909A4EE1D91322200D4784A /* WXLoanDetailTableViewCell.swift in Sources */,
 				D909A3C01D7D5E9B00D4784A /* WXInviteCodeViewController.swift in Sources */,
 				D909A53A1D922E7900D4784A /* SKAnimator.swift in Sources */,
@@ -1239,11 +1290,14 @@
 				D909A5491D922E7900D4784A /* SKPhotoBrowserOptions.swift in Sources */,
 				D909A3D41D7E960800D4784A /* WXCheckUserPhoneViewController.swift in Sources */,
 				D909A53E1D922E7900D4784A /* SKCaptionView.swift in Sources */,
+				D9BD0A751D9A4834007640D3 /* WXRechargeViewController.swift in Sources */,
 				D909A54B1D922E7900D4784A /* SKZoomingScrollView.swift in Sources */,
 				D909A3B61D7D5D3700D4784A /* WXUserLoginViewController.swift in Sources */,
 				D909A53F1D922E7900D4784A /* SKDetectingImageView.swift in Sources */,
 				D909A4DA1D8FC2EC00D4784A /* WXUserCouponModel.swift in Sources */,
 				D909A4C91D88DF2500D4784A /* WXUserDetail.swift in Sources */,
+				D909A5E41D94C6B600D4784A /* WXResetUserPasswordViewController.swift in Sources */,
+				D9BD0A791D9A4E1E007640D3 /* WXRechargeWebViewController.swift in Sources */,
 				D909A3CC1D7E69F100D4784A /* MyPageControl.m in Sources */,
 				D909A4E31D90E8B600D4784A /* WXLoanRequestDetail.swift in Sources */,
 				D909A4E61D9104C300D4784A /* WXCommonMethods.m in Sources */,

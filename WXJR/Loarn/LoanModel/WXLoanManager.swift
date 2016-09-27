@@ -86,11 +86,14 @@ class WXLoanManager: NSObject {
         }
     }
     
-    class func buyLoan(loanId: String, amount: Int, placementId: String?, completionBlock :(isSuccess: Bool, retData: NSData?) -> ()) {
+    class func buyLoan(loanId: String, amount: Int, placementId: String?, completionBlock :(isSuccess: Bool, retData: NSDictionary?) -> ()) {
         let url = "\(baseUrl)payment/tender/request"
-        WXNetworkingAPI.POST(url, params: ["amount": amount, "loanId": loanId, "placementId" :placementId ?? "", "paymentPassword": "james890526", "userId": (WXAccountManager.shareInstance().accountDetail?.userId)!, "smsCaptcha": "1234"]) { (retObj, error) in
-//            completionBlock(isSuccess: true)
-            self.buyLoanInHUTX(((retObj as! NSDictionary).objectForKey("data") as! NSDictionary), completionBlock: completionBlock)
+        WXNetworkingAPI.POST(url, params: ["amount": amount, "loanId": loanId, "placementId" :placementId ?? "",  "userId": (WXAccountManager.shareInstance().accountDetail?.userId)!]) { (retObj, error) in
+            if let ret = retObj as? NSDictionary {
+               completionBlock(isSuccess: true, retData: ret)
+            } else {
+                completionBlock(isSuccess: false, retData: nil)
+            }
         }
     }
     

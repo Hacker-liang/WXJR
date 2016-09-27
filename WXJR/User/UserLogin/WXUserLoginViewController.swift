@@ -63,7 +63,9 @@ class WXUserLoginViewController: UIViewController {
     @IBAction func gotoLogin(sender: AnyObject) {
         
         WXAccountManager.shareInstance().userLogin(nicknameTF.text!, password: passwordTF.text!) { (isSuccess, errorStr) in
-            
+            if isSuccess {
+                self.dismissCtl()
+            }
         }
     }
 }

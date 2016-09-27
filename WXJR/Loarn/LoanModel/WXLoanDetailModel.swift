@@ -104,19 +104,19 @@ class WXLoanDetailModel: NSObject {
 }
 
 struct Duration {
-    var years: Int?
-    var months: Int?
-    var days: Int?
-    var totalDays: Int?
-    var totalMonths: Int?
+    var years: Int = 0
+    var months: Int = 0
+    var days: Int = 0
+    var totalDays: Int = 0
+    var totalMonths: Int = 0
     var durationDesc: String?
 
     mutating func initDuration(json: [String: AnyObject]) {
-        years = json["years"] as? Int
-        months = json["months"] as? Int
-        days = json["days"] as? Int
-        totalDays = json["totalDays"] as? Int
-        totalMonths = json["totalMonths"] as? Int
+        years = json["years"] as! Int
+        months = json["months"] as! Int
+        days = json["days"] as! Int
+        totalDays = json["totalDays"] as! Int
+        totalMonths = json["totalMonths"] as! Int
         durationDesc = json["showDuration"] as? String
     }
 }

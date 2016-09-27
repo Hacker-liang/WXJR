@@ -175,7 +175,7 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func updateContentView() {
-        let rateValue: Float = Float((loanDetail?.rate)!/100)
+        let rateValue: Float = Float(Float((loanDetail?.rate)!)/100.0)
         interestLabel.text = "\(rateValue)%"
         totalMoneyLabel.text = "\(loanDetail!.amount!)元"
         totalSaleMoneyLabel.text = "\(loanDetail!.balance!)元"
@@ -330,7 +330,8 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
     func buyLoanAction() {
         let buyLoanCtl = WXBuyLoanViewController()
         buyLoanCtl.loanDetail = loanDetail
-        self.navigationController?.pushViewController(buyLoanCtl, animated: true)
+        self.presentViewController(UINavigationController(rootViewController: buyLoanCtl), animated: true, completion: nil)
+
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

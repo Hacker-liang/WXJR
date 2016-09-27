@@ -23,8 +23,10 @@ let kWindowWidth = UIScreen.mainScreen().bounds.size.width
 let kWindowHeight = UIScreen.mainScreen().bounds.size.height
 
 let hostUrl = "http://wrzb.uats.cc/"
-
 let baseUrl = "http://wrzb.uats.cc/api/v2/"
+
+//let hostUrl = "https://www.wxfintech.com/"
+//let baseUrl = "https://www.wxfintech.com/api/v2/"
 
 let kLastAccountCacheInfo = "LastAccountCacheInfo"
 

@@ -138,6 +138,7 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         rechargeButton.setTitleColor(APP_THEME_COLOR, forState: .Normal)
         rechargeButton.backgroundColor = UIColor.whiteColor()
         rechargeButton.titleLabel?.font = UIFont.systemFontOfSize(17.0)
+        rechargeButton.addTarget(self, action: #selector(rechargeAction), forControlEvents: .TouchUpInside)
         tempBgView.addSubview(rechargeButton)
         
         let withdrawButton = UIButton(frame: CGRectMake(kWindowWidth/2,0,kWindowWidth/2,45))
@@ -170,6 +171,12 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let totalRemaing = WXAccountManager.shareInstance().accountDetail?.userFundDetail?.availableAmount ?? 0
         remainingLabel.text = "\(totalRemaing)"
+    }
+    
+    func rechargeAction() {
+        let ctl = WXRechargeViewController()
+        ctl.hidesBottomBarWhenPushed = true
+        self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

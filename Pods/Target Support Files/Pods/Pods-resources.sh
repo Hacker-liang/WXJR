@@ -59,10 +59,12 @@ install_resource()
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "JGProgressHUD/JGProgressHUD/JGProgressHUD/JGProgressHUD Resources.bundle"
+  install_resource "LCActionSheet/LCActionSheet/LCActionSheet.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "JGProgressHUD/JGProgressHUD/JGProgressHUD/JGProgressHUD Resources.bundle"
+  install_resource "LCActionSheet/LCActionSheet/LCActionSheet.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
 fi
 

@@ -8,6 +8,7 @@
 
 #import "WXNetworkingAPI.h"
 #import "WXJR-swift.h"
+#import "NSString+UrlEncodeing.h"
 
 @implementation WXNetworkingAPI
 
@@ -19,8 +20,6 @@
         NSLog(@"access_token: %@", [WXAccountManager shareInstance].accountDetail.access_token);
         [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", [WXAccountManager shareInstance].accountDetail.access_token] forHTTPHeaderField:@"Authorization"];
     }
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     [manager GET:URLString parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -63,20 +62,9 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//    [manager.requestSerializer setValue:content forHTTPHeaderField:@"Content-Type"];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    let type =  "application/x-www-form-urlencoded"
-
-//    NSString *type=@"application/x-www-form-urlencoded";
-//    NSMutableSet *sets=[[NSMutableSet alloc] init];
-//    [sets addObject:type];
     
     manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
-    
-//    if ([[WXAccountManager shareInstance] userIsLoginIn]) {
-//        NSLog(@"access_token: %@", [WXAccountManager shareInstance].accountDetail.access_token);
-//        [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", [WXAccountManager shareInstance].accountDetail.access_token] forHTTPHeaderField:@"Authorization"];
-//    }
     [manager POST:URLString parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -90,6 +78,31 @@
         
     }];
     
+}
+
+
++ (NSData *)enCodeHttpRequestBody:(NSDictionary *)bodyDic
+{
+    NSMutableString *queryString = [[NSMutableString alloc] init];
+    NSArray *allKeys = bodyDic.allKeys;
+    for (NSString *key in allKeys) {
+        NSString *value = [bodyDic objectForKey:key];
+        if (![key isEqualToString:[allKeys lastObject]]) {
+            if ([value isKindOfClass:[NSString class]]) {
+                
+                [queryString appendFormat:@"%@=%@&", key, [[value urlEncodeUsingEncoding:NSUTF8StringEncoding] stringByReplacingOccurrencesOfString:@"%26quot%3B" withString:@"%22"]];
+            } else {
+                [queryString appendFormat:@"%@=%@&", key, value];
+            }
+        } else {
+            if ([value isKindOfClass:[NSString class]]) {
+                [queryString appendFormat:@"%@=%@", key, [[value urlEncodeUsingEncoding:NSUTF8StringEncoding] stringByReplacingOccurrencesOfString:@"%26quot%3B" withString:@"%22"]];
+            } else {
+                [queryString appendFormat:@"%@=%@", key, value];
+            }
+        }
+    }
+    return [queryString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 

@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LCActionSheet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0382C92F690BD4C746412333AC7F3390</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1FA54874963A57B45234D9926D977885</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3116F685117B044E8E119EA475203BA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7BB06527488A93EFD5561D465B9CC290</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -53,6 +53,16 @@
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BBD31B258AB88D877D5D602AE3F16E6B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7F1FAFDB838597D9B85B3C97182274C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

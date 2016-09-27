@@ -35,6 +35,7 @@ class WXUserCouponModel: NSObject {
     var timeStart: Int?     //开始时间
     var timeExpire: Int?    //过期时间
     var status: String?     //状态
+    var minimumInvest: Int?     //最小投资金额
     var statusDesc: String {
         get {
             switch self.status! {
@@ -62,9 +63,9 @@ class WXUserCouponModel: NSObject {
     var parValue: Int?          //具体额度 1.对于现金券，表示其兑换现金的额度.对于增值券，表示其可以虚拟的本金量.对于加息券，表示其提高利息的基点数（万分之一，参考rate）.对于返现券，表示满足投资要求后平台直接返现的金额.
     
     init(json: NSDictionary) {
-        
+        id = json.objectForKey("id") as? String
+
         let package = json.objectForKey("couponPackage") as! NSDictionary
-        id = package.objectForKey("id") as? String
         type = package.objectForKey("type") as? String
         name = package.objectForKey("name") as? String
         dispayName = package.objectForKey("dispayName") as? String
@@ -77,6 +78,7 @@ class WXUserCouponModel: NSObject {
         durationRule = package.objectForKey("durationRule") as? String
         friendlyParValue = package.objectForKey("friendlyParValue") as? String
         parValue = package.objectForKey("parValue") as? Int
+        minimumInvest = package.objectForKey("minimumInvest") as? Int
     }
 
 }

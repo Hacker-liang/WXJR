@@ -147,6 +147,30 @@ class WXUserManager: NSObject {
         }
     }
     
+    class func loadUserCouponList(userId: String, userMonths:Int, page:Int, pageSize:Int, completionBlock:(isSuccess: Bool, couponsList:[WXUserCouponModel]?) -> ()) {
+        let url = "\(baseUrl)coupon/\(userId)/listCoupon"
+        let params = ["months": userMonths]
+        WXNetworkingAPI.POST(url, params: params) { (retObject, error) in
+            if let retData = retObject as? NSDictionary {
+                if let results = retData.objectForKey("data") as? NSArray {
+                    var retList = [WXUserCouponModel]()
+                    for dic in results {
+                        let coupon = WXUserCouponModel(json: ((dic as! NSDictionary).objectForKey("placement") as! NSDictionary))
+                        retList.append(coupon)
+                    }
+                    completionBlock(isSuccess: true, couponsList: retList)
+                    
+                } else {
+                    completionBlock(isSuccess: false, couponsList: nil)
+                    
+                }
+                
+            } else {
+                completionBlock(isSuccess: false, couponsList: nil)
+            }
+        }
+    }
+    
     /**
      获取用户的资金托管账户信息
      
@@ -167,5 +191,28 @@ class WXUserManager: NSObject {
         }
 
     }
+    
+    
+    class func userRecharge(userId: String, amount: Int, completionBlock: (isSuccess: Bool, rechargeInfo: NSDictionary?) -> ()) {
+        let url = "\(baseUrl)payment/deposit/express/request"
+        
+        WXNetworkingAPI.POST(url, params: ["amount": amount, "userId": userId, "bank": "", "cardId": "", "express": true, "payType": 1]) { (retObject, error) in
+            if let retData = retObject as? NSDictionary {
+                if let successDic = retData.objectForKey("data") as? NSDictionary {
+                    completionBlock(isSuccess: true, rechargeInfo: successDic)
+                } else {
+                    completionBlock(isSuccess: false, rechargeInfo: nil)
+
+                }
+            } else {
+                completionBlock(isSuccess: false, rechargeInfo: nil)
+            }
+        }
+    }
 
 }
+
+
+
+
+

@@ -12,7 +12,7 @@ class WXUserInfoViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSource = [["用户名", "手机号", "重设密码"], ["分享应用", "去评分"]]
+    var dataSource = [["用户名", "手机号", "重设密码"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +113,12 @@ class WXUserInfoViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if indexPath.section == 0 {
+            if indexPath.row == 2 {
+                let ctl = WXResetUserPasswordViewController()
+                self.navigationController?.pushViewController(ctl, animated: true)
+            }
+        }
     }
 
     

@@ -8,19 +8,23 @@
 
 import UIKit
 
-class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WXBuyLoanBuyTableViewCellDelegate {
+class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WXBuyLoanBuyTableViewCellDelegate, LCActionSheetDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     
     var loanDetail: WXLoanDetailModel?
     var incomeValueLabel: UILabel?
-    var buyAmount: Int?
-    
+    var buyAmount: Int = 0
+    var couponList: [WXUserCouponModel]?
+    var selectedCoupon: WXUserCouponModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerNib(UINib(nibName: "WXBuyLoanBuyTableViewCell", bundle: nil), forCellReuseIdentifier: "buyLoanInputCell")
         tableView.registerNib(UINib(nibName: "WXBuyLoanTableViewCell", bundle: nil), forCellReuseIdentifier: "buyLoanCell")
+        tableView.registerNib(UINib(nibName: "WXBuyLoanSelectCouponTableViewCell", bundle: nil), forCellReuseIdentifier: "buyCouponCell")
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = COLOR_LINE
@@ -33,6 +37,23 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.tableView.reloadData()
             }
         }
+        
+        print("userId: \(WXAccountManager.shareInstance().accountDetail?.userId)")
+        
+        WXUserManager.loadUserCouponList((WXAccountManager.shareInstance().accountDetail?.userId)!, userMonths: (loanDetail?.duration?.totalMonths) ?? 0, page: 0, pageSize: 10000) { (isSuccess, couponsList) in
+            self.couponList = couponsList
+        }
+        
+        let cancelButton = UIButton(frame:CGRectMake(0,0,40,40))
+        cancelButton.setTitle("取消", forState: .Normal)
+        cancelButton.titleLabel?.font = UIFont.systemFontOfSize(17.0)
+        cancelButton.setTitleColor(APP_THEME_COLOR, forState: .Normal)
+        cancelButton.addTarget(self, action: #selector(dismissCtl), forControlEvents: .TouchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelButton)
+    }
+    
+    func dismissCtl() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func setupFooterView() {
@@ -46,12 +67,13 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
         buyButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         buyButton.addTarget(self, action: #selector(buyAction), forControlEvents: .TouchUpInside)
         footerView.addSubview(buyButton)
+    
         
         self.tableView.tableFooterView = footerView
     }
     
     func buyAction() {
-        WXLoanManager.buyLoan(self.loanDetail!.loanId!, amount: buyAmount!, placementId: nil) { (isSuccess, retData) in
+        WXLoanManager.buyLoan(self.loanDetail!.loanId!, amount: buyAmount, placementId: self.selectedCoupon?.id) { (isSuccess, retData) in
             let webCtl = WXBuyLoanWebViewController()
             webCtl.htmlData = retData
             self.navigationController?.pushViewController(webCtl, animated: true)
@@ -59,15 +81,19 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
-            return 1
-        } else {
+        if section == 0 {
             return 2
+            
+        } else if section == 1 {
+            return 1
+            
+        } else {
+            return 1
         }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -106,9 +132,13 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
             incomeValueLabel = valueLabel
             valueLabel.textColor = APP_THEME_COLOR
             valueLabel.font = UIFont.systemFontOfSize(13.0)
-            valueLabel.text = "0.0元"
             whiteBgView.addSubview(valueLabel)
             
+            let days = Float((self.loanDetail?.duration?.totalDays)!)/365.0
+            let perRate = Float((self.loanDetail!.rate)!)/10000.0
+            let total = (days * perRate) * Float(buyAmount)
+            let str = String(format: "%.2f", total)
+            incomeValueLabel!.text = "\(str)元"
             return headerView
         }
         return nil
@@ -121,14 +151,17 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
             let str = "\(self.loanDetail!.loanRequest!.minInvestAmount!)元起投"
             cell.contentTF.placeholder = str        
             cell.delegate = self
+            cell.accessoryType = .None
+
             return cell
             
-        } else  {
+        } else if indexPath.section == 0 {
             if indexPath.row == 1 {
                 let cell: WXBuyLoanTableViewCell = tableView.dequeueReusableCellWithIdentifier("buyLoanCell", forIndexPath: indexPath) as! WXBuyLoanTableViewCell
                 cell.typeLabel.text = "可购金额:"
                 cell.actionButton.hidden = true
                 cell.contentLabel.text = "\(loanDetail!.balance!)元"
+                cell.accessoryType = .None
                 return cell
                 
             } else {
@@ -136,19 +169,75 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.typeLabel.text = "账户余额:"
                 cell.actionButton.hidden = false
                 let totalRemaing = WXAccountManager.shareInstance().accountDetail?.userFundDetail?.availableAmount ?? 0
-                
+                cell.accessoryType = .None
                 cell.contentLabel.text = "\(totalRemaing)元"
                 return cell
-                
             }
             
+        } else {
+            let cell: WXBuyLoanSelectCouponTableViewCell = tableView.dequeueReusableCellWithIdentifier("buyCouponCell", forIndexPath: indexPath) as! WXBuyLoanSelectCouponTableViewCell
+            
+            if let coupon = self.selectedCoupon {
+                var str = coupon.friendlyParValue!
+                str += coupon.typeDesc
+                if let de = coupon.desc {
+                    if de.characters.count > 0 {
+                        str += " -- "
+                    }
+                    str += de
+                }
+                cell.couponTitleLabel.text = str
+
+            }
+            cell.accessoryType = .DisclosureIndicator
+            return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if indexPath.section == 2 {
+            self.view.endEditing(true)
+            var couponTitles: [String] = []
+            if let coupons = self.couponList {
+                for coupon in coupons {
+                    var str = coupon.friendlyParValue!
+                    str += coupon.typeDesc
+                    if let amount = coupon.minimumInvest {
+                        str += " -- 投资满\(amount)可用"
+                    }
+                    couponTitles.append(str)
+                }
+            }
+            couponTitles.append("暂不使用")
+            let actionSheet = LCActionSheet(title: "选择红包", buttonTitles: couponTitles, redButtonIndex: -1, clicked: { (index) in
+                if index == self.couponList?.count {
+                    self.selectedCoupon = nil
+                } else if index > self.couponList?.count {
+                    
+                } else {
+                    let coupon = self.couponList![index]
+                    if coupon.minimumInvest > self.buyAmount {
+                        print("投资金额低于红包最低使用金额")
+                    } else {
+                        self.selectedCoupon = coupon
+                    }
+                }
+                self.tableView.reloadData()
+            })
+
+            actionSheet.show()
         }
     }
     
     func updateBuyValue(value: NSString) {
-        if let value = Float(value as String) {
-            buyAmount = Int(value)
-            let total = Float(value * Float((loanDetail?.duration?.totalDays)!)/365 * Float((loanDetail?.rate)!)/10000)
+        if let v = Float(value as String) {
+            buyAmount = Int(v)
+            
+            let days = Float((self.loanDetail?.duration?.totalDays)!)/365.0
+            let perRate = Float((self.loanDetail!.rate)!)/10000.0
+            let total = (days * perRate) * Float(buyAmount)
             let str = String(format: "%.2f", total)
             incomeValueLabel!.text = "\(str)元"
         }

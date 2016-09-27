@@ -49,7 +49,7 @@ class WXUserCouponListViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func loadUserCoupons(type: String) {
-        WXUserManager.loadUserCouponList(WXAccountManager.shareInstance().accountDetail!.userId, type: type, page: 1, pageSize: 100) { (isSuccess, couponsList) in
+        WXUserManager.loadUserCouponList(WXAccountManager.shareInstance().accountDetail!.userId, type: type, page: 1, pageSize: 10000) { (isSuccess, couponsList) in
             if isSuccess {
                 self.dataSource = couponsList!
                 self.tableView.reloadData()
