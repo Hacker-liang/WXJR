@@ -68,7 +68,6 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
         buyButton.addTarget(self, action: #selector(buyAction), forControlEvents: .TouchUpInside)
         footerView.addSubview(buyButton)
     
-        
         self.tableView.tableFooterView = footerView
     }
     

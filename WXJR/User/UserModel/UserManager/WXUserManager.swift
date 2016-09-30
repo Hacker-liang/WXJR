@@ -210,6 +210,23 @@ class WXUserManager: NSObject {
         }
     }
 
+    class func userWithdraw(userId: String, amount: Double, bankAccount: NSString, type: NSString, completionBlock: (isSuccess: Bool, withdrawInfo: NSDictionary?) -> ()) {
+        let url = "\(baseUrl)payment/withdraw/request"
+        
+        let params = ["userId": userId, "withdraw": amount, "account": bankAccount, "cashChl": type, "payType": 1, "express": true];
+        WXNetworkingAPI.POST(url, params: params) { (retObject, error) in
+            if let retData = retObject as? NSDictionary {
+                if let successDic = retData.objectForKey("data") as? NSDictionary {
+                    completionBlock(isSuccess: true, withdrawInfo: successDic)
+                } else {
+                    completionBlock(isSuccess: false, withdrawInfo: nil)
+                    
+                }
+            } else {
+                completionBlock(isSuccess: false, withdrawInfo: nil)
+            }
+        }
+    }
 }
 
 

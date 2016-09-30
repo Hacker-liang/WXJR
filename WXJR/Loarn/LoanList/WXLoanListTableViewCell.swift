@@ -40,7 +40,7 @@ class WXLoanListTableViewCell: UITableViewCell {
     
     func renderView() {
         titleLabel.text = loanDetail?.title
-        totalPriceLabel.text = "总结额: \(loanDetail!.amount!)元"
+        totalPriceLabel.text = "总金额: \(loanDetail!.amount!)元"
         remainPriceLabel.text = "可投金额: \(loanDetail!.balance!)元"
         typeLabel.text = loanDetail!.payMethodDesc
         let rateValue: Float = Float(Float((loanDetail?.rate)!)/100.0)

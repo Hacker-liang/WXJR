@@ -54,6 +54,10 @@ class WXRootViewController: UITabBarController {
 //            self.gotoLogin()
             mineRootViewController.navigationController?.setNavigationBarHidden(true, animated: false)
         }
+        if item.isEqual(self.tabBar.items?.first) {
+            
+//            loanRecommentViewController.navigationController?.setNavigationBarHidden(true, animated: false)
+        }
     }
     
 }

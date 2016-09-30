@@ -63,6 +63,13 @@ class WXLoanListViewController: UIViewController, UITableViewDelegate, UITableVi
             self.tableView.mj_footer.endRefreshing()
         }
     }
+    
+    func buyLoanAction(sender: UIButton) {
+        let buyLoanCtl = WXBuyLoanViewController()
+        buyLoanCtl.loanDetail = dataSource[sender.tag]
+        self.presentViewController(UINavigationController(rootViewController: buyLoanCtl), animated: true, completion: nil)
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -91,6 +98,8 @@ class WXLoanListViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:WXLoanListTableViewCell = tableView.dequeueReusableCellWithIdentifier("loanListTableViewCell", forIndexPath: indexPath) as! WXLoanListTableViewCell
         cell.loanDetail = dataSource[indexPath.row]
+        cell.actionButton.tag = indexPath.row
+        cell.actionButton.addTarget(self, action: #selector(buyLoanAction), forControlEvents: .TouchUpInside)
         return cell
     }
     

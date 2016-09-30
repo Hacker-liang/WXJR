@@ -21,7 +21,7 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
         self.view.backgroundColor = APP_PAGE_COLOR
         
         self.navigationItem.title = "未馨金融"
-        self.tableView = UITableView(frame: CGRectMake(0, 0, kWindowWidth, kWindowHeight) , style:.Plain)
+        self.tableView = UITableView(frame: CGRectMake(0, 0, kWindowWidth, kWindowHeight) , style:.Grouped)
         self.tableView.backgroundColor = APP_PAGE_COLOR
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -38,8 +38,13 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         galleryView.scrollView.setContentOffset(CGPointZero, animated: true)
-        
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    
     
     func setupHeaderView() {
         let headerView = UIView()
@@ -92,6 +97,14 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
             return imageView
         }
     }
+    
+    
+    func buyLoanAction(sender: UIButton) {
+        let buyLoanCtl = WXBuyLoanViewController()
+        buyLoanCtl.loanDetail = dataSource[sender.tag]
+        self.presentViewController(UINavigationController(rootViewController: buyLoanCtl), animated: true, completion: nil)
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -138,6 +151,8 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:WXLoanListTableViewCell = tableView.dequeueReusableCellWithIdentifier("loanListTableViewCell", forIndexPath: indexPath) as! WXLoanListTableViewCell
         cell.loanDetail = dataSource[indexPath.row]
+        cell.actionButton.tag = indexPath.row
+        cell.actionButton.addTarget(self, action: #selector(buyLoanAction), forControlEvents: .TouchUpInside)
         return cell
     }
     

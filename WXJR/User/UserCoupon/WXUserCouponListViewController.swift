@@ -57,7 +57,6 @@ class WXUserCouponListViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -90,6 +89,7 @@ class WXUserCouponListViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
     }
 
     

@@ -146,6 +146,7 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         withdrawButton.setTitleColor(APP_THEME_COLOR, forState: .Normal)
         withdrawButton.backgroundColor = UIColor.whiteColor()
         withdrawButton.titleLabel?.font = UIFont.systemFontOfSize(17.0)
+        withdrawButton.addTarget(self, action: #selector(withdrawAction), forControlEvents: .TouchUpInside)
         tempBgView.addSubview(withdrawButton)
         
         let spaceView = UIView(frame: CGRectMake(kWindowWidth/2, 5, 0.5, 35))
@@ -175,6 +176,12 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func rechargeAction() {
         let ctl = WXRechargeViewController()
+        ctl.hidesBottomBarWhenPushed = true
+        self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
+    }
+    
+    func withdrawAction() {
+        let ctl = WXWithdrawViewController()
         ctl.hidesBottomBarWhenPushed = true
         self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
     }

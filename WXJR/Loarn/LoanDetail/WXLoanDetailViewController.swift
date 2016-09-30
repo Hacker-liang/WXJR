@@ -46,8 +46,10 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.updateContentView()
 
         WXLoanManager.loadLoanDetail(self.loanDetail!.loanId!) { (isSuccess, loanDetail) in
-            self.loanDetail = loanDetail
-            self.updateContentView()
+            if isSuccess {
+                self.loanDetail = loanDetail
+                self.updateContentView()
+            }
         }
         
         WXLoanManager.loadLoanProof((loanDetail?.loanRequest?.requestId)!) { (isSuccess, imageList) in
