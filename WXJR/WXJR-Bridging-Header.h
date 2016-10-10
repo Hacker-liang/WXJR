@@ -11,3 +11,5 @@
 #import "UIImageView+WebCache.h"
 #import "SDImageCache.h"
 #import "LCActionSheet.h"
+#import "WXHUD.h"
+#import "UIView+Toast.h"

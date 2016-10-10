@@ -21,6 +21,8 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
     var whiteBgView: UIView!
     var buyButton: UIButton!
     var stausLabel: UILabel!
+    
+    var shouldShowNaviBar = true
 
     var countdown = 0
     
@@ -44,20 +46,17 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.setupFooterView()
         self.setupToolBar()
         self.updateContentView()
-
-        WXLoanManager.loadLoanDetail(self.loanDetail!.loanId!) { (isSuccess, loanDetail) in
-            if isSuccess {
-                self.loanDetail = loanDetail
-                self.updateContentView()
-            }
-        }
-        
+        self.loadLoanDetail()
+       
         WXLoanManager.loadLoanProof((loanDetail?.loanRequest?.requestId)!) { (isSuccess, imageList) in
             if isSuccess {
                 self.loanImageList = imageList!
                 self.tableView.reloadData()
             }
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadLoanDetail), name: "buyLoanOver", object: nil)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,19 +67,41 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        self.shouldShowNaviBar = true
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
         UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
+        if self.shouldShowNaviBar {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+
+        }
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func loadLoanDetail() {
+        let hud = WXHUD()
+        hud.showHUDInView(self.view)
+        
+        WXLoanManager.loadLoanDetail(self.loanDetail!.loanId!) { (isSuccess, loanDetail) in
+            if isSuccess {
+                self.loanDetail = loanDetail
+                self.updateContentView()
+            }
+            hud.hideHUD()
+        }
+        
     }
     
     func setupNaviBar() {
         let naviView = UIView(frame: CGRectMake(0,0,kWindowWidth,64))
         naviView.backgroundColor = APP_THEME_COLOR
         
-        let backButton = UIButton(frame: CGRectMake(5,22,40, 40))
+        let backButton = UIButton(frame: CGRectMake(0,20,60, 44))
         backButton.setImage(UIImage(named: "icon_navi_back_white"), forState: .Normal)
         backButton.addTarget(self, action: #selector(dismissCtl), forControlEvents: .TouchUpInside)
         naviView.addSubview(backButton)
@@ -172,8 +193,6 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         whiteBgView.addSubview(spaceView2)
         
         self.tableView.tableHeaderView = headerView
-        
-        
     }
     
     func updateContentView() {
@@ -186,10 +205,12 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         if loanDetail!.status! == .kOPENED {
             buyButton.hidden = false
             stausLabel.hidden = true
+            expireTimeLabel.hidden = false
             
         } else {
             buyButton.hidden = true
             stausLabel.hidden = false
+            expireTimeLabel.hidden = true
             stausLabel.text = loanDetail?.statusDesc
         }
 
@@ -332,8 +353,8 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
     func buyLoanAction() {
         let buyLoanCtl = WXBuyLoanViewController()
         buyLoanCtl.loanDetail = loanDetail
+        shouldShowNaviBar = false
         self.presentViewController(UINavigationController(rootViewController: buyLoanCtl), animated: true, completion: nil)
-
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

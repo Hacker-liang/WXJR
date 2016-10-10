@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
         return true
     }
 
@@ -26,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
+        if WXAccountManager.shareInstance().userIsLoginIn() {
+            WXAccountManager.shareInstance().userSilentLogin()
+        }
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -34,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
     }
 
+    
 
 }
 

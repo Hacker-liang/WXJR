@@ -179,6 +179,12 @@
 		D92E4E541D98F5680081C5F3 /* NSString+UrlEncodeing.m in Sources */ = {isa = PBXBuildFile; fileRef = D92E4E531D98F5680081C5F3 /* NSString+UrlEncodeing.m */; };
 		D92E4E571D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E4E551D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.swift */; };
 		D92E4E581D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92E4E561D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.xib */; };
+		D951C6661DAB7FCF0098384C /* JHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D951C65D1DAB7FCF0098384C /* JHUD.m */; };
+		D951C6671DAB7FCF0098384C /* JHUDAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D951C65F1DAB7FCF0098384C /* JHUDAnimationView.m */; };
+		D951C6681DAB7FCF0098384C /* UIImage+JHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D951C6611DAB7FCF0098384C /* UIImage+JHUD.m */; };
+		D951C6691DAB7FCF0098384C /* UIView+JHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D951C6631DAB7FCF0098384C /* UIView+JHUD.m */; };
+		D951C66A1DAB7FCF0098384C /* WXHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D951C6651DAB7FCF0098384C /* WXHUD.m */; };
+		D951C66E1DAB8B3C0098384C /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = D951C66D1DAB8B3C0098384C /* UIView+Toast.m */; };
 		D95FD6DA1D7580CF009CC8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */; };
 		D95FD6E31D7580CF009CC8B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */; };
 		D95FD6E61D7580CF009CC8B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E41D7580CF009CC8B2 /* LaunchScreen.storyboard */; };
@@ -401,6 +407,18 @@
 		D92E4E531D98F5680081C5F3 /* NSString+UrlEncodeing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UrlEncodeing.m"; sourceTree = "<group>"; };
 		D92E4E551D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXBuyLoanSelectCouponTableViewCell.swift; sourceTree = "<group>"; };
 		D92E4E561D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXBuyLoanSelectCouponTableViewCell.xib; sourceTree = "<group>"; };
+		D951C65C1DAB7FCF0098384C /* JHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHUD.h; sourceTree = "<group>"; };
+		D951C65D1DAB7FCF0098384C /* JHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHUD.m; sourceTree = "<group>"; };
+		D951C65E1DAB7FCF0098384C /* JHUDAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHUDAnimationView.h; sourceTree = "<group>"; };
+		D951C65F1DAB7FCF0098384C /* JHUDAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHUDAnimationView.m; sourceTree = "<group>"; };
+		D951C6601DAB7FCF0098384C /* UIImage+JHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JHUD.h"; sourceTree = "<group>"; };
+		D951C6611DAB7FCF0098384C /* UIImage+JHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JHUD.m"; sourceTree = "<group>"; };
+		D951C6621DAB7FCF0098384C /* UIView+JHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JHUD.h"; sourceTree = "<group>"; };
+		D951C6631DAB7FCF0098384C /* UIView+JHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JHUD.m"; sourceTree = "<group>"; };
+		D951C6641DAB7FCF0098384C /* WXHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXHUD.h; sourceTree = "<group>"; };
+		D951C6651DAB7FCF0098384C /* WXHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXHUD.m; sourceTree = "<group>"; };
+		D951C66C1DAB8B3C0098384C /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		D951C66D1DAB8B3C0098384C /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		D95FD6D61D7580CF009CC8B2 /* WXJR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WXJR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -823,6 +841,32 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		D951C65B1DAB7FCF0098384C /* JHUD */ = {
+			isa = PBXGroup;
+			children = (
+				D951C65C1DAB7FCF0098384C /* JHUD.h */,
+				D951C65D1DAB7FCF0098384C /* JHUD.m */,
+				D951C65E1DAB7FCF0098384C /* JHUDAnimationView.h */,
+				D951C65F1DAB7FCF0098384C /* JHUDAnimationView.m */,
+				D951C6601DAB7FCF0098384C /* UIImage+JHUD.h */,
+				D951C6611DAB7FCF0098384C /* UIImage+JHUD.m */,
+				D951C6621DAB7FCF0098384C /* UIView+JHUD.h */,
+				D951C6631DAB7FCF0098384C /* UIView+JHUD.m */,
+				D951C6641DAB7FCF0098384C /* WXHUD.h */,
+				D951C6651DAB7FCF0098384C /* WXHUD.m */,
+			);
+			path = JHUD;
+			sourceTree = "<group>";
+		};
+		D951C66B1DAB8B3C0098384C /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				D951C66C1DAB8B3C0098384C /* UIView+Toast.h */,
+				D951C66D1DAB8B3C0098384C /* UIView+Toast.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		D95FD6CD1D7580CF009CC8B2 = {
 			isa = PBXGroup;
 			children = (
@@ -888,6 +932,8 @@
 		D95FD70F1D7669BA009CC8B2 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				D951C66B1DAB8B3C0098384C /* Toast */,
+				D951C65B1DAB7FCF0098384C /* JHUD */,
 				D909A51F1D922E7900D4784A /* SKPhotoBrowser */,
 				D909A4DB1D8FCA6800D4784A /* BTNavigationDropdownMenu */,
 				D909A3C21D7E69F100D4784A /* AutoSlideScrollView */,
@@ -1284,10 +1330,12 @@
 			files = (
 				D909A5451D922E7900D4784A /* SKPhoto.swift in Sources */,
 				D909A5371D922E7900D4784A /* UIImage+Rotation.swift in Sources */,
+				D951C6661DAB7FCF0098384C /* JHUD.m in Sources */,
 				D92E4E541D98F5680081C5F3 /* NSString+UrlEncodeing.m in Sources */,
 				D909A53B1D922E7900D4784A /* SKButtons.swift in Sources */,
 				D909A5431D922E7900D4784A /* SKMesurement.swift in Sources */,
 				D909A4CC1D88F86700D4784A /* WXUserFundDetail.swift in Sources */,
+				D951C6691DAB7FCF0098384C /* UIView+JHUD.m in Sources */,
 				D909A3E21D7EDA1F00D4784A /* WXUserInvestRecordViewController.swift in Sources */,
 				D909A49D1D80F56900D4784A /* WXUserBankInfoTableViewCell.swift in Sources */,
 				D909A3BC1D7D5DAE00D4784A /* WXUserSignupViewController.swift in Sources */,
@@ -1313,6 +1361,7 @@
 				D909A4D11D8E3B5100D4784A /* WXInvestModel.swift in Sources */,
 				D909A5441D922E7900D4784A /* SKPagingScrollView.swift in Sources */,
 				D909A4C11D8290CA00D4784A /* WXLoanDetailModel.swift in Sources */,
+				D951C66A1DAB7FCF0098384C /* WXHUD.m in Sources */,
 				D95FD7231D7674A7009CC8B2 /* WXUserManager.swift in Sources */,
 				D909A49F1D80F56900D4784A /* WXUserBankInfoViewController.swift in Sources */,
 				D909A54A1D922E7900D4784A /* SKToolbar.swift in Sources */,
@@ -1339,6 +1388,7 @@
 				D909A53E1D922E7900D4784A /* SKCaptionView.swift in Sources */,
 				D9BD0A801D9A5C40007640D3 /* WXRechargeViewController.swift in Sources */,
 				D9BD0A931D9B5C1E007640D3 /* WXWithdrawWebViewController.swift in Sources */,
+				D951C66E1DAB8B3C0098384C /* UIView+Toast.m in Sources */,
 				D909A54B1D922E7900D4784A /* SKZoomingScrollView.swift in Sources */,
 				D909A3B61D7D5D3700D4784A /* WXUserLoginViewController.swift in Sources */,
 				D909A53F1D922E7900D4784A /* SKDetectingImageView.swift in Sources */,
@@ -1349,6 +1399,7 @@
 				D909A3CC1D7E69F100D4784A /* MyPageControl.m in Sources */,
 				D909A4E31D90E8B600D4784A /* WXLoanRequestDetail.swift in Sources */,
 				D909A4E61D9104C300D4784A /* WXCommonMethods.m in Sources */,
+				D951C6671DAB7FCF0098384C /* JHUDAnimationView.m in Sources */,
 				D909A4D61D8E973300D4784A /* WXUserFundRecordModel.swift in Sources */,
 				D909A5381D922E7900D4784A /* UIView+Radius.swift in Sources */,
 				D909A5571D9233FD00D4784A /* WXBuyLoanTableViewCell.swift in Sources */,
@@ -1359,6 +1410,7 @@
 				D909A5471D922E7900D4784A /* SKPhotoBrowser.swift in Sources */,
 				D909A53D1D922E7900D4784A /* SKCacheable.swift in Sources */,
 				D909A5411D922E7900D4784A /* SKIndicatorView.swift in Sources */,
+				D951C6681DAB7FCF0098384C /* UIImage+JHUD.m in Sources */,
 				D909A4051D80050C00D4784A /* WXUserCouponTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

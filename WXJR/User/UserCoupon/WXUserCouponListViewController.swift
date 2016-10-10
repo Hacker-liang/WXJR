@@ -31,16 +31,17 @@ class WXUserCouponListViewController: UIViewController, UITableViewDelegate, UIT
         
         let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "现金券", items: items)
         menuView.cellHeight = 50
-        menuView.cellBackgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        menuView.cellBackgroundColor = UIColor.whiteColor()
         menuView.arrowTintColor = UIColor.blackColor()
         menuView.shouldKeepSelectedCellColor = true
-        menuView.cellTextLabelColor = UIColor.whiteColor()
+        menuView.cellTextLabelColor = COLOR_TEXT_I
         menuView.cellTextLabelFont = UIFont(name: "Avenir-Heavy", size: 17)
         menuView.cellTextLabelAlignment = .Left // .Center // .Right // .Left
         menuView.arrowPadding = 15
+        menuView.cellSeparatorColor = COLOR_LINE
         menuView.animationDuration = 0.3
-        menuView.maskBackgroundColor = UIColor.blackColor()
-        menuView.maskBackgroundOpacity = 0.3
+        menuView.maskBackgroundColor = UIColor.whiteColor()
+//        menuView.maskBackgroundOpacity = 0.3
         menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
             self.loadUserCoupons(self.couponTypes[indexPath])
         }

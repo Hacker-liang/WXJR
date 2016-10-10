@@ -61,10 +61,12 @@ class WXUserLoginViewController: UIViewController {
     }
     
     @IBAction func gotoLogin(sender: AnyObject) {
-        
+        self.view.endEditing(true)
         WXAccountManager.shareInstance().userLogin(nicknameTF.text!, password: passwordTF.text!) { (isSuccess, errorStr) in
             if isSuccess {
                 self.dismissCtl()
+            } else {
+                self.view.makeToast("登录失败")
             }
         }
     }

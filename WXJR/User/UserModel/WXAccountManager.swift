@@ -60,8 +60,12 @@ class WXAccountManager: NSObject {
                     print("temp: \(tempDic)")
                     let userDefault = NSUserDefaults.standardUserDefaults()
                     userDefault.setObject(tempDic, forKey: kLastAccountCacheInfo)
+                    let passwordDic = ["loginName": nickName, "password": password]
+                    userDefault.setObject(passwordDic, forKey: kLastAccountPasswordInfo)
+
                     userDefault.synchronize()
                     completionBlock(isSuccess: true, errorStr: nil)
+                    
                     
                 } else {
                     completionBlock(isSuccess: false, errorStr: nil)
@@ -72,8 +76,21 @@ class WXAccountManager: NSObject {
         }
     }
     
+    //用户静默登录
+    func userSilentLogin() {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+
+        if let passwordInfo = userDefault.objectForKey(kLastAccountPasswordInfo) as? [String: String] {
+            self.userLogin(passwordInfo["loginName"]!, password: passwordInfo["password"]!, completionBlock: { (isSuccess, errorStr) in
+                
+            })
+        }
+    }
+    
     func userLogout(completionBlock: (isSuccess: Bool)->()) {
         self.accountDetail = nil
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        userDefault.setObject("", forKey: kLastAccountPasswordInfo)
         completionBlock(isSuccess: true)
     }
     

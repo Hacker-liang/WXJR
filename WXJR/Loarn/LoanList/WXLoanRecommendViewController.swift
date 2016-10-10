@@ -32,19 +32,18 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
         self.setupHeaderView()
         
         self.loadRecommendDataSource()
-        self.loadLoansDataSource()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         galleryView.scrollView.setContentOffset(CGPointZero, animated: true)
+        self.loadLoansDataSource()
+
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
     }
-    
-    
     
     func setupHeaderView() {
         let headerView = UIView()

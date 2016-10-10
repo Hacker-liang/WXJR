@@ -29,6 +29,7 @@ let baseUrl = "http://wrzb.uats.cc/api/v2/"
 //let baseUrl = "https://www.wxfintech.com/api/v2/"
 
 let kLastAccountCacheInfo = "LastAccountCacheInfo"
+let kLastAccountPasswordInfo = "LastAccountPasswordInfo"        //  {"loginName": "", "password": ""}
 
 class Constants {
     

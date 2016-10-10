@@ -38,6 +38,7 @@ class WXBuyLoanWebViewController: UIViewController, UIWebViewDelegate {
         if let urlStr = request.URL?.absoluteString {
             if urlStr.containsString("/payment/ios/myiosFunction") {
                 self.dismissViewControllerAnimated(true, completion: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("buyLoanOver", object: nil)
             }
         }
         return true
