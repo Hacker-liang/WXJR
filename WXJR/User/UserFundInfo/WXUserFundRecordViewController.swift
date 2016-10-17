@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WXUserFundRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WXUserFundRecordViewController: WXViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -42,6 +42,9 @@ class WXUserFundRecordViewController: UIViewController, UITableViewDelegate, UIT
             })
             self.tableView.hidden = false
         })
+        (self.tableView.mj_header as! MJRefreshNormalHeader).lastUpdatedTimeLabel.hidden = true;
+        (self.tableView.mj_header as! MJRefreshNormalHeader).stateLabel.textColor = COLOR_TEXT_III;
+
         self.tableView.mj_header.beginRefreshing()
         
         self.tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreFundRecordData))

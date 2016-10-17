@@ -12,7 +12,8 @@ class WXWithdrawWebViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView!
     var htmlData: NSDictionary?
-    
+    var hud: WXHUD?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,11 +24,11 @@ class WXWithdrawWebViewController: UIViewController, UIWebViewDelegate {
             request.HTTPBody = bodyData
         }
         
-        request.URL = NSURL(string: "http://mertest.chinapnr.com/muser/publicRequests")
-        //        request.URL = NSURL(string: "https://lab.chinapnr.com/muser/publicRequests")
+        request.URL = NSURL(string: huifuRequestUrl)
         
         webView.loadRequest(request)
         webView.delegate = self
+        self.navigationItem.title = "提现"
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,5 +45,19 @@ class WXWithdrawWebViewController: UIViewController, UIWebViewDelegate {
         return true
     }
     
+    func webViewDidStartLoad(webView: UIWebView) {
+        if hud != nil {
+            hud?.hideHUD()
+            
+        }
+        hud = WXHUD()
+        hud?.showHUDInView(self.view)
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        if hud != nil {
+            hud?.hideHUD()
+        }
+    }
     
 }

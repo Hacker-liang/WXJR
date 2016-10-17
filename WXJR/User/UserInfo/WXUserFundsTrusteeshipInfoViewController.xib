@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -10,6 +10,7 @@
                 <outlet property="accountLabel" destination="aGG-z4-27u" id="15q-HF-uIB"/>
                 <outlet property="contentView" destination="bwb-il-LfH" id="QUs-Of-LVP"/>
                 <outlet property="nicknameLabel" destination="W7x-5V-XWf" id="wng-C7-RjN"/>
+                <outlet property="titleLabel" destination="iSv-M7-c6K" id="Jgc-iA-fKX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,7 +29,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwb-il-LfH">
-                    <rect key="frame" x="8" y="137" width="584" height="84"/>
+                    <rect key="frame" x="8" y="128" width="584" height="84"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资金托管账户：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aZ-5g-JK4">
                             <rect key="frame" x="8" y="8" width="110" height="30"/>
@@ -88,7 +89,7 @@
             <color key="backgroundColor" red="0.96078431369999995" green="0.95686274510000002" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="iSv-M7-c6K" secondAttribute="trailing" constant="12" id="7rg-a8-4bZ"/>
-                <constraint firstItem="bwb-il-LfH" firstAttribute="top" secondItem="iSv-M7-c6K" secondAttribute="bottom" constant="8" id="HIk-4E-R9s"/>
+                <constraint firstItem="bwb-il-LfH" firstAttribute="top" secondItem="iSv-M7-c6K" secondAttribute="bottom" constant="-1" id="HIk-4E-R9s"/>
                 <constraint firstAttribute="trailing" secondItem="bwb-il-LfH" secondAttribute="trailing" constant="8" id="SZU-Ta-rSP"/>
                 <constraint firstItem="bwb-il-LfH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="erU-tT-OeU"/>
                 <constraint firstItem="iSv-M7-c6K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="fZ7-jU-Fy8"/>

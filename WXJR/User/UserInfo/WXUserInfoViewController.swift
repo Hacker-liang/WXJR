@@ -8,11 +8,11 @@
 
 import UIKit
 
-class WXUserInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WXUserInfoViewController: WXViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSource = [["用户名", "手机号", "重设密码"]]
+    var dataSource = [["用户名", "手机号"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,13 +81,13 @@ class WXUserInfoViewController: UIViewController, UITableViewDataSource, UITable
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 cell.titleLabel.text = "用户名"
-                cell.contentLabel.text = "heheceo"
+                cell.contentLabel.text = WXAccountManager.shareInstance().accountDetail?.nickname
                 cell.accessoryType = .None
                 
             }
             if indexPath.row == 1 {
                 cell.titleLabel.text = "手机号"
-                cell.contentLabel.text = "18600441776"
+                cell.contentLabel.text = WXAccountManager.shareInstance().accountDetail?.mobile
                 cell.accessoryType = .None
                 
             }

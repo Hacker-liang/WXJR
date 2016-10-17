@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIAlertViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -36,9 +36,23 @@ class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITable
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelButton)
         
         self.setupFooterView()
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         WXUserManager.loadUserBankInfoList(WXAccountManager.shareInstance().accountDetail!.userId) { (isSuccess, bankInfoList) in
             if isSuccess {
+                if bankInfoList?.count == 0 {
+                    let alertView = UIAlertView(title: "您未绑定银行卡,请立即绑定", message: "", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "绑定")
+                    alertView.showAlertViewWithBlock({ (index) in
+                        if index == 1 {
+                            let ctl = WXBindBankWebViewController()
+                            ctl.hidesBottomBarWhenPushed = true
+                            self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
+                        }
+                    })
+                    return
+                }
                 for bankInfo in bankInfoList! {
                     if bankInfo.defaultAccount! {
                         self.cardNumber = bankInfo.accountNo
@@ -47,8 +61,6 @@ class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITable
                 }
             }
         }
-
-        
     }
     
     func dismissCtl() {
@@ -76,7 +88,8 @@ class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func confirmButtonAction() {
-        WXUserManager.userWithdraw((WXAccountManager.shareInstance().accountDetail?.userId)!, amount: amount, bankAccount: self.cardNumber!, type: "GENERAL") { (isSuccess, withdrawInfo) in
+        self.view.endEditing(true)
+        WXUserManager.userWithdraw((WXAccountManager.shareInstance().accountDetail?.userId)!, amount: self.amount, bankAccount: self.cardNumber!, type: "GENERAL") { (isSuccess, withdrawInfo) in
             if isSuccess {
                 let ctl = WXWithdrawWebViewController()
                 ctl.htmlData = withdrawInfo

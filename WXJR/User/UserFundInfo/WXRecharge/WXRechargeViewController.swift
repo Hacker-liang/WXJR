@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WXRechargeViewController: UIViewController {
+class WXRechargeViewController: UIViewController, UIAlertViewDelegate {
 
     @IBOutlet weak var valueTF: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
@@ -41,15 +41,21 @@ class WXRechargeViewController: UIViewController {
     }
     
     @IBAction func rechargeAction(sender: AnyObject) {
-        
-        let value = Int(valueTF.text ?? "0") ?? 0
+        self.view.endEditing(true)
+        let hud = WXHUD()
+        hud.showHUDInView(self.view)
+        let value = Int(self.valueTF.text ?? "0") ?? 0
         WXUserManager.userRecharge((WXAccountManager.shareInstance().accountDetail?.userId)!, amount: value) { (isSuccess, rechargeInfo) in
+            hud.hideHUD()
             if isSuccess {
                 let ctl = WXRechargeWebViewController()
                 ctl.htmlData = rechargeInfo
                 self.navigationController?.pushViewController(ctl, animated: true)
+            } else {
+                self.view.makeToast("网络请求失败，请重试")
             }
         }
+
     }
 }
 

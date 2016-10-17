@@ -10,6 +10,7 @@ import UIKit
 
 class WXRechargeWebViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var webView: UIWebView!
+    var hud: WXHUD?
 
     var htmlData: NSDictionary?
 
@@ -23,11 +24,11 @@ class WXRechargeWebViewController: UIViewController, UIWebViewDelegate {
             request.HTTPBody = bodyData
         }
         
-        request.URL = NSURL(string: "http://mertest.chinapnr.com/muser/publicRequests")
-//        request.URL = NSURL(string: "https://lab.chinapnr.com/muser/publicRequests")
+        request.URL = NSURL(string: huifuRequestUrl)
         
         webView.loadRequest(request)
         webView.delegate = self
+        self.navigationItem.title = "充值"
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,6 +43,21 @@ class WXRechargeWebViewController: UIViewController, UIWebViewDelegate {
             }
         }
         return true
+    }
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        if hud != nil {
+            hud?.hideHUD()
+            
+        }
+        hud = WXHUD()
+        hud?.showHUDInView(self.view)
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        if hud != nil {
+            hud?.hideHUD()
+        }
     }
 
 

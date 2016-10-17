@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WXBuyLoanBuyTableViewCellDelegate, LCActionSheetDelegate {
+class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WXBuyLoanBuyTableViewCellDelegate, LCActionSheetDelegate, UIAlertViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -74,6 +74,12 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func buyAction() {
+        self.view.endEditing(true)
+        let totalRemaing = WXAccountManager.shareInstance().accountDetail?.userFundDetail?.availableAmount ?? 0
+        if Double(self.buyAmount) > totalRemaing {
+            self.view.makeToast("账户余额不足，请先充值")
+            return
+        }
         if self.buyAmount < self.loanDetail!.loanRequest!.minInvestAmount! {
             self.view.makeToast("投资金额低于最低起投金额")
             return
@@ -86,9 +92,28 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func chargeMoneyAction() {
-        let ctl = WXRechargeViewController()
-        ctl.hidesBottomBarWhenPushed = true
-        self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
+        let hud = WXHUD()
+        hud.showHUDInView(self.view)
+        WXUserManager.loadUserFundsTrusteeshipAccount(WXAccountManager.shareInstance().accountDetail!.userId) { (isSuccess, accountInfo) in
+
+            hud.hideHUD()
+            if isSuccess {
+                let ctl = WXRechargeViewController()
+                ctl.hidesBottomBarWhenPushed = true
+                self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
+            } else {
+                let alertView = UIAlertView(title: "您未开通托管帐号,请立即开通", message: "", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "开通")
+                alertView.showAlertViewWithBlock({ (index) in
+                    if index == 1 {
+                        let ctl = WXOpenFundWebViewController()
+                        ctl.hidesBottomBarWhenPushed = true
+                        self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
+                    }
+                })
+                
+            }
+        }
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -141,7 +166,7 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let valueLabel = UILabel(frame: CGRectMake(80,0,80,30))
             incomeValueLabel = valueLabel
-            valueLabel.textColor = APP_THEME_COLOR
+            valueLabel.textColor = COLOR_TEXT_II
             valueLabel.font = UIFont.systemFontOfSize(13.0)
             whiteBgView.addSubview(valueLabel)
             

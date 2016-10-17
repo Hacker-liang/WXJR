@@ -87,7 +87,6 @@ class WXUserManager: NSObject {
             } else {
                 completionBlock(isSuccess: false, fundRecordList: nil)
             }
-            
         }
     }
     
@@ -224,6 +223,40 @@ class WXUserManager: NSObject {
                 }
             } else {
                 completionBlock(isSuccess: false, withdrawInfo: nil)
+            }
+        }
+    }
+    
+    class func userGroupIsExist(groupCode: String, completionBlock:(isExist: Bool) -> ()) {
+        let url = "\(baseUrl)users/groupExist"
+        
+        let params = ["groupCode": groupCode]
+        WXNetworkingAPI.GET(url, params: params) { (retObject, error) in
+            if let retData = retObject as? NSDictionary {
+                if let success = retData.objectForKey("success") as? Bool {
+                    completionBlock(isExist: success)
+                } else {
+                    completionBlock(isExist: false)
+                }
+            } else {
+                completionBlock(isExist: false)
+            }
+        }
+    }
+    
+    class func userResetPassword(loginName: String, tel: String, completionBlock:(isSuccess: Bool) -> ()) {
+        let url = "\(baseUrl)resetPassword"
+        
+        let params = ["newPassword": loginName, "mobile": tel]
+        WXNetworkingAPI.POST(url, params: params) { (retObject, error) in
+            if let retData = retObject as? NSDictionary {
+                if let success = retData.objectForKey("success") as? Bool {
+                    completionBlock(isSuccess: success)
+                } else {
+                    completionBlock(isSuccess: false)
+                }
+            } else {
+                completionBlock(isSuccess: false)
             }
         }
     }

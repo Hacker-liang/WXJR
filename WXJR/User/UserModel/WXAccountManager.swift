@@ -21,8 +21,9 @@ class WXAccountManager: NSObject {
     
     override init() {
         let userDefault = NSUserDefaults.standardUserDefaults()
-        if let userInfo = userDefault.objectForKey(kLastAccountCacheInfo) as? NSDictionary {
-            self.accountDetail = WXAccountModel(json: userInfo)
+        let userInfo = userDefault.objectForKey(kLastAccountCacheInfo)
+        if let info = userInfo as? NSDictionary {
+            self.accountDetail = WXAccountModel(json: info)
         }
     }
     
@@ -41,31 +42,8 @@ class WXAccountManager: NSObject {
         WXNetworkingAPI.POST(url, params: params) { (responseObject, error) in
             if let obj = responseObject as? NSDictionary {
                 if (obj.objectForKey("success") as! Bool) {
-                    self.accountDetail = WXAccountModel(json: obj)
-                    
-                    let tempDic = obj.mutableCopy()
-                    for key in obj.allKeys {
-                        if (obj.objectForKey(key)!.isMemberOfClass(NSNull)) {
-                            tempDic.setValue("", forKey: key as! String)
-
-                        }
-                    }
-                    let userDic = (obj.objectForKey("user") as! NSDictionary).mutableCopy()
-                    for key in userDic.allKeys {
-                        if (userDic.objectForKey(key)!.isMemberOfClass(NSNull)) {
-                            userDic.setValue("", forKey: key as! String)
-                        }
-                    }
-                    tempDic.setValue(userDic, forKey: "user")
-                    print("temp: \(tempDic)")
-                    let userDefault = NSUserDefaults.standardUserDefaults()
-                    userDefault.setObject(tempDic, forKey: kLastAccountCacheInfo)
-                    let passwordDic = ["loginName": nickName, "password": password]
-                    userDefault.setObject(passwordDic, forKey: kLastAccountPasswordInfo)
-
-                    userDefault.synchronize()
+                    self.userDidLogin(nickName, password: password, obj: obj)
                     completionBlock(isSuccess: true, errorStr: nil)
-                    
                     
                 } else {
                     completionBlock(isSuccess: false, errorStr: nil)
@@ -74,6 +52,31 @@ class WXAccountManager: NSObject {
                 completionBlock(isSuccess: false, errorStr: nil)
             }
         }
+    }
+    
+    func userDidLogin(nickName: String, password: String, obj: NSDictionary) {
+        self.accountDetail = WXAccountModel(json: obj)
+        
+        let tempDic = obj.mutableCopy()
+        for key in obj.allKeys {
+            if (obj.objectForKey(key)!.isMemberOfClass(NSNull)) {
+                tempDic.setValue("", forKey: key as! String)
+            }
+        }
+        let userDic = (obj.objectForKey("user") as! NSDictionary).mutableCopy()
+        for key in userDic.allKeys {
+            if (userDic.objectForKey(key)!.isMemberOfClass(NSNull)) {
+                userDic.setValue("", forKey: key as! String)
+            }
+        }
+        tempDic.setValue(userDic, forKey: "user")
+        print("temp: \(tempDic)")
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        userDefault.setObject(tempDic, forKey: kLastAccountCacheInfo)
+        let passwordDic = ["loginName": nickName, "password": password]
+        userDefault.setObject(passwordDic, forKey: kLastAccountPasswordInfo)
+        userDefault.synchronize()
+
     }
     
     //用户静默登录
@@ -90,8 +93,26 @@ class WXAccountManager: NSObject {
     func userLogout(completionBlock: (isSuccess: Bool)->()) {
         self.accountDetail = nil
         let userDefault = NSUserDefaults.standardUserDefaults()
-        userDefault.setObject("", forKey: kLastAccountPasswordInfo)
+        userDefault.removeObjectForKey(kLastAccountPasswordInfo)
+        userDefault.removeObjectForKey(kLastAccountCacheInfo)
+        userDefault.synchronize()
         completionBlock(isSuccess: true)
+    }
+    
+    func userSignup(loginName: String, password: String, mobile: String, captcha: String, inviteCode: String, completionBlock: (isSuccess: Bool)->()) {
+        let url = "\(baseUrl)users/register"
+        let params = ["loginName": loginName, "mobile": mobile, "password":password, "enableGroup": true, "groupCode": inviteCode, "mobile_captcha": captcha];
+        WXNetworkingAPI.POST(url, params: params as [NSObject : AnyObject]) { (responseObject, error) in
+            if let objc = responseObject as? NSDictionary {
+                if let success = objc.objectForKey("success") as? Bool {
+                    completionBlock(isSuccess: success)
+                } else {
+                    completionBlock(isSuccess: false)
+                }
+            } else {
+                completionBlock(isSuccess: false)
+            }
+        }
     }
     
     func updateUserFundDate(completionBlock: (isSuccess: Bool)->()) {

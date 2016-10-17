@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
     
     var tableView: UITableView!
     var totalIncomeLabel: UILabel!
@@ -59,10 +59,18 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
         
-        WXAccountManager.shareInstance().updateUserFundDate { (isSuccess) in
-            self.updateUserFundPanel()
-        }
-        WXAccountManager.shareInstance().updateUserInvestDate { (isSuccess) in
+        if WXAccountManager.shareInstance().userIsLoginIn() {
+            WXAccountManager.shareInstance().updateUserFundDate { (isSuccess) in
+                if isSuccess {
+                    self.updateUserFundPanel()
+                }
+            }
+            WXAccountManager.shareInstance().updateUserInvestDate { (isSuccess) in
+                if isSuccess {
+                    self.updateUserFundPanel()
+                }
+            }
+        } else {
             self.updateUserFundPanel()
         }
     }
@@ -71,7 +79,6 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
-
     }
     
     func setupTableViewHeaderView() {
@@ -160,6 +167,13 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.tableHeaderView = headerView
     }
     
+    func gotoLogin() {
+        let ctl = WXUserLoginViewController()
+        self.presentViewController(UINavigationController(rootViewController: ctl), animated: true) {
+            ctl.view.makeToast("请先登录")
+        }
+    }
+    
     func updateUserFundPanel() {
         let totalIncome = WXAccountManager.shareInstance().accountDetail?.userInvestDetail?.investInterestAmount ?? 0
         totalIncomeLabel.text = "\(totalIncome)"
@@ -175,15 +189,54 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func rechargeAction() {
-        let ctl = WXRechargeViewController()
-        ctl.hidesBottomBarWhenPushed = true
-        self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
+        if !WXAccountManager.shareInstance().userIsLoginIn() {
+            self.gotoLogin()
+            return
+        }
+        self.checkUserHuifuAccount { (isActive) in
+            if isActive {
+                let ctl = WXRechargeViewController()
+                ctl.hidesBottomBarWhenPushed = true
+                self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
+            }
+        }
     }
     
     func withdrawAction() {
-        let ctl = WXWithdrawViewController()
-        ctl.hidesBottomBarWhenPushed = true
-        self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
+        if !WXAccountManager.shareInstance().userIsLoginIn() {
+            self.gotoLogin()
+            return
+        }
+        self.checkUserHuifuAccount { (isActive) in
+            if isActive {
+                let ctl = WXWithdrawViewController()
+                ctl.hidesBottomBarWhenPushed = true
+                self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
+    func checkUserHuifuAccount(completionBlock:(isActive: Bool) -> ()) {
+        let hud = WXHUD()
+        hud.showHUDInView(self.view)
+        WXUserManager.loadUserFundsTrusteeshipAccount(WXAccountManager.shareInstance().accountDetail!.userId) { (isSuccess, accountInfo) in
+            completionBlock(isActive: isSuccess)
+            hud.hideHUD()
+            if isSuccess {
+                
+            } else {
+                let alertView = UIAlertView(title: "您未开通托管帐号,请立即开通", message: "", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "开通")
+                alertView.showAlertViewWithBlock({ (index) in
+                    if index == 1 {
+                        let ctl = WXOpenFundWebViewController()
+                        ctl.hidesBottomBarWhenPushed = true
+                        self.presentViewController(UINavigationController(rootViewController: ctl), animated: true, completion: nil)
+                    }
+                })
+                
+            }
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -228,6 +281,11 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
+        if !WXAccountManager.shareInstance().userIsLoginIn() {
+            self.gotoLogin()
+            return
+        }
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 let ctl = WXUserInvestRecordViewController()

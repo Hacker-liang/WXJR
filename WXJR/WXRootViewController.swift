@@ -24,15 +24,21 @@ class WXRootViewController: UITabBarController {
     }
     
     func setupViewControllers() {
+        self.tabBar.tintColor = APP_THEME_COLOR;
+
         mineRootViewController = WXMineRootViewController()
         loanRecommentViewController = WXLoanRecommendViewController()
         loanListViewController = WXLoanListViewController()
         self.viewControllers = [UINavigationController(rootViewController: loanRecommentViewController), UINavigationController(rootViewController: loanListViewController), UINavigationController(rootViewController: mineRootViewController)]
         
         let titles = ["首页", "列表", "我的"]
+        let images = ["icon_tabbar_home_", "icon_tabbar_list_", "icon_tabbar_mine_"]
+
         var index = 0
         for tabbarItem in self.tabBar.items! {
             tabbarItem.title = titles[index]
+            tabbarItem.image = UIImage(named: "\(images[index])normal")
+            tabbarItem.image = UIImage(named: "\(images[index])selected")
             index += 1;
         }
     }

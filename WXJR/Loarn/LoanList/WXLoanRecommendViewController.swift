@@ -20,7 +20,7 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
         self.view.backgroundColor = APP_PAGE_COLOR
         
-        self.navigationItem.title = "未馨金融"
+        self.navigationItem.title = "首页"
         self.tableView = UITableView(frame: CGRectMake(0, 0, kWindowWidth, kWindowHeight) , style:.Grouped)
         self.tableView.backgroundColor = APP_PAGE_COLOR
         self.tableView.dataSource = self
@@ -38,7 +38,6 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
         super.viewWillAppear(animated)
         galleryView.scrollView.setContentOffset(CGPointZero, animated: true)
         self.loadLoansDataSource()
-
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -55,9 +54,9 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
         var offsetX:CGFloat = 30.0
         var index = 0
         for title in titles {
-            let imageView = UIImageView(frame: CGRectMake(offsetX, 180, width, width))
+            let imageView = UIImageView(frame: CGRectMake(offsetX, 155, width, width))
             imageView.image = UIImage(named: icons[index])
-            let titleLabel = UILabel(frame: CGRectMake(offsetX-10, 190+width, width+20, 20))
+            let titleLabel = UILabel(frame: CGRectMake(offsetX-10, 165+width, width+20, 20))
             titleLabel.text = title
             titleLabel.textAlignment = .Center
             titleLabel.font = UIFont.systemFontOfSize(13.0)
@@ -69,9 +68,10 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
         }
         
         headerView.backgroundColor = UIColor.whiteColor()
-        galleryView = AutoSlideScrollView(frame: CGRectMake(0,0, kWindowWidth, 160), animationDuration: 10)
+        galleryView = AutoSlideScrollView(frame: CGRectMake(0,0, kWindowWidth, 135), animationDuration: 10)
+        galleryView.shouldHidePageControl = true
         headerView.addSubview(galleryView)
-        headerView.frame = CGRectMake(0,64, kWindowWidth, (180 + width+40))
+        headerView.frame = CGRectMake(0,64, kWindowWidth, (155 + width+40))
 
         self.tableView.tableHeaderView = headerView
     }
@@ -87,18 +87,27 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
     
     func loadRecommendDataSource() {
         galleryView.totalPagesCount = {
-            return 4
+            return 1
         }
         
         galleryView.fetchContentViewAtIndex = {(pageIndex) in
             let imageView = UIImageView(frame: self.galleryView.bounds)
-            imageView.image = UIImage(named: "banner\(pageIndex+1).jpeg")
+            imageView.image = UIImage(named: "banner.jpg")
             return imageView
         }
     }
     
     
     func buyLoanAction(sender: UIButton) {
+        if !WXAccountManager.shareInstance().userIsLoginIn() {
+            
+            let ctl = WXUserLoginViewController()
+            self.presentViewController(UINavigationController(rootViewController: ctl), animated: true) {
+                ctl.view.makeToast("请先登录")
+            }
+            return
+            
+        }
         let buyLoanCtl = WXBuyLoanViewController()
         buyLoanCtl.loanDetail = dataSource[sender.tag]
         self.presentViewController(UINavigationController(rootViewController: buyLoanCtl), animated: true, completion: nil)

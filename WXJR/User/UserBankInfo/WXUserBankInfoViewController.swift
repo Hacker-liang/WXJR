@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WXUserBankInfoViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class WXUserBankInfoViewController: WXViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WXLoanListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WXLoanListViewController: WXViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -39,6 +39,10 @@ class WXLoanListViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.tableView.mj_header.endRefreshing()
             }
         })
+        (self.tableView.mj_header as! MJRefreshNormalHeader).lastUpdatedTimeLabel.hidden = true;
+        (self.tableView.mj_header as! MJRefreshNormalHeader).stateLabel.textColor = COLOR_TEXT_III;
+
+
         self.tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreLoan))
         self.loadLoansDataSource()
     }
@@ -65,6 +69,14 @@ class WXLoanListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func buyLoanAction(sender: UIButton) {
+        if !WXAccountManager.shareInstance().userIsLoginIn() {
+            let ctl = WXUserLoginViewController()
+            self.presentViewController(UINavigationController(rootViewController: ctl), animated: true) {
+                ctl.view.makeToast("请先登录")
+            }
+            return
+            
+        }
         let buyLoanCtl = WXBuyLoanViewController()
         buyLoanCtl.loanDetail = dataSource[sender.tag]
         self.presentViewController(UINavigationController(rootViewController: buyLoanCtl), animated: true, completion: nil)

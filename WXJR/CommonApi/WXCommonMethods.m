@@ -43,4 +43,11 @@
     return theImage;
 }
 
++ (BOOL)isCorrectPhoneNumber:(NSString *)phone {
+    NSString * regex0 = @"^1\\d{10}$";
+    
+    NSPredicate *pred0 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex0];
+    return [pred0 evaluateWithObject:phone];
+}
+
 @end

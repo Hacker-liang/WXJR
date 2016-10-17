@@ -12,7 +12,10 @@ class WXLoanManager: NSObject {
     
     class func loadRecommendLoanLis(completionBlock:(isSuccess: Bool, error: String?, retLoans: [WXLoanDetailModel]?)->()) {
         let url = "\(baseUrl)loans/summary"
-        WXNetworkingAPI.GET(url, params: ["status":"OPENED"]) { (retObj, error) in
+        let set = NSMutableSet()
+        set.addObject("OPENED")
+        set.addObject("SCHEDULED")
+        WXNetworkingAPI.GET(url, params: ["status":set]) { (retObj, error) in
             if let retDic = retObj as? NSDictionary {
                 var retArray: [WXLoanDetailModel] = []
                 if let loans = retDic.objectForKey("open") as? NSArray {

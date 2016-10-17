@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WXResetUserPasswordViewController: UIViewController {
+class WXResetUserPasswordViewController: WXViewController {
 
     @IBOutlet weak var oldPasswordTF: UITextField!
     @IBOutlet weak var newPasswordTF: UITextField!

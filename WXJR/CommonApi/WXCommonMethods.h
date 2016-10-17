@@ -15,4 +15,6 @@
 
 + (UIImage*)createImageWithColor: (UIColor*)color;
 
++ (BOOL)isCorrectPhoneNumber:(NSString *)phone;
+
 @end

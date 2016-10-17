@@ -22,11 +22,13 @@ let COLOR_TEXT_V: UIColor               = UIColorFromRGB(0xcdcdcd, alpha:1)
 let kWindowWidth = UIScreen.mainScreen().bounds.size.width
 let kWindowHeight = UIScreen.mainScreen().bounds.size.height
 
-let hostUrl = "http://wrzb.uats.cc/"
-let baseUrl = "http://wrzb.uats.cc/api/v2/"
+//let huifuRequestUrl = "http://mertest.chinapnr.com/muser/publicRequests"
+//let hostUrl = "http://wrzb.uats.cc/"
+//let baseUrl = "http://wrzb.uats.cc/api/v2/"
 
-//let hostUrl = "https://www.wxfintech.com/"
-//let baseUrl = "https://www.wxfintech.com/api/v2/"
+let huifuRequestUrl = "https://lab.chinapnr.com/muser/publicRequests"
+let hostUrl = "https://www.wxfintech.com/"
+let baseUrl = "https://www.wxfintech.com/api/v2/"
 
 let kLastAccountCacheInfo = "LastAccountCacheInfo"
 let kLastAccountPasswordInfo = "LastAccountPasswordInfo"        //  {"loginName": "", "password": ""}

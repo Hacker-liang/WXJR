@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
         return true
     }
 
@@ -27,16 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(application: UIApplication) {
         if WXAccountManager.shareInstance().userIsLoginIn() {
             WXAccountManager.shareInstance().userSilentLogin()
+            print("静默登录")
         }
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {
+        
     }
-
-    
 
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WXUserSignupViewController: UIViewController, UIActionSheetDelegate {
+class WXUserSignupViewController: UIViewController, UIActionSheetDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var nicknameTF: UITextField!
@@ -22,14 +22,18 @@ class WXUserSignupViewController: UIViewController, UIActionSheetDelegate {
         let leftView1 = UIView(frame: CGRectMake(0, 0, 10, 40))
         nicknameTF.leftView = leftView1
         nicknameTF.leftViewMode = .Always
+        nicknameTF.delegate = self
         
         let leftView2 = UIView(frame: CGRectMake(0, 0, 10, 40))
         passwordTF.leftView = leftView2
         passwordTF.leftViewMode = .Always
+        passwordTF.delegate = self
         
         let leftView3 = UIView(frame: CGRectMake(0, 0, 10, 40))
         inviteCodeTF.leftView = leftView3
         inviteCodeTF.leftViewMode = .Always
+        inviteCodeTF.delegate = self
+        
         
         nextButton.layer.cornerRadius = 5.0
         nextButton.clipsToBounds = true
@@ -65,8 +69,28 @@ class WXUserSignupViewController: UIViewController, UIActionSheetDelegate {
     }
     
     @IBAction func nextstepAction(sender: AnyObject) {
-        let checkUserPhoneCtl = WXCheckUserPhoneViewController()
-        self.navigationController?.pushViewController(checkUserPhoneCtl, animated: true)
+        self.view.endEditing(true)
+        if nicknameTF.text?.characters.count == 0 {
+            self.view.makeToast("请输入用户名")
+            return
+        }
+        if passwordTF.text?.characters.count == 0 {
+            self.view.makeToast("请输入密码")
+            return
+        }
+        WXUserManager.userGroupIsExist(inviteCodeTF.text ?? "") { (isExist) in
+            if isExist {
+                let checkUserPhoneCtl = WXCheckUserPhoneViewController()
+                self.navigationController?.pushViewController(checkUserPhoneCtl, animated: true)
+                checkUserPhoneCtl.loginName = self.nicknameTF.text
+                checkUserPhoneCtl.password = self.passwordTF.text
+                checkUserPhoneCtl.inviteCode = self.inviteCodeTF.text
+                
+            } else {
+                self.view.makeToast("无效邀请码")
+            }
+        }
+        
     }
     
     @IBAction func loginAction(sender: AnyObject) {
@@ -82,6 +106,16 @@ class WXUserSignupViewController: UIViewController, UIActionSheetDelegate {
         if buttonIndex == 1 {
             UIApplication.sharedApplication().openURL(NSURL(string :"tel://400-998-6623")!)
         }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == " "{
+            return false
+        }
+        if string == "\n" {
+            textField.endEditing(true)
+        }
+        return true
     }
     
 }

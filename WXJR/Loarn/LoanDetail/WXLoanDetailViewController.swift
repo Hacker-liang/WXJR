@@ -311,6 +311,7 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         spaceView.backgroundColor = APP_THEME_COLOR
         toolBar.addSubview(spaceView)
         
+        /*
         let chatButton = UIButton(frame: CGRectMake(0,0,80,50))
         chatButton.setTitle("在线\n客服", forState: .Normal)
         chatButton.titleLabel?.numberOfLines = 0
@@ -321,8 +322,10 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         let spaceView1 = UIView(frame: CGRectMake(80, 10, 0.5, 30))
         spaceView1.backgroundColor = COLOR_LINE
         toolBar.addSubview(spaceView1)
+ 
+        */
         
-        buyButton = UIButton(frame: CGRectMake(80,0,kWindowWidth-80,40))
+        buyButton = UIButton(frame: CGRectMake(0,0,kWindowWidth,40))
         buyButton.setTitle("立即购买", forState: .Normal)
         buyButton.titleLabel?.numberOfLines = 0
         buyButton.titleLabel?.font = UIFont.boldSystemFontOfSize(17.0)
@@ -330,13 +333,13 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         buyButton.addTarget(self, action: #selector(buyLoanAction), forControlEvents: .TouchUpInside)
         toolBar.addSubview(buyButton)
         
-        stausLabel = UILabel(frame: CGRectMake(80,0,kWindowWidth-80,50))
+        stausLabel = UILabel(frame: CGRectMake(buyButton.frame.origin.x,0,kWindowWidth-buyButton.frame.origin.x*2,50))
         stausLabel.textAlignment = .Center
         stausLabel.font = UIFont.systemFontOfSize(17)
         stausLabel.textColor = COLOR_TEXT_II
         toolBar.addSubview(stausLabel)
         
-        expireTimeLabel = UILabel(frame: CGRectMake(80,32, kWindowWidth-80, 18))
+        expireTimeLabel = UILabel(frame: CGRectMake(buyButton.frame.origin.x,32, kWindowWidth-buyButton.frame.origin.x*2, 18))
         expireTimeLabel.textColor = APP_THEME_COLOR.colorWithAlphaComponent(0.7)
         expireTimeLabel.textAlignment = .Center
         expireTimeLabel.font = UIFont.systemFontOfSize(11.5)
@@ -351,6 +354,14 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func buyLoanAction() {
+        if !WXAccountManager.shareInstance().userIsLoginIn() {
+            let ctl = WXUserLoginViewController()
+            self.presentViewController(UINavigationController(rootViewController: ctl), animated: true) {
+                ctl.view.makeToast("请先登录")
+            }
+            return
+            
+        }
         let buyLoanCtl = WXBuyLoanViewController()
         buyLoanCtl.loanDetail = loanDetail
         shouldShowNaviBar = false

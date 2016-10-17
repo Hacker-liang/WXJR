@@ -8,12 +8,12 @@
 
 import UIKit
 
-class WXUserCouponListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WXUserCouponListViewController: WXViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
     var dataSource:[WXUserCouponModel] = []
-    var couponTypes = ["CASH", "INTEREST", "PRINCIPAL", "REBATE"]
+    var couponTypes = ["INTEREST", "CASH", "PRINCIPAL", "REBATE"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +27,9 @@ class WXUserCouponListViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func setupMenuBar() {
-        let items = ["现金券", "加息券", "增值权", "返现券"]
+        let items = ["加息券", "现金券", "增值权", "返现券"]
         
-        let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "现金券", items: items)
+        let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: items.first!, items: items)
         menuView.cellHeight = 50
         menuView.cellBackgroundColor = UIColor.whiteColor()
         menuView.arrowTintColor = UIColor.blackColor()

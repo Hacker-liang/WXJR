@@ -13,3 +13,5 @@
 #import "LCActionSheet.h"
 #import "WXHUD.h"
 #import "UIView+Toast.h"
+#import "WXViewController.h"
+#import "UIAlertView+Block.h"

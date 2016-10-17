@@ -41,7 +41,7 @@ class WXLoanDetailModel: NSObject {
         case .kINITIATED:
                 statusDesc = "初始"
         case .kSCHEDULED:
-            statusDesc = "已安排"
+            statusDesc = "即将开始"
         case .kOPENED:
             statusDesc = "开放投标"
         case .kFAILED:

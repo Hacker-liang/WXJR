@@ -11,6 +11,7 @@ import UIKit
 class WXBuyLoanWebViewController: UIViewController, UIWebViewDelegate {
     
     var htmlData: NSDictionary?
+    var hud: WXHUD?
 
     @IBOutlet weak var webView: UIWebView!
     override func viewDidLoad() {
@@ -22,8 +23,7 @@ class WXBuyLoanWebViewController: UIViewController, UIWebViewDelegate {
             let bodyData = WXNetworkingAPI.enCodeHttpRequestBody(dic)
             request.HTTPBody = bodyData
         }
-        request.URL = NSURL(string: "http://mertest.chinapnr.com/muser/publicRequests")
-//        request.URL = NSURL(string: "https://lab.chinapnr.com/muser/publicRequests")
+        request.URL = NSURL(string: huifuRequestUrl)
 
         webView.loadRequest(request)
         webView.delegate = self
@@ -31,7 +31,6 @@ class WXBuyLoanWebViewController: UIViewController, UIWebViewDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -42,6 +41,21 @@ class WXBuyLoanWebViewController: UIViewController, UIWebViewDelegate {
             }
         }
         return true
+    }
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        if hud != nil {
+            hud?.hideHUD()
+           
+        }
+        hud = WXHUD()
+        hud?.showHUDInView(self.view)
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        if hud != nil {
+            hud?.hideHUD()
+        }
     }
 
 }
