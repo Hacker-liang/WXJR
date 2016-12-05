@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userLoanSettingDate" id="KGk-i7-Jjw" customClass="WXUserLoanSettingDateTableViewCell" customModule="WXJR" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限范围" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4Q-gf-l9t">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="4r3-U3-HRi"/>
+                            <constraint firstAttribute="width" constant="82" id="yo0-t0-jkM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="至" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqT-9P-3OS">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="56C-pg-FD6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="最低期限" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vmc-df-Fhu">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="4m2-EB-XHQ"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="最高期限" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kam-ap-wpx">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="54" id="RMG-0g-Iow"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vqT-9P-3OS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="1i4-am-GJn"/>
+                    <constraint firstItem="L4Q-gf-l9t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="4Uq-25-mBT"/>
+                    <constraint firstItem="kam-ap-wpx" firstAttribute="leading" secondItem="vqT-9P-3OS" secondAttribute="trailing" constant="-1" id="5EE-Md-aLy"/>
+                    <constraint firstAttribute="bottom" secondItem="L4Q-gf-l9t" secondAttribute="bottom" constant="11" id="7V4-e6-ogX"/>
+                    <constraint firstAttribute="bottom" secondItem="Vmc-df-Fhu" secondAttribute="bottom" constant="6" id="Aed-81-YBd"/>
+                    <constraint firstItem="Vmc-df-Fhu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="Dv6-v8-z1I"/>
+                    <constraint firstAttribute="bottom" secondItem="vqT-9P-3OS" secondAttribute="bottom" constant="11" id="JtN-bD-dWb"/>
+                    <constraint firstItem="L4Q-gf-l9t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Nsi-0R-rUp"/>
+                    <constraint firstAttribute="bottom" secondItem="kam-ap-wpx" secondAttribute="bottom" constant="5" id="RFi-RO-HPV"/>
+                    <constraint firstItem="kam-ap-wpx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="VM3-hK-zy6"/>
+                    <constraint firstAttribute="trailing" secondItem="kam-ap-wpx" secondAttribute="trailing" constant="13" id="iaN-Yd-KuD"/>
+                    <constraint firstItem="vqT-9P-3OS" firstAttribute="leading" secondItem="Vmc-df-Fhu" secondAttribute="trailing" constant="4" id="rcY-ag-JoG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="32" y="54"/>
+        </tableViewCell>
+    </objects>
+</document>

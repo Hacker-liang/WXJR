@@ -17,7 +17,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     if ([[WXAccountManager shareInstance] userIsLoginIn]) {
-        NSLog(@"access_token: %@", [WXAccountManager shareInstance].accountDetail.access_token);
+//        NSLog(@"access_token: %@", [WXAccountManager shareInstance].accountDetail.access_token);
         [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", [WXAccountManager shareInstance].accountDetail.access_token] forHTTPHeaderField:@"Authorization"];
     }
     
@@ -38,7 +38,6 @@
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 
-    
     if ([[WXAccountManager shareInstance] userIsLoginIn]) {
         NSLog(@"access_token: %@", [WXAccountManager shareInstance].accountDetail.access_token);
         [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", [WXAccountManager shareInstance].accountDetail.access_token] forHTTPHeaderField:@"Authorization"];

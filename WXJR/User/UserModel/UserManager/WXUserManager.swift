@@ -59,13 +59,14 @@ class WXUserManager: NSObject {
         let url = "\(baseUrl)user/\(userId)/funds"
         
         let dateLong = Int(NSDate().timeIntervalSince1970*1000)
-
+        let date: NSTimeInterval = 1442592000000;
+        
         let params = ["allOperation": "true",
                       "allStatus": "false",
                       "type": "ALL",
                       "page": page,
                       "pageSize": pageSize,
-                      "startDate": 1442592000000,
+                      "startDate": date,
                       "endDate": dateLong
                       ]
         
@@ -257,6 +258,57 @@ class WXUserManager: NSObject {
                 }
             } else {
                 completionBlock(isSuccess: false)
+            }
+        }
+    }
+    
+    class func setupUserLoanSetting(userId: String, isActive: Bool, autoBidAmount:Int, autoBidRemainAmount:Int, annualRateFrom:Int, annualRateTo: Int, durationFrom: Int, durationTo: Int, completionBlock:(isSuccess: Bool) -> ()) {
+//        let url = "\(baseUrl)user/MYSELF/save_autobid_config"
+        let url = "http://wrzb.uats.cc:8888/api/v2/user/\(userId)/save_autobid_config"
+
+//        let params = NSMutableDictionary()
+//        params.setObject(NSNumber(bool: isActive), forKey: "isActive")
+        let params = ["isActive": isActive]
+//        let params: [String: Any] = ["isActive": NSNumber(bool: isActive), "autoBidAmount": autoBidAmount, "autoBidRemainAmount": autoBidRemainAmount, "annualRateFrom": annualRateFrom, "annualRateTo": annualRateTo, "durationFrom": durationFrom, "durationTo": durationTo, "repaymentMethod": "MonthlyInterest,EqualInstallment,EqualPrincipal,BulletRepayment,EqualInterest,YearlyInterest"]
+        
+        WXNetworkingAPI.POST(url, params: params) { (retObject, error) in
+            if let retData = retObject as? NSDictionary {
+                if let success = retData.objectForKey("success") as? Bool {
+                    completionBlock(isSuccess: success)
+                } else {
+                    completionBlock(isSuccess: false)
+                }
+            } else {
+                completionBlock(isSuccess: false)
+            }
+        }
+    }
+    
+    class func loadUserLoanSetting(userId: String, completionBlock:(isSuccess: Bool) -> ()) {
+//        let url = "\(baseUrl)user/\(userId)/autobid_config"
+        let url  = "http://wrzb.uats.cc:8888/api/v2/user/\(userId)/autobid_config"
+        WXNetworkingAPI.GET(url, params: nil) { (retObject, error) in
+            
+        }
+    }
+    
+    class func openHuifuLoanSetting(userId: String, isActive: Bool, autoBidAmount:Int, completionBlock:(isSuccess: Bool, retData: NSDictionary?) -> ()) {
+        let url = "http://wrzb.uats.cc:8888/api/v2/payment/autotenderOpen/user/\(userId)"
+        
+        //        let params = NSMutableDictionary()
+        //        params.setObject(NSNumber(bool: isActive), forKey: "isActive")
+        let params = ["amount": 1000, "retUrl": "", "tenderPlanType": "W"]
+        
+        WXNetworkingAPI.POST(url, params: params) { (retObject, error) in
+            if let retData = retObject as? NSDictionary {
+                if let success = retData.objectForKey("success") as? Bool {
+                    completionBlock(isSuccess: success, retData: retData.objectForKey("data") as? NSDictionary)
+                    
+                } else {
+                    completionBlock(isSuccess: false, retData: nil)
+                }
+            } else {
+                completionBlock(isSuccess: false, retData:  nil)
             }
         }
     }

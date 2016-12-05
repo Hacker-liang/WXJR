@@ -25,7 +25,7 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         self.view.backgroundColor = APP_PAGE_COLOR
         
-        let bgView = UIImageView(frame:CGRectMake(0, 0, kWindowWidth, 320))
+        let bgView = UIImageView(frame:CGRectMake(0, 0, kWindowWidth, 235))
         bgView.image = UIImage(named: "icon_mine_bg")
         self.view.addSubview(bgView)
         
@@ -330,8 +330,8 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         let alpha = scrollView.contentOffset.y/100
         self.navigationView.alpha = alpha
         
-        if scrollView.contentOffset.y < -120 {
-            scrollView.contentOffset = CGPointMake(0, -120)
+        if scrollView.contentOffset.y < 0 {
+            scrollView.contentOffset = CGPointMake(0, 0)
         }
     }
 }

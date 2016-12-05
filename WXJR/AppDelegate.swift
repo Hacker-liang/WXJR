@@ -26,13 +26,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
-        if WXAccountManager.shareInstance().userIsLoginIn() {
-            WXAccountManager.shareInstance().userSilentLogin()
-            print("静默登录")
-        }
+        
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        if WXAccountManager.shareInstance().userIsLoginIn() {
+            WXAccountManager.shareInstance().userSilentLogin({ (isSuccess) in
+                if !isSuccess {
+                    print("登录信息已过期，需要重新登录")
+
+                    WXAccountManager.shareInstance().userLogout({ (isSuccess) in
+                        
+                    })
+                }
+            })
+            print("静默登录")
+        }
         
     }
 

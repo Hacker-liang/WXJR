@@ -70,7 +70,7 @@ class WXAccountManager: NSObject {
             }
         }
         tempDic.setValue(userDic, forKey: "user")
-        print("temp: \(tempDic)")
+//        print("temp: \(tempDic)")
         let userDefault = NSUserDefaults.standardUserDefaults()
         userDefault.setObject(tempDic, forKey: kLastAccountCacheInfo)
         let passwordDic = ["loginName": nickName, "password": password]
@@ -80,12 +80,12 @@ class WXAccountManager: NSObject {
     }
     
     //用户静默登录
-    func userSilentLogin() {
+    func userSilentLogin(completionBlock: (isSuccess: Bool) -> ()) {
         let userDefault = NSUserDefaults.standardUserDefaults()
 
         if let passwordInfo = userDefault.objectForKey(kLastAccountPasswordInfo) as? [String: String] {
             self.userLogin(passwordInfo["loginName"]!, password: passwordInfo["password"]!, completionBlock: { (isSuccess, errorStr) in
-                
+                completionBlock(isSuccess: isSuccess)
             })
         }
     }
@@ -102,6 +102,7 @@ class WXAccountManager: NSObject {
     func userSignup(loginName: String, password: String, mobile: String, captcha: String, inviteCode: String, completionBlock: (isSuccess: Bool)->()) {
         let url = "\(baseUrl)users/register"
         let params = ["loginName": loginName, "mobile": mobile, "password":password, "enableGroup": true, "groupCode": inviteCode, "mobile_captcha": captcha];
+    
         WXNetworkingAPI.POST(url, params: params as [NSObject : AnyObject]) { (responseObject, error) in
             if let objc = responseObject as? NSDictionary {
                 if let success = objc.objectForKey("success") as? Bool {

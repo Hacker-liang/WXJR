@@ -141,7 +141,7 @@ class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITable
             } else if indexPath.row == 1 {
                 let cell: WXWithdrawSelectionTableViewCell = tableView.dequeueReusableCellWithIdentifier("withdrawSelectionCell", forIndexPath: indexPath) as! WXWithdrawSelectionTableViewCell
                 cell.titleLabel.text = "提现银行卡:"
-                print("card: \(self.cardNumber)")
+//                print("card: \(self.cardNumber)")
                 if let number = self.cardNumber {
                     cell.contentLabel.text = number
                 }

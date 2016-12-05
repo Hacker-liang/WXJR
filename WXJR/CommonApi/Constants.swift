@@ -21,7 +21,7 @@ let COLOR_TEXT_V: UIColor               = UIColorFromRGB(0xcdcdcd, alpha:1)
 
 let kWindowWidth = UIScreen.mainScreen().bounds.size.width
 let kWindowHeight = UIScreen.mainScreen().bounds.size.height
-
+//
 //let huifuRequestUrl = "http://mertest.chinapnr.com/muser/publicRequests"
 //let hostUrl = "http://wrzb.uats.cc/"
 //let baseUrl = "http://wrzb.uats.cc/api/v2/"
@@ -50,8 +50,6 @@ class Constants {
         formatter.timeZone = NSTimeZone.systemTimeZone()
         return formatter.stringFromDate(date)
     }
-
-    
 }
 
 func UIColorFromRGB(rgb: Int, alpha: Float) -> UIColor {
@@ -62,3 +60,5 @@ func UIColorFromRGB(rgb: Int, alpha: Float) -> UIColor {
     
     return UIColor(red: red, green: green, blue: blue, alpha: alpha)
 }
+
+

@@ -196,6 +196,18 @@
 		D951C6881DB0CEC90098384C /* WXUserResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D951C6861DB0CEC90098384C /* WXUserResetPasswordViewController.xib */; };
 		D951C68B1DB0D2320098384C /* WXUserResetPasswordWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D951C6891DB0D2320098384C /* WXUserResetPasswordWebViewController.swift */; };
 		D951C68C1DB0D2320098384C /* WXUserResetPasswordWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D951C68A1DB0D2320098384C /* WXUserResetPasswordWebViewController.xib */; };
+		D95475441DC077C10084164F /* WXUserLoanSettingOpenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95475421DC077C10084164F /* WXUserLoanSettingOpenTableViewCell.swift */; };
+		D95475451DC077C10084164F /* WXUserLoanSettingOpenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95475431DC077C10084164F /* WXUserLoanSettingOpenTableViewCell.xib */; };
+		D95475481DC07FB20084164F /* WXUserLoanSettingRateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95475461DC07FB20084164F /* WXUserLoanSettingRateTableViewCell.swift */; };
+		D95475491DC07FB20084164F /* WXUserLoanSettingRateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95475471DC07FB20084164F /* WXUserLoanSettingRateTableViewCell.xib */; };
+		D954754C1DC083230084164F /* WXUserLoanSettingDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954754A1DC083230084164F /* WXUserLoanSettingDateTableViewCell.swift */; };
+		D954754D1DC083230084164F /* WXUserLoanSettingDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D954754B1DC083230084164F /* WXUserLoanSettingDateTableViewCell.xib */; };
+		D95475501DC084E90084164F /* WXUserLoanSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954754E1DC084E90084164F /* WXUserLoanSettingViewController.swift */; };
+		D95475511DC084E90084164F /* WXUserLoanSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D954754F1DC084E90084164F /* WXUserLoanSettingViewController.xib */; };
+		D95475541DC086150084164F /* WXUserLoanSettingMoneyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95475521DC086150084164F /* WXUserLoanSettingMoneyTableViewCell.swift */; };
+		D95475551DC086150084164F /* WXUserLoanSettingMoneyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95475531DC086150084164F /* WXUserLoanSettingMoneyTableViewCell.xib */; };
+		D95475581DC092D80084164F /* WXUserLoanSettingProofWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95475561DC092D80084164F /* WXUserLoanSettingProofWebViewController.swift */; };
+		D95475591DC092D80084164F /* WXUserLoanSettingProofWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95475571DC092D80084164F /* WXUserLoanSettingProofWebViewController.xib */; };
 		D95FD6DA1D7580CF009CC8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */; };
 		D95FD6E31D7580CF009CC8B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */; };
 		D95FD6E61D7580CF009CC8B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95FD6E41D7580CF009CC8B2 /* LaunchScreen.storyboard */; };
@@ -443,6 +455,18 @@
 		D951C6861DB0CEC90098384C /* WXUserResetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserResetPasswordViewController.xib; sourceTree = "<group>"; };
 		D951C6891DB0D2320098384C /* WXUserResetPasswordWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserResetPasswordWebViewController.swift; sourceTree = "<group>"; };
 		D951C68A1DB0D2320098384C /* WXUserResetPasswordWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserResetPasswordWebViewController.xib; sourceTree = "<group>"; };
+		D95475421DC077C10084164F /* WXUserLoanSettingOpenTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserLoanSettingOpenTableViewCell.swift; sourceTree = "<group>"; };
+		D95475431DC077C10084164F /* WXUserLoanSettingOpenTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserLoanSettingOpenTableViewCell.xib; sourceTree = "<group>"; };
+		D95475461DC07FB20084164F /* WXUserLoanSettingRateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserLoanSettingRateTableViewCell.swift; sourceTree = "<group>"; };
+		D95475471DC07FB20084164F /* WXUserLoanSettingRateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserLoanSettingRateTableViewCell.xib; sourceTree = "<group>"; };
+		D954754A1DC083230084164F /* WXUserLoanSettingDateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserLoanSettingDateTableViewCell.swift; sourceTree = "<group>"; };
+		D954754B1DC083230084164F /* WXUserLoanSettingDateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserLoanSettingDateTableViewCell.xib; sourceTree = "<group>"; };
+		D954754E1DC084E90084164F /* WXUserLoanSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserLoanSettingViewController.swift; sourceTree = "<group>"; };
+		D954754F1DC084E90084164F /* WXUserLoanSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserLoanSettingViewController.xib; sourceTree = "<group>"; };
+		D95475521DC086150084164F /* WXUserLoanSettingMoneyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserLoanSettingMoneyTableViewCell.swift; sourceTree = "<group>"; };
+		D95475531DC086150084164F /* WXUserLoanSettingMoneyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserLoanSettingMoneyTableViewCell.xib; sourceTree = "<group>"; };
+		D95475561DC092D80084164F /* WXUserLoanSettingProofWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUserLoanSettingProofWebViewController.swift; sourceTree = "<group>"; };
+		D95475571DC092D80084164F /* WXUserLoanSettingProofWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXUserLoanSettingProofWebViewController.xib; sourceTree = "<group>"; };
 		D95FD6D61D7580CF009CC8B2 /* WXJR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WXJR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95FD6D91D7580CF009CC8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D95FD6E21D7580CF009CC8B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -987,6 +1011,7 @@
 		D95FD7101D7669F9009CC8B2 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				D96786EF1DBDB3BC0043D178 /* UserLoanSetting */,
 				D909A5E11D94C68E00D4784A /* UserSetting */,
 				D909A4981D80F56900D4784A /* UserBankInfo */,
 				D909A3FE1D80046E00D4784A /* UserCoupon */,
@@ -1054,6 +1079,25 @@
 				D95FD7301D7685D5009CC8B2 /* NetworkingConstants.h */,
 			);
 			path = NetworkingAPI;
+			sourceTree = "<group>";
+		};
+		D96786EF1DBDB3BC0043D178 /* UserLoanSetting */ = {
+			isa = PBXGroup;
+			children = (
+				D95475561DC092D80084164F /* WXUserLoanSettingProofWebViewController.swift */,
+				D95475571DC092D80084164F /* WXUserLoanSettingProofWebViewController.xib */,
+				D954754A1DC083230084164F /* WXUserLoanSettingDateTableViewCell.swift */,
+				D954754B1DC083230084164F /* WXUserLoanSettingDateTableViewCell.xib */,
+				D95475421DC077C10084164F /* WXUserLoanSettingOpenTableViewCell.swift */,
+				D95475431DC077C10084164F /* WXUserLoanSettingOpenTableViewCell.xib */,
+				D95475461DC07FB20084164F /* WXUserLoanSettingRateTableViewCell.swift */,
+				D95475471DC07FB20084164F /* WXUserLoanSettingRateTableViewCell.xib */,
+				D954754E1DC084E90084164F /* WXUserLoanSettingViewController.swift */,
+				D954754F1DC084E90084164F /* WXUserLoanSettingViewController.xib */,
+				D95475521DC086150084164F /* WXUserLoanSettingMoneyTableViewCell.swift */,
+				D95475531DC086150084164F /* WXUserLoanSettingMoneyTableViewCell.xib */,
+			);
+			path = UserLoanSetting;
 			sourceTree = "<group>";
 		};
 		D9BD0A7B1D9A5C40007640D3 /* WXRecharge */ = {
@@ -1148,18 +1192,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = com.wxjr;
 				TargetAttributes = {
 					D95FD6D51D7580CF009CC8B2 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = JPKK8X66H9;
+						LastSwiftMigration = 0800;
 					};
 					D95FD6EB1D7580CF009CC8B2 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = D95FD6D51D7580CF009CC8B2;
 					};
 					D95FD6F61D7580CF009CC8B2 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = D95FD6D51D7580CF009CC8B2;
 					};
 				};
@@ -1229,8 +1277,10 @@
 				D909A4A01D80F56900D4784A /* WXUserBankInfoViewController.xib in Resources */,
 				D909A3EC1D7FBCA900D4784A /* WXUserInvestRecordTableViewCell.xib in Resources */,
 				D909A47D1D8015E500D4784A /* PINGAN.png in Resources */,
+				D95475511DC084E90084164F /* WXUserLoanSettingViewController.xib in Resources */,
 				D909A4541D8015E500D4784A /* BOCD.png in Resources */,
 				D909A4511D8015E500D4784A /* bjrcb.png in Resources */,
+				D95475591DC092D80084164F /* WXUserLoanSettingProofWebViewController.xib in Resources */,
 				D909A44E1D8015E500D4784A /* ap.png in Resources */,
 				D909A4B71D813E5600D4784A /* WXLoanListTableViewCell.xib in Resources */,
 				D909A4521D8015E500D4784A /* BCCB.png in Resources */,
@@ -1249,6 +1299,7 @@
 				D909A4811D8015E500D4784A /* shopping.png in Resources */,
 				D909A46C1D8015E500D4784A /* gzcb.png in Resources */,
 				D909A4A71D80F5F800D4784A /* banner2.jpeg in Resources */,
+				D954754D1DC083230084164F /* WXUserLoanSettingDateTableViewCell.xib in Resources */,
 				D909A5501D922FD300D4784A /* WXBuyLoanViewController.xib in Resources */,
 				D909A4B91D813E5600D4784A /* WXLoanListViewController.xib in Resources */,
 				D909A4671D8015E500D4784A /* dongguan.png in Resources */,
@@ -1268,6 +1319,7 @@
 				D909A5461D922E7900D4784A /* SKPhotoBrowser.bundle in Resources */,
 				D909A4581D8015E500D4784A /* cash.png in Resources */,
 				D9BD0A881D9A5CA7007640D3 /* WXWithdrawViewController.xib in Resources */,
+				D95475551DC086150084164F /* WXUserLoanSettingMoneyTableViewCell.xib in Resources */,
 				D909A4691D8015E500D4784A /* fudian.png in Resources */,
 				D909A4561D8015E500D4784A /* brbcb.png in Resources */,
 				D909A4061D80050C00D4784A /* WXUserCouponTableViewCell.xib in Resources */,
@@ -1279,6 +1331,7 @@
 				D909A5541D92332300D4784A /* WXBuyLoanBuyTableViewCell.xib in Resources */,
 				D909A3F11D7FE53400D4784A /* WXUserFundRecordViewController.xib in Resources */,
 				D909A48D1D8015E500D4784A /* 网络账户.png in Resources */,
+				D95475451DC077C10084164F /* WXUserLoanSettingOpenTableViewCell.xib in Resources */,
 				D909A46F1D8015E500D4784A /* hsb.png in Resources */,
 				D909A4851D8015E500D4784A /* szrcb.png in Resources */,
 				D951C67A1DAE33F20098384C /* WXOpenFundWebViewController.xib in Resources */,
@@ -1303,6 +1356,7 @@
 				D909A4681D8015E500D4784A /* egb.png in Resources */,
 				D909A3B71D7D5D3700D4784A /* WXUserLoginViewController.xib in Resources */,
 				D909A4861D8015E500D4784A /* tenpay.png in Resources */,
+				D95475491DC07FB20084164F /* WXUserLoanSettingRateTableViewCell.xib in Resources */,
 				D9BD0A901D9A5E14007640D3 /* WXWithdrawSelectionTableViewCell.xib in Resources */,
 				D909A48E1D8015E500D4784A /* 记账图标52px-mizha副本_73.png in Resources */,
 				D909A46A1D8015E500D4784A /* GDB.png in Resources */,
@@ -1400,6 +1454,7 @@
 				D951C6801DAF4F530098384C /* WXBindBankWebViewController.swift in Sources */,
 				D95FD6DA1D7580CF009CC8B2 /* AppDelegate.swift in Sources */,
 				D95FD72F1D768057009CC8B2 /* WXNetworkingAPI.m in Sources */,
+				D95475481DC07FB20084164F /* WXUserLoanSettingRateTableViewCell.swift in Sources */,
 				D909A3CD1D7E69F100D4784A /* NSTimer+Addition.m in Sources */,
 				D92E4E571D991B770081C5F3 /* WXBuyLoanSelectCouponTableViewCell.swift in Sources */,
 				D909A4EE1D91322200D4784A /* WXLoanDetailTableViewCell.swift in Sources */,
@@ -1412,6 +1467,7 @@
 				D9BD0A871D9A5CA7007640D3 /* WXWithdrawViewController.swift in Sources */,
 				D909A4D11D8E3B5100D4784A /* WXInvestModel.swift in Sources */,
 				D909A5441D922E7900D4784A /* SKPagingScrollView.swift in Sources */,
+				D95475501DC084E90084164F /* WXUserLoanSettingViewController.swift in Sources */,
 				D909A4C11D8290CA00D4784A /* WXLoanDetailModel.swift in Sources */,
 				D951C66A1DAB7FCF0098384C /* WXHUD.m in Sources */,
 				D951C68B1DB0D2320098384C /* WXUserResetPasswordWebViewController.swift in Sources */,
@@ -1424,6 +1480,7 @@
 				D909A4CE1D88FB7700D4784A /* WXUserInvestDetail.swift in Sources */,
 				D909A3F01D7FE53400D4784A /* WXUserFundRecordViewController.swift in Sources */,
 				D909A4D31D8E80FF00D4784A /* WXRepaymentsModel.swift in Sources */,
+				D95475541DC086150084164F /* WXUserLoanSettingMoneyTableViewCell.swift in Sources */,
 				D909A3E71D7EDEAF00D4784A /* WXUserFundsTrusteeshipInfoViewController.swift in Sources */,
 				D909A5531D92332300D4784A /* WXBuyLoanBuyTableViewCell.swift in Sources */,
 				D909A3B21D7D4F7C00D4784A /* Constants.swift in Sources */,
@@ -1431,6 +1488,7 @@
 				D951C6871DB0CEC90098384C /* WXUserResetPasswordViewController.swift in Sources */,
 				D909A5421D922E7900D4784A /* SKLocalPhoto.swift in Sources */,
 				D909A4B61D813E5600D4784A /* WXLoanListTableViewCell.swift in Sources */,
+				D95475441DC077C10084164F /* WXUserLoanSettingOpenTableViewCell.swift in Sources */,
 				D909A55B1D93820A00D4784A /* WXBuyLoanWebViewController.swift in Sources */,
 				D909A4D81D8FB1FC00D4784A /* WXUserBankInfo.swift in Sources */,
 				D909A5401D922E7900D4784A /* SKDetectingView.swift in Sources */,
@@ -1457,8 +1515,10 @@
 				D909A4D61D8E973300D4784A /* WXUserFundRecordModel.swift in Sources */,
 				D909A5381D922E7900D4784A /* UIView+Radius.swift in Sources */,
 				D909A5571D9233FD00D4784A /* WXBuyLoanTableViewCell.swift in Sources */,
+				D95475581DC092D80084164F /* WXUserLoanSettingProofWebViewController.swift in Sources */,
 				D909A4DF1D8FCA6900D4784A /* BTNavigationDropdownMenu.swift in Sources */,
 				D909A4C51D88D9F500D4784A /* WXAccountModel.swift in Sources */,
+				D954754C1DC083230084164F /* WXUserLoanSettingDateTableViewCell.swift in Sources */,
 				D951C67D1DAF3ABA0098384C /* UIAlertView+Block.m in Sources */,
 				D909A4BD1D813E6C00D4784A /* WXLoanDetailViewController.swift in Sources */,
 				D909A4C31D82B1E500D4784A /* WXLoanManager.swift in Sources */,
@@ -1611,13 +1671,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = JPKK8X66H9;
 				INFOPLIST_FILE = WXJR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lps.wxjr.WXJR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wx.fintech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WXJR/WXJR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1627,12 +1689,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = JPKK8X66H9;
 				INFOPLIST_FILE = WXJR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lps.wxjr.WXJR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wx.fintech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WXJR/WXJR-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1644,6 +1708,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lps.wxjr.WXJRTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WXJR.app/WXJR";
 			};
 			name = Debug;
@@ -1656,6 +1721,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lps.wxjr.WXJRTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WXJR.app/WXJR";
 			};
 			name = Release;
@@ -1667,6 +1733,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lps.wxjr.WXJRUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = WXJR;
 			};
 			name = Debug;
@@ -1678,6 +1745,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lps.wxjr.WXJRUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = WXJR;
 			};
 			name = Release;
