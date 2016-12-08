@@ -30,13 +30,12 @@ class WXUserBankInfoViewController: WXViewController,UITableViewDataSource,UITab
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
        
     func loadUserBankInfo() {
         WXUserManager.loadUserBankInfoList(WXAccountManager.shareInstance().accountDetail!.userId) { (isSuccess, bankInfoList) in
             if isSuccess {
                 for bankInfo in bankInfoList! {
-                    if bankInfo.defaultAccount! {
+                    if bankInfo.valid! {
                         self.dataSource.append(bankInfo)
                         self.tableView.reloadData()
                         break

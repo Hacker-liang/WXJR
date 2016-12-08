@@ -32,6 +32,19 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
         self.setupHeaderView()
         
         self.loadRecommendDataSource()
+        
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            WXLoanManager.loadRecommendLoanLis { (isSuccess, error, retLoans) in
+                if let loans = retLoans {
+                    self.dataSource = loans
+                    self.tableView.reloadData()
+                }
+                self.tableView.mj_header.endRefreshing()
+            }
+        })
+        self.tableView.mj_header.beginRefreshing()
+        (self.tableView.mj_header as! MJRefreshNormalHeader).lastUpdatedTimeLabel.hidden = true;
+        (self.tableView.mj_header as! MJRefreshNormalHeader).stateLabel.textColor = COLOR_TEXT_III;
     }
     
     override func viewWillAppear(animated: Bool) {

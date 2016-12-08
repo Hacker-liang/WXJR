@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WXRechargeViewController: UIViewController, UIAlertViewDelegate {
+class WXRechargeViewController: UIViewController, UIAlertViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var valueTF: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
@@ -23,6 +23,7 @@ class WXRechargeViewController: UIViewController, UIAlertViewDelegate {
         
         let totalRemaing = WXAccountManager.shareInstance().accountDetail?.userFundDetail?.availableAmount ?? 0
         amountLabel.text = "账户余额: \(totalRemaing)元"
+        valueTF.delegate = self
         
         let cancelButton = UIButton(frame:CGRectMake(0,0,40,40))
         cancelButton.setTitle("取消", forState: .Normal)
@@ -55,7 +56,13 @@ class WXRechargeViewController: UIViewController, UIAlertViewDelegate {
                 self.view.makeToast("网络请求失败，请重试")
             }
         }
-
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == "\n" {
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }
 

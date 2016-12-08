@@ -36,6 +36,8 @@ class WXMineRootViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.registerNib(UINib(nibName: "WXMineHomeTableViewCell", bundle: nil), forCellReuseIdentifier: "mineHomeCell")
         self.view.addSubview(self.tableView)
         self.setupTableViewHeaderView()
+        self.tableView.tableFooterView = UIView(frame: CGRectMake(0, 0, kWindowWidth, 50
+        ))
         
         navigationView = UIView(frame: CGRectMake(0,0,kWindowWidth,64))
         navigationView.backgroundColor = APP_THEME_COLOR

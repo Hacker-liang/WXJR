@@ -30,6 +30,10 @@ class WXBuyLoanBuyTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == "\n" {
+            textField.resignFirstResponder()
+            return true
+        }
         if let str: NSString = textField.text! {
             let newString =  str.stringByReplacingCharactersInRange(range, withString: string)
             delegate?.updateBuyValue(newString)

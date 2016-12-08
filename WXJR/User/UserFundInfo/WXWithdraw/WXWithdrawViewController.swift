@@ -54,7 +54,7 @@ class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITable
                     return
                 }
                 for bankInfo in bankInfoList! {
-                    if bankInfo.defaultAccount! {
+                    if bankInfo.valid! {
                         self.cardNumber = bankInfo.accountNo
                         self.tableView.reloadData()
                     }
@@ -168,7 +168,7 @@ class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITable
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         if indexPath.section == 1 {
             if indexPath.row == 2 {
-                let actionSheet = LCActionSheet(title: "选择红包", buttonTitles: withdrawTypes, redButtonIndex: -1, clicked: { (index) in
+                let actionSheet = LCActionSheet(title: "提现方式", buttonTitles: withdrawTypes, redButtonIndex: -1, clicked: { (index) in
                     if index != self.withdrawTypes.count {
                         self.withdrawTypeSelectedIndex = index
                         self.tableView.reloadData()
@@ -180,6 +180,11 @@ class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == "\n" {
+            textField.resignFirstResponder()
+            return true
+        }
+        
         if let str: NSString = textField.text! {
             let newString =  str.stringByReplacingCharactersInRange(range, withString: string)
             if let value =  Double(newString) {
@@ -196,7 +201,6 @@ class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITable
                 return false
             }   
         }
-        
         return true
     }
 }
