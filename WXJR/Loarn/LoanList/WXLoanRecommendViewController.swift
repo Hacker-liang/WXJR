@@ -94,6 +94,22 @@ class WXLoanRecommendViewController: UIViewController, UITableViewDelegate, UITa
             if let loans = retLoans {
                 self.dataSource = loans
                 self.tableView.reloadData()
+                if loans.count == 0 {
+                    let view = UIView(frame: CGRectMake(0, 0, kWindowWidth, 200))
+                    
+                    let imageView = UIImageView(frame: CGRectMake((kWindowWidth-200)/2, 10, 200, 145))
+                    imageView.image = UIImage(named: "icon_home_empty")
+                    view.addSubview(imageView)
+                    let titleLabel = UILabel(frame: CGRectMake(0,170, kWindowWidth, 20))
+                    titleLabel.textColor = COLOR_TEXT_III
+                    titleLabel.font = UIFont.systemFontOfSize(11)
+                    titleLabel.textAlignment = .Center
+                    titleLabel.text = "标都被抢光了，稍后再来吧"
+                    view.addSubview(titleLabel)
+                    self.tableView.tableFooterView = view
+                } else {
+                    self.tableView.tableFooterView = nil
+                }
             }
         }
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 let APP_THEME_COLOR: UIColor            = UIColorFromRGB(0xF04F46, alpha:1)
-let APP_PAGE_COLOR: UIColor             = UIColorFromRGB(0xF5F4EE, alpha:1)
+let APP_PAGE_COLOR: UIColor             = UIColorFromRGB(0xf7f7f7, alpha:1)
 
 let COLOR_LINE: UIColor                 = UIColorFromRGB(0xe2e2e2, alpha:1)
 
