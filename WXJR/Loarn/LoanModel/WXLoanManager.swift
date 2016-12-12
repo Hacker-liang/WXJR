@@ -63,8 +63,25 @@ class WXLoanManager: NSObject {
                 completionBlock(isSuccess: true, loanDetail: nil)
             }
         }
-
     }
+    
+    //获取标的的投资列表
+    class func loadInvestOfLoan(loanId: String, completionBlock :(isSuccess: Bool, investList: [WXInvestModel]!) -> ()) {
+        let url = "\(baseUrl)loan/\(loanId)/invests"
+        WXNetworkingAPI.GET(url, params: nil) { (retObj, error) in
+            if let retDic = retObj as? NSArray {
+                var retList = [WXInvestModel]()
+                for dic in retDic {
+                    let investModel = WXInvestModel(json: dic as! NSDictionary)
+                    retList.append(investModel)
+                }
+                completionBlock(isSuccess: true, investList: retList)
+            } else {
+                completionBlock(isSuccess: true, investList: nil)
+            }
+        }
+    }
+
     
     /**
      获取标的的资料

@@ -28,10 +28,11 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     var timer: NSTimer?
 
-
     var loanDetail: WXLoanDetailModel?
+    var loanInvestList: [WXInvestModel] = []
+
     var loanImageList: [String] = []
-    let sectionDataSource = ["项目介绍", "资金用途", "还款来源", "项目资料"]
+    var sectionDataSource = ["项目介绍", "资金用途", "还款来源", "项目资料"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,8 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         tableView.backgroundColor = APP_PAGE_COLOR
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.registerNib(UINib(nibName: "WXLoanDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "loanDetailCell")
+        tableView.registerNib(UINib(nibName: "WXLoanDetailInvestListTableViewCell", bundle: nil), forCellReuseIdentifier: "loanDetailInvestCell")
+
         self.setupNaviBar()
         self.setupHeaderView()
         self.setupFooterView()
@@ -51,8 +54,25 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         WXLoanManager.loadLoanProof((loanDetail?.loanRequest?.requestId)!) { (isSuccess, imageList) in
             if isSuccess {
                 self.loanImageList = imageList!
+                var i = 0
+                for title in self.sectionDataSource {
+                    if title == "项目资料" {
+                        self.sectionDataSource.removeAtIndex(i)
+                        break
+                    }
+                    i += 1
+                }
                 self.tableView.reloadData()
             }
+        }
+        
+        WXLoanManager.loadInvestOfLoan((loanDetail?.loanId)!) { (isSuccess, investList) in
+            if investList.count > 0 {
+                self.sectionDataSource.append("投资记录")
+                self.loanInvestList = investList
+                self.tableView.reloadData()
+            }
+            
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadLoanDetail), name: "buyLoanOver", object: nil)
@@ -345,7 +365,6 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         expireTimeLabel.font = UIFont.systemFontOfSize(11.5)
         toolBar.addSubview(expireTimeLabel)
 
-
         self.view.addSubview(toolBar)
     }
     
@@ -360,7 +379,6 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
                 ctl.view.makeToast("请先登录")
             }
             return
-            
         }
         let buyLoanCtl = WXBuyLoanViewController()
         buyLoanCtl.loanDetail = loanDetail
@@ -396,6 +414,9 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if sectionDataSource[section] == "投资记录" {
+            return self.loanInvestList.count
+        }
         return 1
     }
     
@@ -441,11 +462,28 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
             cell.textLabel?.attributedText = attrStr
                 
             return cell
+            
         } else {
-            let cell: WXLoanDetailTableViewCell = tableView.dequeueReusableCellWithIdentifier("loanDetailCell", forIndexPath: indexPath) as! WXLoanDetailTableViewCell
-            cell.delegate = self
-            cell.updateView(loanImageList)
-            return cell
+            let title = sectionDataSource[indexPath.section]
+            if title == "项目资料" {
+                let cell: WXLoanDetailTableViewCell = tableView.dequeueReusableCellWithIdentifier("loanDetailCell", forIndexPath: indexPath) as! WXLoanDetailTableViewCell
+                cell.delegate = self
+                cell.updateView(loanImageList)
+                return cell
+                
+            } else {
+                
+                let cell: WXLoanDetailInvestListTableViewCell = tableView.dequeueReusableCellWithIdentifier("loanDetailInvestCell", forIndexPath: indexPath) as! WXLoanDetailInvestListTableViewCell
+                let investModel = self.loanInvestList[indexPath.row]
+                var str = investModel.investUserName!
+                let subRange = Range(start: str.startIndex.advancedBy(1), end: str.endIndex.advancedBy(-1))
+                str.replaceRange(subRange, with: "***")
+
+                cell.userNameLabel.text = str
+                cell.amountLabel.text = "\(investModel.amount!)元"
+                return cell
+            }
+            
         }
     }
 

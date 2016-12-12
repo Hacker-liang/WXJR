@@ -16,20 +16,25 @@ class WXInvestModel: NSObject {
     var loan: WXLoanDetailModel!
     var endDate: NSTimeInterval?
     var repaymentsList: [WXRepaymentsModel]!
+    var investUserName: String?
     
     init(json: NSDictionary) {
         amount = json.objectForKey("amount") as? Int
         rate = json.objectForKey("rate") as? Int
+        investUserName = json.objectForKey("userLoginName") as? String
         duration = Duration()
         duration?.initDuration(json["duration"] as! Dictionary)
         if let loanDic = json.objectForKey("loan") as? [String: AnyObject] {
             loan = WXLoanDetailModel(json: loanDic)
         }
-        repaymentsList = []
-        for dic in (json.objectForKey("repayments") as! NSArray) {
-            let repayment = WXRepaymentsModel(json: dic as! NSDictionary)
-            repaymentsList.append(repayment)
-            totalIncome += repayment.amountInterest!
+        if let list = json.objectForKey("repayments") as? NSArray {
+            repaymentsList = []
+            for dic in list {
+                let repayment = WXRepaymentsModel(json: dic as! NSDictionary)
+                repaymentsList.append(repayment)
+                totalIncome += repayment.amountInterest!
+            }
+
         }
         endDate = json.objectForKey("endDate") as? NSTimeInterval
     }

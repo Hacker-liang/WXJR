@@ -42,7 +42,6 @@ class WXLoanListViewController: WXViewController, UITableViewDelegate, UITableVi
         (self.tableView.mj_header as! MJRefreshNormalHeader).lastUpdatedTimeLabel.hidden = true;
         (self.tableView.mj_header as! MJRefreshNormalHeader).stateLabel.textColor = COLOR_TEXT_III;
 
-
         self.tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreLoan))
         self.loadLoansDataSource()
     }
