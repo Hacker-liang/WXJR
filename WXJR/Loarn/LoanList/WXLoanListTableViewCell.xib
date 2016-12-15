@@ -108,7 +108,7 @@
                                     <constraint firstAttribute="height" constant="28" id="eQm-Di-dzV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="购买">
+                                <state key="normal" title="投资">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>

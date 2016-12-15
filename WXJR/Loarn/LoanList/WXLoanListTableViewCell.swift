@@ -49,7 +49,7 @@ class WXLoanListTableViewCell: UITableViewCell {
         
         if loanDetail!.status! == .kOPENED {
             bugButton.enabled = true
-            bugButton.setTitle("购买", forState: .Normal)
+            bugButton.setTitle("投资", forState: .Normal)
             
         } else {
             bugButton.setTitle(loanDetail?.statusDesc, forState: .Normal)

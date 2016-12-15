@@ -29,7 +29,7 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.delegate = self
         tableView.separatorColor = COLOR_LINE
         tableView.backgroundColor = APP_PAGE_COLOR
-        self.navigationItem.title = "立即购买"
+        self.navigationItem.title = "立即投资"
         self.setupFooterView()
         
         let cancelButton = UIButton(frame:CGRectMake(0,0,40,40))
@@ -64,7 +64,7 @@ class WXBuyLoanViewController: UIViewController, UITableViewDelegate, UITableVie
         buyButton.backgroundColor = APP_THEME_COLOR
         buyButton.layer.cornerRadius = 4.0
         buyButton.clipsToBounds = true
-        buyButton.setTitle("确认购买", forState: .Normal)
+        buyButton.setTitle("确认投资", forState: .Normal)
         buyButton.titleLabel?.font = UIFont.systemFontOfSize(17.0)
         buyButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         buyButton.addTarget(self, action: #selector(buyAction), forControlEvents: .TouchUpInside)

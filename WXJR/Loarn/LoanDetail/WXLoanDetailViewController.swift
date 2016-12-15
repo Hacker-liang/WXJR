@@ -346,7 +346,7 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
         */
         
         buyButton = UIButton(frame: CGRectMake(0,0,kWindowWidth,40))
-        buyButton.setTitle("立即购买", forState: .Normal)
+        buyButton.setTitle("立即投资", forState: .Normal)
         buyButton.titleLabel?.numberOfLines = 0
         buyButton.titleLabel?.font = UIFont.boldSystemFontOfSize(17.0)
         buyButton.setTitleColor(APP_THEME_COLOR, forState: .Normal)
