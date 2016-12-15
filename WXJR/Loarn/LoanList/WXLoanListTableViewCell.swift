@@ -55,7 +55,6 @@ class WXLoanListTableViewCell: UITableViewCell {
             bugButton.setTitle(loanDetail?.statusDesc, forState: .Normal)
             bugButton.enabled = false
         }
-        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

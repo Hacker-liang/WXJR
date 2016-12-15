@@ -13,6 +13,7 @@ class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     
     var withdrawTypes = ["普通取现", "快速取现", "及时取现"]
+    var withdrawTypesValue = ["GENERAL", "FAST", "IMMEDIATE"]
     
     var withdrawTypeSelectedIndex = 0
     var cardNumber: String?
@@ -89,7 +90,7 @@ class WXWithdrawViewController: UIViewController, UITableViewDataSource, UITable
     
     func confirmButtonAction() {
         self.view.endEditing(true)
-        WXUserManager.userWithdraw((WXAccountManager.shareInstance().accountDetail?.userId)!, amount: self.amount, bankAccount: self.cardNumber!, type: "GENERAL") { (isSuccess, withdrawInfo) in
+        WXUserManager.userWithdraw((WXAccountManager.shareInstance().accountDetail?.userId)!, amount: self.amount, bankAccount: self.cardNumber!, type: withdrawTypesValue[self.withdrawTypeSelectedIndex]) { (isSuccess, withdrawInfo) in
             if isSuccess {
                 let ctl = WXWithdrawWebViewController()
                 ctl.htmlData = withdrawInfo
