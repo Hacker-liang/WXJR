@@ -10,5 +10,6 @@
 #define PrefixHeader_pch
 
 #import NetworkingConstans.h
+#import MBCircularProgressBarView.h
 
 #endif /* PrefixHeader_pch */

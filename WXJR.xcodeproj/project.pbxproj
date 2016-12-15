@@ -231,6 +231,8 @@
 		D9BD0A901D9A5E14007640D3 /* WXWithdrawSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9BD0A8E1D9A5E14007640D3 /* WXWithdrawSelectionTableViewCell.xib */; };
 		D9BD0A931D9B5C1E007640D3 /* WXWithdrawWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD0A911D9B5C1E007640D3 /* WXWithdrawWebViewController.swift */; };
 		D9BD0A941D9B5C1E007640D3 /* WXWithdrawWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9BD0A921D9B5C1E007640D3 /* WXWithdrawWebViewController.xib */; };
+		D9E75ED81E023E14000F7F9C /* MBCircularProgressBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E75ED41E023E14000F7F9C /* MBCircularProgressBarLayer.m */; };
+		D9E75ED91E023E14000F7F9C /* MBCircularProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E75ED61E023E14000F7F9C /* MBCircularProgressBarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -501,6 +503,10 @@
 		D9BD0A8E1D9A5E14007640D3 /* WXWithdrawSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXWithdrawSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		D9BD0A911D9B5C1E007640D3 /* WXWithdrawWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXWithdrawWebViewController.swift; sourceTree = "<group>"; };
 		D9BD0A921D9B5C1E007640D3 /* WXWithdrawWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXWithdrawWebViewController.xib; sourceTree = "<group>"; };
+		D9E75ED31E023E14000F7F9C /* MBCircularProgressBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCircularProgressBarLayer.h; sourceTree = "<group>"; };
+		D9E75ED41E023E14000F7F9C /* MBCircularProgressBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCircularProgressBarLayer.m; sourceTree = "<group>"; };
+		D9E75ED51E023E14000F7F9C /* MBCircularProgressBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCircularProgressBarView.h; sourceTree = "<group>"; };
+		D9E75ED61E023E14000F7F9C /* MBCircularProgressBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCircularProgressBarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1065,6 +1071,7 @@
 		D95FD7281D7676BC009CC8B2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D9E75ED11E023E14000F7F9C /* CircularProgress */,
 				D92E4E511D98F5680081C5F3 /* Category */,
 				D95FD7291D7676BC009CC8B2 /* NetworkingAPI */,
 				D909A3B11D7D4F7C00D4784A /* Constants.swift */,
@@ -1130,6 +1137,17 @@
 				D9BD0A921D9B5C1E007640D3 /* WXWithdrawWebViewController.xib */,
 			);
 			path = WXWithdraw;
+			sourceTree = "<group>";
+		};
+		D9E75ED11E023E14000F7F9C /* CircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				D9E75ED31E023E14000F7F9C /* MBCircularProgressBarLayer.h */,
+				D9E75ED41E023E14000F7F9C /* MBCircularProgressBarLayer.m */,
+				D9E75ED51E023E14000F7F9C /* MBCircularProgressBarView.h */,
+				D9E75ED61E023E14000F7F9C /* MBCircularProgressBarView.m */,
+			);
+			path = CircularProgress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1441,6 +1459,7 @@
 			files = (
 				D909A5451D922E7900D4784A /* SKPhoto.swift in Sources */,
 				D909A5371D922E7900D4784A /* UIImage+Rotation.swift in Sources */,
+				D9E75ED81E023E14000F7F9C /* MBCircularProgressBarLayer.m in Sources */,
 				D951C6661DAB7FCF0098384C /* JHUD.m in Sources */,
 				D92E4E541D98F5680081C5F3 /* NSString+UrlEncodeing.m in Sources */,
 				D909A53B1D922E7900D4784A /* SKButtons.swift in Sources */,
@@ -1482,6 +1501,7 @@
 				D95FD7231D7674A7009CC8B2 /* WXUserManager.swift in Sources */,
 				D909A49F1D80F56900D4784A /* WXUserBankInfoViewController.swift in Sources */,
 				D909A54A1D922E7900D4784A /* SKToolbar.swift in Sources */,
+				D9E75ED91E023E14000F7F9C /* MBCircularProgressBarView.m in Sources */,
 				D909A3CB1D7E69F100D4784A /* AutoSlideScrollView.m in Sources */,
 				D909A4B81D813E5600D4784A /* WXLoanListViewController.swift in Sources */,
 				D95FD70A1D7664F2009CC8B2 /* WXRootViewController.swift in Sources */,
