@@ -57,8 +57,10 @@ class WXLoanDetailViewController: UIViewController, UITableViewDelegate, UITable
                 var i = 0
                 for title in self.sectionDataSource {
                     if title == "项目资料" {
-                        self.sectionDataSource.removeAtIndex(i)
-                        break
+                        if self.loanImageList.count == 0 {
+                            self.sectionDataSource.removeAtIndex(i)
+                            break
+                        }
                     }
                     i += 1
                 }
